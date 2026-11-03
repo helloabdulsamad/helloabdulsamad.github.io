@@ -359,6 +359,9 @@ body::-webkit-scrollbar {
 .dark .intro { background:#111111; color:#ededed; }
 html.no-intro .intro { display:none; }
 html.intro-running body { overflow:hidden; }
+.intro-photo { position:relative; flex:1 1 auto; min-height:0; overflow:hidden; border-radius:18px; margin-bottom:clamp(14px,2.4vw,28px); background:#ffffff; }
+.intro-photo-img { object-fit:cover; object-position:center 22%; will-change:transform; }
+@media (min-width:768px) { .intro-photo { position:absolute; top:clamp(16px,3vw,40px); right:clamp(16px,3vw,40px); height:min(44vh, calc(100vh - clamp(64px,17vw,300px) * 1.8 - 200px)); aspect-ratio:4/5; margin:0; } }
 .intro-name { margin-top:auto; font-family:var(--font-bricolage), system-ui, sans-serif; font-weight:700; letter-spacing:-.045em; line-height:.86; font-size:clamp(64px,17vw,300px); }
 .intro-line { display:flex; }
 .intro-mask { display:inline-block; overflow:hidden; padding-bottom:.06em; }
@@ -369,8 +372,7 @@ html.intro-running body { overflow:hidden; }
 .intro-tag { font-family:var(--font-bricolage), system-ui, sans-serif; font-weight:600; font-size:clamp(18px,2.2vw,28px); margin:0; }
 .intro-word { display:inline-block; margin-right:.26em; }
 /* Failsafe: if the script never runs (slow network, a file fails to load, JS off), the sheet still lifts. */
-.intro { animation:intro-failsafe .8s cubic-bezier(.7,0,.2,1) 4.6s forwards; }
-html.intro-running .intro { animation:none; }
+.intro { animation:intro-failsafe .8s cubic-bezier(.7,0,.2,1) 5.5s forwards; }
 @keyframes intro-failsafe { to { transform:translateY(-100%); visibility:hidden; } }
 
 /* Rolling ending of the headline */

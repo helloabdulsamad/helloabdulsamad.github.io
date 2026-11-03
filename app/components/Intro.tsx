@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 
 // Opening sequence on the home page, once per browser session.
@@ -33,10 +34,13 @@ export default function Intro() {
       onComplete: finish,
     });
 
-    tl.from(q(".intro-ch"), { yPercent: 115, duration: 1.0, stagger: 0.035 }, 0.1)
+    tl.fromTo(q(".intro-photo"), { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.1, ease: "expo.inOut" }, 0)
+      .from(q(".intro-photo-img"), { scale: 1.25, duration: 1.8, ease: "expo.out" }, 0)
+      .from(q(".intro-ch"), { yPercent: 115, duration: 1.0, stagger: 0.035 }, 0.1)
       .from(q(".intro-meta > *"), { yPercent: 120, duration: 0.7, stagger: 0.08 }, 1.0)
       .from(q(".intro-word"), { opacity: 0, y: 8, duration: 0.25, stagger: 0.12, ease: "power2.out" }, 1.7)
       .to(q(".intro-name"), { yPercent: -18, duration: 1.0, ease: "expo.inOut" }, 2.4)
+      .to(q(".intro-photo-img"), { yPercent: 12, duration: 1.0, ease: "expo.inOut" }, 2.4)
       .to(el, { yPercent: -100, duration: 1.0, ease: "expo.inOut" }, 2.4)
       .from(".page-enter", { y: 40, opacity: 0, duration: 0.9, stagger: 0.08 }, 2.9);
 
@@ -72,6 +76,9 @@ export default function Intro() {
 
   return (
     <div ref={root} className="intro" aria-hidden="true">
+      <div className="intro-photo">
+        <Image src="/headshot.png" alt="" fill priority sizes="(max-width: 767px) 100vw, 40vw" className="intro-photo-img" />
+      </div>
       <div className="intro-name">
         <div className="intro-line">{letters(FIRST)}</div>
         <div className="intro-line">{letters(LAST)}</div>

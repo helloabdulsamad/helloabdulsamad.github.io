@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { site } from "@/lib/site";
 
 const LINKS = [
-  { label: "Index", href: "/" },
+  { label: "Home", href: "/" },
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
   { label: "Email", href: `mailto:${site.email}` },
