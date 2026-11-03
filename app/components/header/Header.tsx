@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="flex items-center gap-4 pb-8 md:gap-5">
+    <div className="flex items-center gap-4 pb-8 pr-[104px] md:pr-0 md:gap-5">
       <Link
         href="/"
         aria-label="Home"

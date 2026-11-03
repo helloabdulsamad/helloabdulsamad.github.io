@@ -20,6 +20,11 @@ export default function Intro() {
   useEffect(() => {
     const el = root.current;
     if (!el || document.documentElement.classList.contains("no-intro")) return;
+    // The CSS failsafe has already lifted the sheet on a slow load: don't replay it late.
+    if (performance.now() > 4000) {
+      document.documentElement.classList.add("no-intro");
+      return;
+    }
 
     document.documentElement.classList.add("intro-running");
     const q = gsap.utils.selector(el);
@@ -79,7 +84,7 @@ export default function Intro() {
         <p className="intro-tag">
           {"I build systems that don't fall apart.".split(" ").map((w, i) => (
             <span key={i} className="intro-word">
-              {w}{" "}
+              {w}
             </span>
           ))}
         </p>

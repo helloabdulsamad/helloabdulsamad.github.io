@@ -111,6 +111,9 @@ export default function RootLayout({
             __html: `try{var d=document.documentElement,u=new URL(location.href),seen=sessionStorage.getItem("intro-seen"),rm=matchMedia("(prefers-reduced-motion: reduce)").matches;if(u.pathname!=="/"||rm||(seen&&!u.searchParams.has("intro")))d.classList.add("no-intro");var th=localStorage.getItem("theme");if(th==="dark"||((!th||th==="system")&&matchMedia("(prefers-color-scheme: dark)").matches))d.classList.add("dark")}catch(e){}`,
           }}
         />
+        <noscript>
+          <style>{`.intro{display:none}`}</style>
+        </noscript>
       </head>
       {/* Next injects <head> from metadata/viewport */}
       <body

@@ -367,7 +367,11 @@ html.intro-running body { overflow:hidden; }
 .intro-meta { display:flex; gap:24px; overflow:hidden; font-size:14px; letter-spacing:.02em; }
 .intro-meta > * { display:inline-block; }
 .intro-tag { font-family:var(--font-bricolage), system-ui, sans-serif; font-weight:600; font-size:clamp(18px,2.2vw,28px); margin:0; }
-.intro-word { display:inline-block; }
+.intro-word { display:inline-block; margin-right:.26em; }
+/* Failsafe: if the script never runs (slow network, a file fails to load, JS off), the sheet still lifts. */
+.intro { animation:intro-failsafe .8s cubic-bezier(.7,0,.2,1) 4.6s forwards; }
+html.intro-running .intro { animation:none; }
+@keyframes intro-failsafe { to { transform:translateY(-100%); visibility:hidden; } }
 
 /* Rolling ending of the headline */
 .roll-mask { display:block; overflow:hidden; height:1.25em; }
