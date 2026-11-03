@@ -14,6 +14,23 @@ export default function WorkList() {
   const list = useRef<HTMLOListElement>(null);
   const card = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState<number | null>(null);
+  // On touch screens there is no cursor, so the row crossing the middle of the
+  // screen opens its own strip with the project's hook instead.
+  const [touchActive, setTouchActive] = useState<number | null>(null);
+
+  useEffect(() => {
+    const el = list.current;
+    if (!el || window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const rows = [...el.querySelectorAll<HTMLElement>(".work-row")];
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setTouchActive(rows.indexOf(e.target as HTMLElement));
+      },
+      { rootMargin: "-42% 0px -42% 0px", threshold: 0 }
+    );
+    rows.forEach((r) => io.observe(r));
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = list.current;
@@ -60,7 +77,7 @@ export default function WorkList() {
     <>
       <ol ref={list} className="work-list" onPointerLeave={() => setActive(null)}>
         {projects.map((proj, i) => (
-          <li key={proj.slug} className={`work-row ${active !== null && active !== i ? "is-dim" : ""}`}>
+          <li key={proj.slug} className={`work-row ${active !== null && active !== i ? "is-dim" : ""} ${touchActive === i ? "is-touch-open" : ""}`}>
             <Link
               href={`/work/${proj.slug}`}
               className="work-row-link"
@@ -75,6 +92,14 @@ export default function WorkList() {
                   <span className="work-line">{proj.line}</span>
                 </span>
                 <span className="work-status">{proj.status}</span>
+              </span>
+              <span className="work-strip" aria-hidden="true">
+                <span className="work-strip-inner" style={{ background: proj.ink, color: proj.paper }}>
+                  <span className="work-strip-hook font-display">{proj.hook}</span>
+                  <span className="work-strip-meta">
+                    {proj.role} · {proj.year} · Open the case study
+                  </span>
+                </span>
               </span>
             </Link>
           </li>
