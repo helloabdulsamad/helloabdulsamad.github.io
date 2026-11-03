@@ -42,7 +42,7 @@ export default function Footer() {
           <ThemeToggle />
         </div>
         <p className="pt-4 text-center text-xs leading-5 text-custom-gray-500 dark:text-app-link-text-default">
-          Design and code by Emmanuel A. Priestley, used with permission.
+          © 2026 Abdulsamad Osunlana
         </p>
       </div>
     </footer>
