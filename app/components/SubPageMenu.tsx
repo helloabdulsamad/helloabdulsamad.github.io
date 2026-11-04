@@ -7,6 +7,8 @@ import {
   Briefcase,
   LinkedinLogo,
   Smiley,
+  GithubLogo,
+  EnvelopeSimple,
   ArrowUpRight,
   type IconProps,
 } from "@phosphor-icons/react";
@@ -23,13 +25,19 @@ export const NAV: NavItem[] = [
   { label: "Work", href: "/#work", Icon: Briefcase },
   { label: "About Me", href: "/about", Icon: Smiley },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/aosunlana/", Icon: LinkedinLogo },
+  { label: "GitHub", href: "https://github.com/aosunlana", Icon: GithubLogo },
+  { label: "Email", href: "mailto:osunlanaabdulsamad@gmail.com", Icon: EnvelopeSimple },
 ];
 
 export default function SubPageMenu() {
-  const renderItem = (item: NavItem, borders: string) => (
-    <Link
+  const renderItem = (item: NavItem, borders: string) => {
+    const external = /^(https?:|mailto:)/.test(item.href);
+    const Tag = external ? "a" : Link;
+    return (
+    <Tag
       key={item.label}
       href={item.href}
+      {...(item.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`group relative flex h-12 items-center gap-2 px-4 text-sm tracking-[0.5px] text-custom-gray-900 dark:text-app-text-dark ${borders} border-custom-gray-200 dark:border-app-border-dark`}
     >
       <item.Icon
@@ -44,12 +52,13 @@ export default function SubPageMenu() {
         aria-hidden="true"
         className="absolute right-3 top-1/2 -translate-y-1/2 translate-x-[3px] text-custom-gray-700 opacity-0 transition-all duration-150 group-hover:translate-x-0 group-hover:opacity-100 group-hover:text-app-link-text-hover dark:text-app-text-dark dark:group-hover:text-app-link-text-hover"
       />
-    </Link>
-  );
+    </Tag>
+    );
+  };
 
   return (
     <nav className="rounded-[16px] border border-custom-gray-200 dark:border-app-border-dark overflow-hidden">
-      {/* 2 columns x 2 rows, same on every breakpoint */}
+      {/* 2 columns x 3 rows, same on every breakpoint */}
       <div className="grid grid-cols-2">
         {NAV.map((item, i) => {
           const col = i % 2;

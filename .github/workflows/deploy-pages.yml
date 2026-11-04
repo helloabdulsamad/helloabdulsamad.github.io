@@ -27,6 +27,8 @@ jobs:
       - run: npm run build
         env:
           GITHUB_PAGES: "true"
+      - name: Use the new home page
+        run: cp -R sleek-site/. out/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
