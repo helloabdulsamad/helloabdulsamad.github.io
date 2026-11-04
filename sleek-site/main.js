@@ -75,16 +75,14 @@
   intro
     .fromTo(".hero-photo", { clipPath: "inset(49.5% 0% 49.5% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.3, ease: "expo.inOut" }, 0.15)
     .from(".hero-photo img", { scale: 1.4, duration: 2, ease: "expo.out" }, 0.15)
-    .from(".hero-line.l1", { xPercent: -30, opacity: 0, duration: 1.6 }, 0.35)
-    .from(".hero-line.l2", { xPercent: 30, opacity: 0, duration: 1.6 }, 0.45)
+    .from(".hero-line.l1", { yPercent: 40, opacity: 0, duration: 1.6 }, 0.35)
     .from(".hero-role, .hero-claim", { y: 30, opacity: 0, duration: 1 }, 1.25)
     .from(".hero-cue, .bar", { opacity: 0, duration: 1 }, 1.4);
 
   /* Scroll away from the opening: the photo swells, the name parts */
   gsap.timeline({ scrollTrigger: { trigger: ".hero", start: "top top", end: "+=70%", scrub: 0.6, pin: true } })
     .to(".hero-photo", { scale: 2.6, opacity: 0.18, ease: "none" }, 0)
-    .to(".hero-line.l1", { xPercent: -24, ease: "none" }, 0)
-    .to(".hero-line.l2", { xPercent: 24, ease: "none" }, 0)
+    .to(".hero-line.l1", { scale: 1.25, ease: "none" }, 0)
     .to(".hero-foot", { opacity: 0, y: -40, ease: "none" }, 0);
 
   /* ---------- Scroll-lit words ---------- */

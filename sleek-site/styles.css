@@ -238,3 +238,5 @@ html[data-theme="light"] .timeline, html[data-theme="light"] .timeline li { bord
 .tq-btn[aria-checked="true"] { opacity:1; background:rgba(255,255,255,.2); }
 .card-top { justify-content:flex-start; }
 html[data-theme="light"] .hero-photo { mix-blend-mode:multiply; }
+/* One name in the opening */
+.hero-line.l1 { align-self:center; padding:0; font-size:clamp(56px,16.4vw,290px); }
