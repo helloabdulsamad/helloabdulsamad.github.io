@@ -414,7 +414,15 @@ html.intro-running body { overflow:hidden; }
 .work-card-meta { font-size:12px; opacity:.75; }
 
 /* Menu */
-.menu-button { position:fixed; top:max(env(safe-area-inset-top),12px); right:16px; z-index:90; display:flex; align-items:center; gap:10px; height:40px; padding:0 14px; border-radius:999px; border:1px solid #e5e5e5; background:#ffffff; color:#171717; font-size:14px; cursor:pointer; }
+.top-actions { position:fixed; top:max(env(safe-area-inset-top),12px); right:16px; z-index:90; display:flex; align-items:center; gap:8px; }
+html.intro-running .top-actions { opacity:0; pointer-events:none; }
+.theme-quick { display:flex; align-items:center; gap:2px; height:40px; padding:0 4px; border-radius:999px; border:1px solid #e5e5e5; background:#ffffff; color:#171717; }
+.dark .theme-quick { background:#191919; border-color:#2b2c2c; color:#ededed; }
+.theme-quick-btn { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:999px; opacity:.55; cursor:pointer; transition:opacity .2s, background .2s; }
+.theme-quick-btn:hover { opacity:1; }
+.theme-quick-btn[aria-checked="true"] { opacity:1; background:#f0f0f0; }
+.dark .theme-quick-btn[aria-checked="true"] { background:rgba(255,255,255,.1); }
+.menu-button { position:relative; display:flex; align-items:center; gap:10px; height:40px; padding:0 14px; border-radius:999px; border:1px solid #e5e5e5; background:#ffffff; color:#171717; font-size:14px; cursor:pointer; }
 .dark .menu-button { background:#191919; border-color:#2b2c2c; color:#ededed; }
 html.intro-running .menu-button { opacity:0; pointer-events:none; }
 .menu-burger { position:relative; width:16px; height:10px; }

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "next-view-transitions";
 import gsap from "gsap";
 import { site } from "@/lib/site";
+import ThemeQuick from "./ThemeQuick";
 
 const LINKS = [
   { label: "Home", href: "/" },
@@ -59,6 +60,8 @@ export default function Menu() {
 
   return (
     <>
+      <div className="top-actions">
+      <ThemeQuick />
       <button
         ref={button}
         type="button"
@@ -73,22 +76,21 @@ export default function Menu() {
           <span />
         </span>
       </button>
+      </div>
       <div ref={sheet} id="site-menu" className="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu">
         <nav>
           <ul>
-            {LINKS.map((l, i) => (
+            {LINKS.map((l) => (
               <li key={l.label} className="menu-link">
                 {l.href.startsWith("/") ? (
                   <Link href={l.href} onClick={() => setOpen(false)} className="menu-link-a">
                     <span className="menu-link-inner font-display">
-                      <span className="menu-link-num">{String(i + 1).padStart(2, "0")}</span>
                       {l.label}
                     </span>
                   </Link>
                 ) : (
                   <a href={l.href} className="menu-link-a" target={l.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
                     <span className="menu-link-inner font-display">
-                      <span className="menu-link-num">{String(i + 1).padStart(2, "0")}</span>
                       {l.label}
                     </span>
                   </a>

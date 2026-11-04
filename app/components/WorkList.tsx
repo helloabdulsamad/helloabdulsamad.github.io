@@ -86,7 +86,7 @@ export default function WorkList() {
               onBlur={() => setActive(null)}
             >
               <span className="work-row-inner">
-                <span className="work-num">{String(i + 1).padStart(2, "0")}</span>
+                
                 <span className="work-main">
                   <span className="work-name font-display">{proj.name}</span>
                   <span className="work-line">{proj.line}</span>

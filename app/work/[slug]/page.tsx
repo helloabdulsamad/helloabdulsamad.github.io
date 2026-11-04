@@ -42,7 +42,7 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
       <section className="case-cover" style={{ background: p.ink, color: p.paper }}>
         <div className="mx-auto w-full max-w-[880px] px-4 pt-24 pb-14 md:pt-28">
           <p className="case-kicker">
-            {String(i + 1).padStart(2, "0")} · {p.role} · {p.status}
+            {p.role} · {p.status}
           </p>
           <SplitTitle text={p.name} className="case-title font-display" />
           <p className="case-hook font-display">{p.hook}</p>
@@ -66,10 +66,9 @@ export default async function WorkPage({ params }: { params: Promise<{ slug: str
           </dl>
         </Reveal>
 
-        {cs.sections.map((s, n) => (
+        {cs.sections.map((s) => (
           <Reveal key={s.heading} className="pt-12">
             <section>
-              <p className="case-step">{String(n + 1).padStart(2, "0")}</p>
               <h2 className="case-h2 font-display">{s.heading}</h2>
               <div className="case-prose" dangerouslySetInnerHTML={{ __html: s.html }} />
             </section>

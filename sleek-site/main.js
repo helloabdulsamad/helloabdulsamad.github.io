@@ -8,7 +8,6 @@
 
   /* ---------- Work cards ---------- */
   const stack = $("[data-stack]");
-  $("[data-count]").textContent = pad2(P.length);
   P.forEach((p, i) => {
     const li = document.createElement("li");
     li.className = p.shot ? "card" : "card no-shot";
@@ -16,7 +15,7 @@
     li.style.color = p.paper;
     li.innerHTML = `
       <button class="card-btn" type="button" data-open="${i}" aria-label="Read the ${p.name} story">
-        <span class="card-top"><span>${pad2(i + 1)} / ${pad2(P.length)}</span><span>${p.status} · ${p.period}</span></span>
+        <span class="card-top"><span>${p.status} · ${p.period}</span></span>
         <span>
           <h3 class="card-name">${p.name}</h3>
         </span>
@@ -185,7 +184,7 @@
       const head = $("[data-sheet-head]");
       head.style.background = p.ink;
       head.style.color = p.paper;
-      $("[data-sheet-kicker]").textContent = `${pad2(i + 1)} · ${p.role} · ${p.status}`;
+      $("[data-sheet-kicker]").textContent = `${p.role} · ${p.status}`;
       $("[data-sheet-title]").textContent = p.name;
       $("[data-sheet-hook]").textContent = p.hook;
       const shotEl = $("[data-sheet-shot]");
