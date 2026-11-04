@@ -11,6 +11,6 @@ export const site = {
   locale: "en_GB",
   sameAs: [
     "https://github.com/helloabdulsamad",
-    "https://www.linkedin.com/in/aosunlana/",
+    "https://www.linkedin.com/in/helloabdulsamad/",
   ],
 } as const;

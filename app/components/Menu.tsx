@@ -11,7 +11,7 @@ const LINKS = [
   { label: "Work", href: "/#work" },
   { label: "About", href: "/about" },
   { label: "Email", href: `mailto:${site.email}` },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/aosunlana/" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/helloabdulsamad/" },
   { label: "GitHub", href: "https://github.com/helloabdulsamad" },
 ];
 

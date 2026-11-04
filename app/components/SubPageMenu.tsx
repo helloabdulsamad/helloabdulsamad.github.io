@@ -24,7 +24,7 @@ export const NAV: NavItem[] = [
   { label: "Hello", href: "/", Icon: HandWaving },
   { label: "Work", href: "/#work", Icon: Briefcase },
   { label: "About Me", href: "/about", Icon: Smiley },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/aosunlana/", Icon: LinkedinLogo },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/helloabdulsamad/", Icon: LinkedinLogo },
   { label: "GitHub", href: "https://github.com/helloabdulsamad", Icon: GithubLogo },
   { label: "Email", href: "mailto:osunlanaabdulsamad@gmail.com", Icon: EnvelopeSimple },
 ];
