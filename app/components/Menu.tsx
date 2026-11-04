@@ -82,14 +82,14 @@ export default function Menu() {
           <ul>
             {LINKS.map((l) => (
               <li key={l.label} className="menu-link">
-                {l.href.startsWith("/") ? (
+                {l.href.startsWith("/") && l.href !== "/" && l.href !== "/#work" ? (
                   <Link href={l.href} onClick={() => setOpen(false)} className="menu-link-a">
                     <span className="menu-link-inner font-display">
                       {l.label}
                     </span>
                   </Link>
                 ) : (
-                  <a href={l.href} className="menu-link-a" target={l.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer">
+                  <a href={l.href} className="menu-link-a" target={l.href.startsWith("http") ? "_blank" : undefined} rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}>
                     <span className="menu-link-inner font-display">
                       {l.label}
                     </span>

@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- the home page is a plain HTML page, so it needs a full load */
 import Image from "next/image";
-import { Link } from "next-view-transitions";
 import Header from "../components/header/Header";
 import Footer from "../components/Footer";
 import SubPageMenu from "../components/SubPageMenu";
@@ -31,7 +31,7 @@ export default function About() {
 
         <Reveal>
           <div className="about-photo">
-            <Image src="/headshot.png" alt="Abdulsamad Osunlana in a black T-shirt, studio portrait" width={600} height={600} className="w-full h-auto" />
+            <Image src="/headshot-600.webp" alt="Abdulsamad Osunlana in a black T-shirt, studio portrait" priority width={600} height={600} className="w-full h-auto" />
           </div>
         </Reveal>
 
@@ -73,7 +73,7 @@ export default function About() {
             <a className="link-underline" href="mailto:osunlanaabdulsamad@gmail.com">osunlanaabdulsamad@gmail.com</a> ·{" "}
             <a className="link-underline" href="https://www.linkedin.com/in/aosunlana/" target="_blank" rel="noopener noreferrer">LinkedIn</a> ·{" "}
             <a className="link-underline" href="https://github.com/aosunlana" target="_blank" rel="noopener noreferrer">GitHub</a> ·{" "}
-            <Link className="link-underline" href="/#work">See the work</Link>
+            <a className="link-underline" href="/#work">See the work</a>
           </p>
         </Reveal>
       </main>

@@ -31,8 +31,8 @@ export const NAV: NavItem[] = [
 
 export default function SubPageMenu() {
   const renderItem = (item: NavItem, borders: string) => {
-    const external = /^(https?:|mailto:)/.test(item.href);
-    const Tag = external ? "a" : Link;
+    // Only /about is a Next.js page; the home page is a plain HTML page, so it needs a full load.
+    const Tag = item.href === "/about" ? Link : "a";
     return (
     <Tag
       key={item.label}
