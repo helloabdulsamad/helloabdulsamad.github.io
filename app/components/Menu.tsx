@@ -12,7 +12,7 @@ const LINKS = [
   { label: "About", href: "/about" },
   { label: "Email", href: `mailto:${site.email}` },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/aosunlana/" },
-  { label: "GitHub", href: "https://github.com/aosunlana" },
+  { label: "GitHub", href: "https://github.com/helloabdulsamad" },
 ];
 
 // A real menu on every page and every width: a full-screen sheet whose links

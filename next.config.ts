@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-// Set by the GitHub Pages workflow only. The repo is named aosunlana.github.io
+// Set by the GitHub Pages workflow only. The repo is named helloabdulsamad.github.io
 // (GitHub's special "user site" name), so Pages serves it from the domain
 // root — no basePath needed, just a static export (no Node server on GH
 // Pages). Vercel/Render builds leave this unset and get the normal server
