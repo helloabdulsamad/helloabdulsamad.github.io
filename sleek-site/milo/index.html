@@ -333,7 +333,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 
 /* ===== Chaos to calm hero ===== */
 .chaos{position:relative;background:#0b1528}
-.chaos-pin{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.chaos-pin{position:relative;height:100vh;min-height:640px;overflow:hidden;background-color:#10213d;background-image:radial-gradient(circle,rgba(241,237,230,.09) 1px,transparent 1.6px);background-size:26px 26px}
 .chaos-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;transform:scale(1.04)}
 .chaos-veil{position:absolute;inset:0;background:rgba(16,33,61,.66)}
 .chaos-copy{position:absolute;left:0;right:0;bottom:12vh;z-index:3;color:#fff}
@@ -532,6 +532,111 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 }
 .chaos .chaos-h{font-size:clamp(40px,6vw,96px)}
 
+
+/* ===== Compact setup route ===== */
+.route-band{padding-block:72px}
+.route{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:40px;align-items:center}
+.h3x{font-size:clamp(28px,3.2vw,42px);margin-top:12px;max-width:14em}
+.route-map{position:relative;height:150px}
+.route-svg{position:absolute;inset:0 0 30px 0;width:100%;height:120px;overflow:visible}
+.route-base{fill:none;stroke:var(--line);stroke-width:2;stroke-dasharray:4 7;vector-effect:non-scaling-stroke}
+.route-draw{fill:none;stroke:var(--accent);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;vector-effect:non-scaling-stroke}
+.route-steps{list-style:none;margin:0;padding:0}
+.route-steps li{position:absolute;left:var(--px);top:calc(var(--py) * 1.2px * 100 / 100);transform:translate(-50%,-50%);display:grid;justify-items:center;text-align:center;width:160px}
+.route-steps li{top:calc(var(--py) * 1.2)}
+.route-steps i{width:34px;height:34px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:600 14px var(--body);font-style:normal;box-shadow:0 0 0 6px var(--panel)}
+.route-steps b{margin-top:10px;font:600 15px var(--display)}
+.route-steps span{font-size:12.5px;color:var(--faint)}
+.route-steps li:first-child{justify-items:start;text-align:left;transform:translate(-17px,-17px)}
+.route-steps li:last-child{justify-items:end;text-align:right;transform:translate(calc(-100% + 17px),-17px)}
+.route-steps li:nth-child(2){transform:translate(-50%,-17px)}
+@media (max-width:860px){
+  .route-band{padding-block:40px}
+  .route{grid-template-columns:1fr;gap:20px}
+  .route-map{height:auto}
+  .route-svg{display:none}
+  .route-steps{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .route-steps::before{content:"";position:absolute;left:16%;right:16%;top:16px;border-top:2px dashed var(--line)}
+  .route-steps li,.route-steps li:first-child,.route-steps li:last-child,.route-steps li:nth-child(2){position:relative;left:auto;top:auto;transform:none;width:auto;justify-items:center;text-align:center}
+  .route-steps i{width:32px;height:32px;font-size:13px;box-shadow:0 0 0 5px var(--panel)}
+  .route-steps b{margin-top:8px;font-size:13.5px;line-height:1.25}
+  .route-steps span{display:block;font-size:11.5px}
+}
+
+/* ===== Compact waitlist chat ===== */
+.wl2{padding-block:72px}
+.wl2-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+.wl2-sub{margin-top:12px;color:var(--soft)}
+.wlchat{border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.wlc-h{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#10213d;color:#f1ede6}
+.wlc-h .av{width:32px;height:32px;border-radius:50%;background:#f1ede6;color:#10213d;display:grid;place-items:center;font:700 13px var(--display)}
+.wlc-h b{display:block;font-weight:600;font-size:14.5px}
+.wlc-h small{color:#b9c1d3;font-size:12px}
+.wlc-body{padding:16px;display:flex;flex-direction:column;gap:8px;background:var(--ground);min-height:120px}
+.wlc-body .bub{max-width:88%}
+@media (max-width:860px){.wl2{padding-block:48px}.wl2-grid{grid-template-columns:1fr;gap:18px}}
+
+/* ===== Tighter mobile journey ===== */
+@media (max-width:640px){
+  section{padding-block:52px}
+  .sim{padding-block:84px 40px}
+  .sim-grid{margin-top:22px;gap:14px}
+  .cmp{margin-top:28px}
+  .h2{font-size:clamp(28px,8vw,36px)}
+  .sub{font-size:16px;margin-top:12px}
+  .faq-grid{gap:20px}
+  details{padding:16px 0}
+  footer{padding-block:28px}
+}
+
+
+/* ===== 9pm scene: lock screen + switch ===== */
+.ninepm{background-color:#10213d;background-image:radial-gradient(circle,rgba(241,237,230,.08) 1px,transparent 1.6px);background-size:26px 26px;color:#f1ede6;padding-block:96px}
+.ninepm .label{color:rgba(241,237,230,.72)}
+.ninepm .label::before{background:#f1ede6}
+.np-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px;align-items:center}
+.np-h{margin-top:16px;font-size:clamp(36px,5vw,68px);transition:opacity .4s}
+.np-sub{margin-top:18px;color:rgba(241,237,230,.75);font-size:clamp(16px,1.4vw,19px);max-width:30em;transition:opacity .4s}
+.np-toggle{margin-top:30px;display:inline-flex;align-items:center;gap:14px;border:0;background:rgba(241,237,230,.08);color:#f1ede6;padding:10px 20px 10px 10px;border-radius:999px;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(241,237,230,.2);font:600 16px var(--body);transition:background .3s}
+.np-toggle:hover{background:rgba(241,237,230,.14)}
+.np-toggle .sw{position:relative;width:58px;height:32px;border-radius:999px;background:rgba(241,237,230,.25);transition:background .35s var(--ease)}
+.np-toggle .knob{position:absolute;left:3px;top:3px;width:26px;height:26px;border-radius:50%;background:#f1ede6;transition:transform .4s var(--ease);box-shadow:0 2px 6px rgba(0,0,0,.3)}
+.np-toggle[aria-checked="true"] .sw{background:#2fbf71}
+.np-toggle[aria-checked="true"] .knob{transform:translateX(26px)}
+.np-hint{margin-top:12px;font-size:13.5px;color:rgba(241,237,230,.55)}
+.np-screen{border-radius:30px;background:rgba(241,237,230,.05);box-shadow:inset 0 0 0 1px rgba(241,237,230,.14);padding:22px 18px 18px;min-height:520px;display:flex;flex-direction:column}
+.np-top{display:flex;justify-content:space-between;align-items:flex-start;padding:0 6px 16px}
+.np-clock b{display:block;font:600 54px/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.np-clock span{font-size:13px;color:rgba(241,237,230,.6)}
+.np-badge{margin-top:8px;font-size:12.5px;font-weight:600;padding:6px 11px;border-radius:999px;background:#ff5a4e;color:#fff;transition:background .4s}
+.np-badge.zero{background:#2fbf71}
+.np-stack{display:grid;gap:8px;align-content:start}
+.nt{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;padding:11px 12px;border-radius:16px;background:rgba(241,237,230,.94);color:#10213d;animation:ntIn .45s var(--ease) both;transition:background .4s}
+@keyframes ntIn{from{opacity:0;transform:translateY(-14px) scale(.97)}to{opacity:1;transform:none}}
+.nt .ic{width:34px;height:34px;border-radius:10px;background:#10213d;color:#f1ede6;display:grid;place-items:center;font:700 13px var(--display)}
+.nt b{display:block;font-size:13.5px;font-weight:600}
+.nt p{font-size:13.5px;line-height:1.35;color:#3d4660}
+.nt time{font-size:11px;color:#7d8597;white-space:nowrap}
+.nt .rep{grid-column:2/-1;max-height:0;overflow:hidden;font-size:12.5px;font-weight:600;color:#0a8a4c;transition:max-height .4s var(--ease),margin .4s var(--ease)}
+.nt.done{background:#ffffff}
+.nt.done .rep{max-height:40px;margin-top:2px}
+.np-more{margin-top:8px;text-align:center;font-size:12.5px;color:rgba(241,237,230,.6)}
+.np-summary{margin-top:auto;margin-bottom:auto;border-radius:22px;background:#f1ede6;color:#10213d;padding:26px 22px;text-align:center;animation:ntIn .5s var(--ease) both}
+.np-summary b{font:600 26px var(--display)}
+.np-summary p{margin-top:6px;color:#4d5670;font-size:14.5px}
+.np-nums{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.np-nums span{display:grid;gap:2px;font-size:12px;color:#6b7387;background:#fff;border-radius:14px;padding:12px 6px}
+.np-nums strong{font:600 20px var(--display);color:#10213d}
+.np-replay{margin-top:16px;border:0;border-radius:12px;background:#10213d;color:#f1ede6;padding:10px 18px;font:500 14px var(--body);cursor:pointer}
+.np-summary small{display:block;margin-top:10px;font-size:11.5px;color:#8a90a0}
+@media (max-width:900px){
+  .ninepm{padding-block:56px}
+  .np-grid{grid-template-columns:1fr;gap:26px}
+  .np-toggle{margin-top:20px}
+  .np-screen{min-height:430px;padding:18px 12px 12px;border-radius:24px}
+  .np-clock b{font-size:44px}
+}
+
 </style>
 </head>
 <body>
@@ -546,7 +651,6 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
     <nav class="links" aria-label="Main">
       <a href="#try">Simulation</a>
       <a href="#why">Why Milo</a>
-      <a href="#trust">Security</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#waitlist">Join the waitlist</a>
     </nav>
@@ -562,7 +666,6 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
   <a href="#try">Simulation</a>
   <a href="#why">Why Milo</a>
-  <a href="#trust">Security</a>
   <a href="#faq">FAQ</a>
   <a class="btn" href="#waitlist">Join the waitlist</a>
 </nav>
@@ -643,47 +746,33 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
     </div>
   </section>
 
-  <!-- Hero: chaos to calm -->
-  <section class="chaos" id="hero">
-    <div class="chaos-pin" id="chaosPin">
-      <img class="chaos-bg" id="chaosBg" src="img/shop-2200.webp" srcset="img/shop-1000.webp 1000w, img/shop-2200.webp 2200w" sizes="100vw" width="2200" height="1469" alt="A smiling shop owner in her clothing store" fetchpriority="high" />
-      <div class="chaos-veil"></div>
-      <div class="counter" id="counter"><b id="unread">128</b><span id="unreadLabel">unread messages</span></div>
-      <div class="bubbles" id="bubbles" aria-hidden="true">
-        <div class="qb" style="--x:4%;--y:14%;--r:-3deg;--d:-1s"><small>Tolu · 21:02 <i>1</i></small>Do you have this bag in black?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:60%;--y:11%;--r:2deg;--d:-3s"><small>Chidi · 21:03 <i>2</i></small>How much is delivery to Abuja?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:70%;--y:31%;--r:-2deg;--d:-2s"><small>Amaka · 21:04 <i>1</i></small>Where is my order? I paid yesterday<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:21%;--y:27%;--r:3deg;--d:-4s"><small>Ife · 21:05 <i>3</i></small>Is it original?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:61%;--y:49%;--r:-1deg;--d:-1.5s"><small>Musa · 21:06 <i>1</i></small>Send me your account number<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:3%;--y:37%;--r:-2deg;--d:-2.5s"><small>Ngozi · 21:06 <i>2</i></small>Can I pay on delivery?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:81%;--y:57%;--r:2deg;--d:-3.5s"><small>Kemi · 21:07 <i>1</i></small>Do you have size 42?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:35%;--y:7%;--r:-2deg;--d:-.5s"><small>Femi · 21:08 <i>4</i></small>Hello?? Are you there?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:64%;--y:69%;--r:1deg;--d:-4.5s"><small>Zainab · 21:09 <i>1</i></small>When will it arrive in Ibadan?<span class="tick">✓✓ Answered by Milo</span></div>
-        <div class="qb" style="--x:83%;--y:21%;--r:3deg;--d:-2.2s"><small>Bayo · 21:10 <i>2</i></small>Any discount for two?<span class="tick">✓✓ Answered by Milo</span></div>
+  <!-- 9pm scene -->
+  <section class="ninepm" id="ninepm">
+    <div class="wrap np-grid">
+      <div class="np-copy">
+        <span class="label">Your phone at 9pm</span>
+        <h2 class="np-h" id="npH">Your WhatsApp never stops.</h2>
+        <p class="np-sub" id="npSub">Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.</p>
+        <button class="np-toggle" id="npToggle" type="button" role="switch" aria-checked="false"><span class="sw"><span class="knob"></span></span><b id="npLabel">Milo is off</b></button>
+        <p class="np-hint" id="npHint">Switch Milo on and watch what happens.</p>
       </div>
-      <div class="inbox" id="inbox">
-        <div class="inbox-h">Inbox <span>All answered</span></div>
-        <div class="inbox-r"><b>Tolu · Black bag</b><span>✓✓ Replied</span></div>
-        <div class="inbox-r"><b>Chidi · Delivery to Abuja</b><span>✓✓ Replied</span></div>
-        <div class="inbox-r"><b>Amaka · Order status</b><span>✓✓ Replied</span></div>
-        <div class="inbox-r"><b>Musa · Payment link sent</b><span>✓✓ Replied</span></div>
-        <div class="inbox-r"><b>Ngozi · Paid ₦28,000</b><span>✓✓ Paid</span></div>
-      </div>
-      <div class="wrap chaos-copy">
-        <span class="label">Your phone at 9pm, without Milo</span>
-        <h2 class="chaos-h"><span class="h-a">Your WhatsApp never stops.</span><span class="h-b">Milo answers<br><em>every one.</em></span></h2>
-        <p class="chaos-sub">Questions, orders and payments, handled in seconds, while you run your shop.</p>
-        <div class="cta">
-          <a class="btn accent" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn glass" href="#try">Back to the simulation</a>
+      <div class="np-screen">
+        <div class="np-top"><div class="np-clock"><b id="npTime">9:41</b><span>Thursday evening</span></div><span class="np-badge" id="npBadge">0 unread</span></div>
+        <div class="np-stack" id="npStack" aria-live="polite"></div>
+        <div class="np-more" id="npMore" hidden></div>
+        <div class="np-summary" id="npSummary" hidden>
+          <b>All caught up</b>
+          <p>Milo answered every message in seconds, took the orders and the payments.</p>
+          <div class="np-nums"><span><strong>10</strong>chats answered</span><span><strong>3</strong>orders placed</span><span><strong>₦84,500</strong>paid</span></div>
+          <button type="button" class="np-replay" id="npReplay">Replay</button>
+          <small>Example evening at a demo shop</small>
         </div>
       </div>
-      <div class="scrollhint"><i></i>Scroll and watch Milo work</div>
     </div>
   </section>
 
   <!-- Proof -->
-  <section class="proof band-white">
+  <section class="proof band-white" id="proof">
     <div class="wrap proof-grid">
       <div>
         <span class="label">Proven on a real store</span>
@@ -699,58 +788,45 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
     </div>
   </section>
 
-  <!-- Trust -->
-  <section class="trust" id="trust">
-    <div class="wrap trust-grid">
-      <div>
-        <span class="label">Security</span>
-        <h2 class="h2">Built to be trusted with money.</h2>
-        <p class="statement" data-reveal>I built Milo for my own watch store, WatchShop.ng. <span class="muted">So it had to be safe with real orders and real payments from the start.</span></p>
-        <div class="founder"><img src="img/apron-900.webp" alt="" aria-hidden="true" style="object-position:55% 35%" /><span>Abdulsamad Osunlana, founder, Upsert Labs</span></div>
-      </div>
-      <div class="tfacts" data-reveal>
-        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Paid means paid</b><p>The amount, currency and order are checked before a payment counts, and no order is confirmed twice.</p></div></div>
-        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Customers see only their own orders</b><p>Milo knows who it's talking to from their verified WhatsApp number, never from what they type.</p></div></div>
-        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Nothing left hanging</b><p>If a payment link fails, the order is cancelled cleanly. Every message is saved before it's handled.</p></div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- Setup -->
-  <section class="band-white">
-    <div class="wrap">
-      <span class="label">Setup</span>
-      <h2 class="h2">Live in minutes. No developer needed.</h2>
-      <div class="steps" id="steps">
-        <div class="track-line"><i id="stepLine"></i></div>
-        <div class="step" data-step><span class="n">Step 1</span><h3>Connect WhatsApp</h3><p>Log in with Meta and pick your business number. Nothing to copy and paste.</p></div>
-        <div class="step" data-step><span class="n">Step 2</span><h3>Add your products</h3><p>Bring in your catalogue, prices and delivery details, so Milo answers like you would.</p></div>
-        <div class="step" data-step><span class="n">Step 3</span><h3>Let Milo reply</h3><p>Milo answers customers and takes orders. Step in whenever you want.</p></div>
+  <section class="route-band band-white">
+    <div class="wrap route">
+      <div class="route-copy">
+        <span class="label">Setup</span>
+        <h2 class="h3x">Live in minutes. No developer needed.</h2>
       </div>
-      <p class="note">Milo is built for WatchShop.ng and getting ready to go live. The version for many businesses is in progress, and waitlist members will be the first to try it.</p>
+      <div class="route-map" id="routeMap">
+        <svg class="route-svg" viewBox="0 0 640 120" preserveAspectRatio="none" aria-hidden="true">
+          <path class="route-base" d="M24 88 C 140 4, 230 4, 320 60 S 520 118, 616 32" />
+          <path class="route-draw" id="routeDraw" pathLength="1" d="M24 88 C 140 4, 230 4, 320 60 S 520 118, 616 32" />
+        </svg>
+        <ol class="route-steps">
+          <li style="--px:3.75%;--py:73%"><i>1</i><b>Connect WhatsApp</b><span>Log in with Meta</span></li>
+          <li style="--px:50%;--py:50%"><i>2</i><b>Add your products</b><span>Prices and delivery</span></li>
+          <li style="--px:96.25%;--py:27%"><i>3</i><b>Milo replies</b><span>You step in anytime</span></li>
+        </ol>
+      </div>
     </div>
   </section>
 
   <!-- Waitlist -->
-  <section class="cta-band band-tint" id="waitlist" style="padding-block:96px">
-    <div class="wrap">
-      <div class="cta-card">
-        <div class="cta-copy">
-          <span class="label">Early access</span>
-          <h2 class="h2">Be first when Milo opens.</h2>
-          <p class="sub">One simple monthly plan for your business. Waitlist members get early access and hear about pricing first.</p>
-          <div class="plan">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Early access</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Pricing shared first</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>A say in what's next</span>
-          </div>
-          <div class="wl-box" id="wlbox">
-            <b>The waitlist opens shortly</b>
-            <p>The sign up form is being set up. Check back soon, or message Abdulsamad on LinkedIn.</p>
-            <a class="btn" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
-          </div>
+  <section class="wl2 band-tint" id="waitlist">
+    <div class="wrap wl2-grid">
+      <div>
+        <span class="label">Early access</span>
+        <h2 class="h3x">Be first when Milo opens.</h2>
+        <p class="wl2-sub">Early access and pricing before anyone else. No spam.</p>
+      </div>
+      <div class="wlchat">
+        <div class="wlc-h"><div class="av">M</div><div><b>Milo</b><small>Early access</small></div></div>
+        <div class="wlc-body" id="wlBody" aria-live="polite">
+          <div class="bub mi">Hi! Want Milo for your business? Drop your email and I'll add you to the waitlist.</div>
         </div>
-        <div class="cta-pic"><img data-par src="img/cheer-1600.webp" width="1600" height="1068" alt="A trader celebrating a new order on his phone" decoding="async" /></div>
+        <form class="cw-form" id="wlForm" autocomplete="on" novalidate>
+          <label for="wlEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Email</label>
+          <input id="wlEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@yourbusiness.com" maxlength="120" />
+          <button type="submit" aria-label="Join the waitlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
       </div>
     </div>
   </section>
@@ -772,8 +848,8 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 
 <footer>
   <div class="wrap">
-    <span>Milo by Upsert Labs · Lagos · Photos from Unsplash</span>
-    <a href="/">Built by Abdulsamad Osunlana</a>
+    <span>Milo by Upsert Labs</span>
+    <span>© 2026</span>
   </div>
 </footer>
 
@@ -781,8 +857,8 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 <script src="/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/vendor/lenis.min.js" defer></script>
 <script>
-// Tally form id. Paste the form id here once the form exists, and the waitlist box shows it.
-const TALLY_FORM_ID = "";
+// Waitlist sign ups are posted here (FormSubmit sends each one to the owner by email).
+const WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/osunlanaabdulsamad@gmail.com";
 
 document.addEventListener('DOMContentLoaded', function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -805,10 +881,26 @@ document.addEventListener('DOMContentLoaded', function(){
   mq.addEventListener('change',()=>getC()==='system'&&applyT('system'));
   applyT(getC());
 
-  if(TALLY_FORM_ID){
-    $('#wlbox').innerHTML='<iframe title="Milo waitlist" loading="lazy" src="https://tally.so/embed/'+TALLY_FORM_ID+'?hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>';
-    const t=document.createElement('script');t.src='https://tally.so/widgets/embed.js';t.async=true;document.body.appendChild(t);
-  }
+
+
+  /* ---------- Waitlist chat ---------- */
+  (function(){
+    const f=$('#wlForm'), inp=$('#wlEmail'), wb=$('#wlBody'); if(!f) return;
+    let done=false, busy=false;
+    const say=(cls,txt)=>{const d=document.createElement('div');d.className='bub '+cls;d.textContent=txt;wb.appendChild(d);return d};
+    const typing=()=>{const t=document.createElement('div');t.className='typing2';t.innerHTML='<b></b><b></b><b></b>';wb.appendChild(t);return t};
+    f.addEventListener('submit',async e=>{e.preventDefault(); if(busy) return;
+      const v=inp.value.trim();
+      if(done){inp.value='';return}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){say('mi','That doesn\'t look like an email. Try something like name@business.com.');return}
+      busy=true; say('me',v); inp.value=''; inp.disabled=true; const t=typing();
+      let ok=false;
+      try{const r=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:v,_subject:'New Milo waitlist sign up',_template:'table',_captcha:'false',source:'Milo simulation page'})});ok=r.ok}catch(err){ok=false}
+      setTimeout(()=>{t.remove();
+        if(ok){done=true;say('mi','You\'re on the list! I\'ll email '+v+' as soon as Milo opens for businesses.');inp.placeholder='You\'re on the waitlist';}
+        else{say('mi','I couldn\'t save that just now. Please try again in a moment.');inp.disabled=false}
+        busy=false},700)});
+  })();
 
   /* ---------- Try Milo: simulated shop assistant ---------- */
   const naira=n=>'₦'+n.toLocaleString('en-NG');
@@ -917,8 +1009,37 @@ document.addEventListener('DOMContentLoaded', function(){
     send(p);if(innerWidth<861)$('#chatwin').scrollIntoView({behavior:'smooth',block:'start'})}));
   reset();
 
+
+  /* ---------- 9pm scene ---------- */
+  (function(){
+    const stack=$('#npStack'); if(!stack) return;
+    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today'],['Musa','Send me your account number','Sent a secure Paystack link'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?'],['Kemi','Do you have size 42?','Yes, 2 left in size 42'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm'],['Bayo','Any discount for two?','Passed to Bola to decide'],['Ife','Is it original?','Yes, checked before dispatch']];
+    const toggle=$('#npToggle'), badge=$('#npBadge'), timeEl=$('#npTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel');
+    const MAXV=()=>innerWidth<900?4:5;
+    let timers=[], shown=0, on=false, started=false, minute=41;
+    const clear=()=>{timers.forEach(clearTimeout);timers=[]};
+    const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
+    const setBadge=n=>{badge.textContent=n?n+' unread':'All answered';badge.classList.toggle('zero',!n)};
+    const tick=()=>{minute=Math.min(59,minute+1);timeEl.textContent='9:'+String(minute).padStart(2,'0')};
+    const view=()=>{const cards=$$('.nt',stack);cards.forEach((c,k)=>c.hidden=k>=MAXV());const extra=cards.length-MAXV();more.hidden=extra<=0;if(extra>0)more.textContent='+'+extra+' more';};
+    const add=k=>{const [n,m,r]=N[k];const d=document.createElement('div');d.className='nt';d.innerHTML='<span class="ic">W</span><div><b></b><p></p></div><time>now</time><div class="rep"></div>';$('b',d).textContent=n;$('p',d).textContent=m;$('.rep',d).textContent='✓ Milo replied: '+r;stack.prepend(d);shown++;setBadge(shown);tick();view()};
+    const reset=()=>{clear();stack.innerHTML='';sum.hidden=true;stack.hidden=false;shown=0;on=false;minute=41;timeEl.textContent='9:41';setBadge(0);toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent='Your WhatsApp never stops.';sub.textContent='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false;more.hidden=true};
+    const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},RM?0:k*650));later(()=>{if(!on)switchOn(true)},RM?200:N.length*650+3200)};
+    const switchOn=auto=>{if(on)return;on=true;clear();toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.hidden=true;
+      while(shown<N.length)add(shown);
+      const cards=$$('.nt',stack).reverse();let left=cards.length;
+      cards.forEach((c,k)=>later(()=>{c.hidden=false;c.classList.add('done');left--;setBadge(left);if(k>=MAXV())$$('.nt',stack).forEach((x,ix)=>x.hidden=!(x.classList.contains('done')&&ix<MAXV()));},RM?0:300+k*380));
+      later(()=>{h.textContent='Milo answers every one.';sub.textContent='Replies in seconds, orders taken, payments confirmed. You did not lift a finger.';},RM?0:400);
+      later(()=>{stack.hidden=true;more.hidden=true;sum.hidden=false},RM?50:300+cards.length*380+900)};
+    toggle.addEventListener('click',()=>{if(on){reset();started=true;flood()}else switchOn(false)});
+    $('#npReplay').addEventListener('click',()=>{reset();started=true;flood()});
+    reset();
+    const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)&&!started){started=true;flood();io.disconnect()}},{threshold:.35});
+    io.observe($('#ninepm'));
+  })();
+
   /* ---------- Motion ---------- */
-  if(RM || !window.gsap){$('#inbox')&&$('#inbox').classList.add('show');return}
+  if(RM || !window.gsap){return}
   gsap.registerPlugin(ScrollTrigger);
   let lenis=null;
   if(window.Lenis){
@@ -929,40 +1050,12 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   $('#cwBody').setAttribute('data-lenis-prevent','');
 
-  const qbs=$$('.qb'), unread=$('#unread'), counter=$('#counter');
-  const count={n:0};
-  const setCount=n=>{unread.textContent=Math.round(n);counter.classList.toggle('zero',Math.round(n)===0);$('#unreadLabel').textContent=Math.round(n)===0?'All answered':'unread messages'};
-  // Load: the shop fills with messages
-  const intro=gsap.timeline({defaults:{ease:'expo.out'},scrollTrigger:{trigger:'#hero',start:'top 75%'}});
-  intro.from('#chaosBg',{scale:1.18,duration:2.2},0)
-       .from('.chaos-copy > *',{y:40,opacity:0,duration:1.2,stagger:.1},.2)
-       .from(qbs,{y:40,scale:.85,opacity:0,duration:.9,stagger:.12,ease:'back.out(1.6)'},.5)
-       .to(count,{n:128,duration:2,ease:'power2.out',onUpdate:()=>setCount(count.n)},.5);
-
-  const mm=gsap.matchMedia();
-  mm.add('(min-width: 861px)',()=>{
-    const tl=gsap.timeline({scrollTrigger:{trigger:'#chaosPin',start:'top top',end:'+=200%',pin:true,scrub:1}});
-    tl.to('#chaosBg',{scale:1.12,ease:'none',duration:10},0);
-    qbs.forEach((q,i)=>{tl.call(()=>q.classList.add('answered'),null,1+i*.55); tl.call(()=>q.classList.remove('answered'),null,.99+i*.55)});
-    tl.to(count,{n:0,ease:'none',duration:qbs.length*.55,onUpdate:()=>setCount(count.n)},1);
-    tl.to(qbs,{x:(i,el)=>innerWidth*0.78-el.offsetLeft-el.offsetWidth/2,y:(i,el)=>innerHeight*0.5-el.offsetTop,scale:.4,opacity:0,stagger:.05,duration:1.4,ease:'power2.in'},7.2);
-    tl.fromTo('#inbox',{opacity:0,y:30,scale:.95},{opacity:1,y:0,scale:1,duration:1},8.4);
-    tl.to('.chaos-h .h-a',{yPercent:-40,opacity:0,duration:.8},7.4).fromTo('.chaos-h .h-b',{yPercent:40,opacity:0},{yPercent:0,opacity:1,duration:.9},7.9);
-    tl.to('.scrollhint',{opacity:0,duration:.5},0);
-  });
-  mm.add('(max-width: 860px)',()=>{
-    ScrollTrigger.create({trigger:'#bubbles',start:'top 60%',once:true,onEnter:()=>{intro.progress(1);
-      qbs.slice(0,6).forEach((q,i)=>setTimeout(()=>q.classList.add('answered'),400+i*450));
-      gsap.to(count,{n:0,duration:3,delay:.4,ease:'none',onUpdate:()=>setCount(count.n)});
-      setTimeout(()=>$('#inbox').classList.add('show'),3300)}});
-  });
-
   // Soft reveals and parallax for the rest of the page
   $$('[data-reveal]').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
   $$('.feat').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:(i%3)*.08,scrollTrigger:{trigger:el,start:'top 90%'}}));
   $$('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
-  if($('#stepLine')) gsap.from('#stepLine',{scaleX:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'top 35%',scrub:true}});
-  $$('[data-step]').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'#steps',start:'top 78%'}}));
+  if($('#routeDraw')) gsap.fromTo('#routeDraw',{strokeDashoffset:1},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#routeMap',start:'top 85%',end:'top 45%',scrub:true}});
+  $$('.route-steps li').forEach((el,i)=>gsap.from(el,{y:16,opacity:0,duration:.8,ease:'expo.out',delay:i*.15,scrollTrigger:{trigger:'#routeMap',start:'top 82%'}}));
   gsap.from('.sim-grid > *',{y:40,opacity:0,duration:1.1,ease:'expo.out',stagger:.1,delay:.2});gsap.from('.sim-head > *',{y:30,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});
 });
 </script>
