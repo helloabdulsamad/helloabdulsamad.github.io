@@ -838,6 +838,15 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
   .np-cta .btn{flex:1 1 auto;min-height:46px}
 }
 @media (max-width:860px){.sim{padding-block:56px 44px}}
+
+/* ===== Hero revamp: Milo lives in your chat ===== */
+.np-h em{font-style:normal;text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:.08em;text-underline-offset:.12em;text-decoration-skip-ink:none}
+.np-sub{max-width:24em}
+.np-cta{margin-top:32px}
+.ninepm::before{background:rgba(8,18,38,.62)}
+.np-sub{color:rgba(241,237,230,.92)}
+@media (max-width:900px){.ninepm::before{background:rgba(8,18,38,.74)}}
+@media (max-width:900px){.np-cta{margin-top:24px}}
 </style>
 </head>
 <body>
@@ -850,7 +859,7 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
     </a>
     <div class="nav-right">
     <nav class="links" aria-label="Main">
-      <a href="#try">Simulation</a>
+      <a href="#try">Demo</a>
       <a href="#why">Why Milo</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#waitlist">Join the waitlist</a>
@@ -865,7 +874,7 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
   </div>
 </header>
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
-  <a href="#try">Simulation</a>
+  <a href="#try">Demo</a>
   <a href="#why">Why Milo</a>
   <a href="#faq">FAQ</a>
   <a class="btn" href="#waitlist">Join the waitlist</a>
@@ -876,11 +885,9 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
   <section class="ninepm" id="ninepm">
     <div class="wrap np-grid">
       <div class="np-copy">
-        <span class="label">Milo for WhatsApp sellers</span>
-        <h1 class="np-h" id="npH">Your WhatsApp never stops.</h1>
-        <p class="np-sub" id="npSub">Every missed message is a lost sale.</p>
-        <button class="np-toggle" id="npToggle" type="button" role="switch" aria-checked="false"><span class="sw"><span class="knob"></span></span><b id="npLabel">Milo is off</b></button>
-        <p class="np-hint" id="npHint" hidden></p>
+        <span class="label">WhatsApp sales assistant</span>
+        <h1 class="np-h">Milo lives in <em>your chat.</em></h1>
+        <p class="np-sub">It answers customers, takes orders and collects payment while you sleep.</p>
         <div class="np-cta"><a class="btn accent" href="#waitlist">Join the waitlist</a><a class="btn glass" href="#try">Try the demo</a></div>
       </div>
       <div class="phone-stage" id="phoneStage">
@@ -898,8 +905,7 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
             <div class="np-stack" id="npStack" aria-live="polite"></div>
             <div class="np-more" id="npMore" hidden></div>
             <div class="np-summary" id="npSummary" hidden>
-              <button type="button" class="np-replay" id="npReplay">Replay</button>
-              <div class="nt milo"><span class="av mlogo" aria-hidden="true">M</span><div class="tx"><div class="row"><b>All caught up</b><time>now</time></div><p>Milo answered 10 chats tonight. 3 orders paid, ₦84,500 received.</p></div></div>
+              <div class="nt milo"><span class="av mlogo" aria-hidden="true">M</span><div class="tx"><div class="row"><b>All caught up</b><time>now</time></div><p>Milo answered 6 chats. 2 orders paid, ₦47,500 received.</p></div></div>
             </div>
             <div class="lk-btns" aria-hidden="true"><span class="lk torch"></span><span class="lk cam"></span></div>
             <div class="homebar"></div>
@@ -1035,8 +1041,10 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
 <script src="/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/vendor/lenis.min.js" defer></script>
 <script>
-// Waitlist sign ups are posted here (FormSubmit sends each one to the owner by email).
-const WAITLIST_ENDPOINT = "https://formsubmit.co/ajax/osunlanaabdulsamad@gmail.com";
+// Waitlist sign ups go to Web3Forms, which emails each one to the owner.
+// The access key is public by design (it only allows sending to the owner's inbox).
+const WEB3FORMS_KEY = "";
+const WAITLIST_ENDPOINT = WEB3FORMS_KEY ? "https://api.web3forms.com/submit" : "https://formsubmit.co/ajax/osunlanaabdulsamad@gmail.com";
 
 document.addEventListener('DOMContentLoaded', function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -1073,7 +1081,7 @@ document.addEventListener('DOMContentLoaded', function(){
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){say('mi','That doesn\'t look like an email. Try something like name@business.com.');return}
       busy=true; say('me',v); inp.value=''; inp.disabled=true; const t=typing();
       let ok=false;
-      try{const r=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:v,_subject:'New Milo waitlist sign up',_template:'table',_captcha:'false',source:'Milo simulation page'})});ok=r.ok}catch(err){ok=false}
+      try{const r=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(WEB3FORMS_KEY?{access_key:WEB3FORMS_KEY,email:v,subject:'New Milo waitlist sign up',from_name:'Milo waitlist',source:'Milo page',botcheck:''}:{email:v,_subject:'New Milo waitlist sign up',_template:'table',_captcha:'false',source:'Milo simulation page'})});let j={};try{j=await r.json()}catch(_){}ok=r.ok&&(WEB3FORMS_KEY?j.success===true:true)}catch(err){ok=false}
       setTimeout(()=>{t.remove();
         if(ok){done=true;say('mi','You\'re on the list! I\'ll email '+v+' as soon as Milo opens for businesses.');inp.placeholder='You\'re on the waitlist';}
         else{say('mi','I couldn\'t save that just now. Please try again in a moment, or message Abdulsamad on LinkedIn at linkedin.com/in/helloabdulsamad.');inp.disabled=false}
@@ -1188,15 +1196,15 @@ document.addEventListener('DOMContentLoaded', function(){
   reset();
 
 
-  /* ---------- 9pm scene ---------- */
+  /* ---------- Hero phone ---------- */
   (function(){
     const stack=$('#npStack'); if(!stack) return;
-    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock','tolu'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days','chidi'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today','amaka'],['Musa','Send me your account number','Sent a secure Paystack link','musa'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓','ngozi'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?','femi'],['Kemi','Do you have size 42?','Yes, 2 left in size 42','kemi'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm','zainab'],['Bayo','Any discount for two?','Passed to the owner','bayo'],['Ife','Is it original?','Yes, checked before dispatch','ife']];
-    const toggle=$('#npToggle'), timeEl=$('#npTime'), sb=$('#npSbTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel'), phone=$('#iphone'), screen=stack.parentNode;
+    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock','tolu'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days','chidi'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today','amaka'],['Musa','Send me your account number','Sent a secure Paystack link','musa'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓','ngozi'],['Kemi','Do you have size 42?','Yes, 2 left in size 42','kemi']];
+    const timeEl=$('#npTime'), sb=$('#npSbTime'), more=$('#npMore'), sum=$('#npSummary'), screen=stack.parentNode;
     const MAXV=()=>innerWidth<900?3:4;
     const EASE='cubic-bezier(.22,1,.36,1)', SPRING='cubic-bezier(.18,1.22,.32,1)';
-    const anim=(el,k,o)=>RM||!el.animate?null:el.animate(k,o);
-    let timers=[], shown=0, on=false, started=false, minute=41;
+    const anim=(el,k,o)=>RM||!el||!el.animate?null:el.animate(k,o);
+    let timers=[], minute=41, live=false;
     const clear=()=>{timers.forEach(clearTimeout);timers=[]};
     const later=(fn,ms)=>timers.push(setTimeout(fn,RM?0:ms));
     const setTime=m=>{const t='9:'+String(m).padStart(2,'0');timeEl.textContent=t;if(sb)sb.textContent=t};
@@ -1210,25 +1218,18 @@ document.addEventListener('DOMContentLoaded', function(){
     const add=k=>{const vis=cards().filter(c=>!c.hidden);const full=vis.length>=MAXV();const d=make(k);if(full)ghost(vis[vis.length-1]);
       flip(()=>{stack.prepend(d);if(full)vis[vis.length-1].hidden=true;layers()});
       anim(d,[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:640,easing:SPRING});
-      shown++;ages();minute=Math.min(59,minute+1);setTime(minute)};
-    const swap=(el,txt)=>{if(RM){el.textContent=txt;return}el.style.opacity=0;setTimeout(()=>{el.textContent=txt;el.style.opacity=1},380)};
-    const OFF_H='Your WhatsApp never stops.', OFF_S='Every missed message is a lost sale.';
-    const reset=()=>{clear();$$('.ghost',screen).forEach(g=>g.remove());stack.innerHTML='';stack.hidden=false;sum.hidden=true;more.hidden=true;shown=0;on=false;minute=41;setTime(41);phone.classList.remove('push');toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent=OFF_H;h.style.opacity=1;sub.textContent=OFF_S;sub.style.opacity=1;hint.hidden=true};
-    const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},k*700));later(()=>{if(!on)switchOn()},N.length*700+3000)};
-    const switchOn=()=>{if(on)return;on=true;clear();phone.classList.add('push');toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';
-      let t=150;for(let k=shown;k<N.length;k++){later(()=>add(k),t);t+=260}
-      t+=500;later(()=>{swap(h,'Milo answers every one.');swap(sub,'Replies, orders and payments, handled.')},150);
-      const V=Math.min(MAXV(),N.length);
-      for(let v=0;v<V;v++)later(()=>{const vis=cards().filter(c=>!c.hidden);const c=vis[vis.length-1-v];if(c){c.classList.add('done');$('time',c).textContent='Replied'}},t+v*480);
-      t+=V*480+900;
-      later(()=>{cards().forEach(c=>c.classList.add('done'));const vis=cards().filter(c=>!c.hidden);vis.forEach((c,i)=>setTimeout(()=>anim(c,[{opacity:1,transform:'none'},{opacity:0,transform:'translateX(115%)'}],{duration:420,easing:'cubic-bezier(.5,0,.75,0)',fill:'forwards'}),RM?0:i*110));anim(more,[{opacity:1},{opacity:0}],{duration:300,fill:'forwards'})},t);
+      ages();minute=Math.min(59,minute+1);setTime(minute)};
+    const reset=()=>{clear();$$('.ghost',screen).forEach(g=>g.remove());stack.innerHTML='';sum.hidden=true;more.hidden=true;minute=41;setTime(41)};
+    const answer=()=>{const V=Math.min(MAXV(),cards().filter(c=>!c.hidden).length);let t=300;
+      for(let v=0;v<V;v++)later(()=>{const vis=cards().filter(c=>!c.hidden);const c=vis[vis.length-1-v];if(c){c.classList.add('done');$('time',c).textContent='Replied'}},t+v*520);
+      t+=V*520+1000;
+      later(()=>{cards().forEach(c=>c.classList.add('done'));cards().filter(c=>!c.hidden).forEach((c,i)=>setTimeout(()=>anim(c,[{opacity:1,transform:'none'},{opacity:0,transform:'translateX(115%)'}],{duration:420,easing:'cubic-bezier(.5,0,.75,0)',fill:'forwards'}),RM?0:i*110));anim(more,[{opacity:1},{opacity:0}],{duration:300,fill:'forwards'})},t);
       t+=V*110+520;
-      later(()=>{stack.innerHTML='';more.hidden=true;more.getAnimations&&more.getAnimations().forEach(a=>a.cancel());sum.hidden=false;anim($('.nt',sum),[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:700,easing:SPRING});anim($('.np-replay',sum),[{opacity:0},{opacity:1}],{duration:500,delay:500,fill:'backwards'})},t);
-      later(()=>phone.classList.remove('push'),t+800)};
-    toggle.addEventListener('click',()=>{if(on){reset();started=true;flood()}else switchOn()});
-    $('#npReplay').addEventListener('click',()=>{reset();started=true;flood()});
+      later(()=>{stack.innerHTML='';more.hidden=true;more.getAnimations&&more.getAnimations().forEach(a=>a.cancel());sum.hidden=false;anim($('.nt',sum),[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:700,easing:SPRING})},t);
+      if(!RM)later(()=>{anim(sum,[{opacity:1},{opacity:0}],{duration:400,fill:'forwards'});later(()=>{sum.getAnimations().forEach(a=>a.cancel());run()},450)},t+4800)};
+    const run=()=>{reset();N.forEach((_,k)=>later(()=>add(k),500+k*850));later(answer,500+N.length*850+900)};
     reset();
-    const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)&&!started){started=true;flood();io.disconnect()}},{threshold:.35});
+    const io=new IntersectionObserver(es=>{const v=es.some(e=>e.isIntersecting);if(v&&!live){live=true;run()}else if(!v&&live){live=false;clear()}},{threshold:.2});
     io.observe($('#ninepm'));
   })();
 
