@@ -1044,7 +1044,9 @@ header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--a
 // Waitlist sign ups go to Web3Forms, which emails each one to the owner.
 // The access key is public by design (it only allows sending to the owner's inbox).
 const WEB3FORMS_KEY = "";
-const WAITLIST_ENDPOINT = WEB3FORMS_KEY ? "https://api.web3forms.com/submit" : "https://formsubmit.co/ajax/osunlanaabdulsamad@gmail.com";
+const WAITLIST_ENDPOINT = "https://api.web3forms.com/submit";
+// Until the key is added, sign ups open the visitor's email app, addressed here.
+const WAITLIST_EMAIL = "upsertllc@gmail.com";
 
 document.addEventListener('DOMContentLoaded', function(){
   const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -1080,6 +1082,8 @@ document.addEventListener('DOMContentLoaded', function(){
       if(done){inp.value='';return}
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){say('mi','That doesn\'t look like an email. Try something like name@business.com.');return}
       busy=true; say('me',v); inp.value=''; inp.disabled=true; const t=typing();
+      if(!WEB3FORMS_KEY){const sub=encodeURIComponent('Milo waitlist'),bod=encodeURIComponent('Please add me to the Milo waitlist.\n\nEmail: '+v);
+        setTimeout(()=>{t.remove();say('mi','Your email app should open now with a short note to us. Press Send and you\'re on the list.');done=true;inp.placeholder='Press Send in your email app';busy=false;location.href='mailto:'+WAITLIST_EMAIL+'?subject='+sub+'&body='+bod},600);return}
       let ok=false;
       try{const r=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(WEB3FORMS_KEY?{access_key:WEB3FORMS_KEY,email:v,subject:'New Milo waitlist sign up',from_name:'Milo waitlist',source:'Milo page',botcheck:''}:{email:v,_subject:'New Milo waitlist sign up',_template:'table',_captcha:'false',source:'Milo simulation page'})});let j={};try{j=await r.json()}catch(_){}ok=r.ok&&(WEB3FORMS_KEY?j.success===true:true)}catch(err){ok=false}
       setTimeout(()=>{t.remove();
