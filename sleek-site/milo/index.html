@@ -9,7 +9,7 @@
 <meta property="og:description" content="Every WhatsApp message answered. Every order paid. Join the waitlist." />
 <meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
 <meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/stall-1600.webp" />
-<meta name="theme-color" content="#f3f5f4" />
+<meta name="theme-color" content="#f4f6fa" />
 <link rel="preload" as="image" href="img/stall-1600.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,15 +18,16 @@
 /* Layout: calm SaaS. Quiet neutrals, one green accent, real photography, and a product interface built in HTML.
    Motion: a load sequence, a pinned scroll story where a conversation builds, soft reveals and parallax. Flat colours only. */
 :root{
-  --ground:#f3f5f4; --panel:#ffffff; --ink:#0d1b15; --soft:#5b6a63; --faint:#8a9791; --line:#e1e6e3;
-  --accent:#16a05a; --accent-ink:#ffffff; --tint:#e6f4ec; --deep:#0d1b15; --deep-ink:#eef3f0; --deep-soft:#9aaba2; --deep-line:#1f2f28;
-  --shadow:0 1px 2px rgba(13,27,21,.06),0 12px 32px -12px rgba(13,27,21,.18);
+  --ground:#f4f6fa; --panel:#ffffff; --ink:#0b1630; --soft:#566079; --faint:#8a93a8; --line:#e1e6f0;
+  --accent:#1f3fae; --accent-ink:#ffffff; --tint:#e8edfb; --deep:#0b1736; --deep-ink:#eef2fb; --deep-soft:#9aa6c4; --deep-line:#1d2a4d;
+  --icon:#2448c7; --icon-bg:#16234a;
+  --shadow:0 1px 2px rgba(11,22,48,.06),0 12px 32px -12px rgba(11,22,48,.2);
   --display:"Funnel Display","Golos Text",system-ui,sans-serif;
   --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --ease:cubic-bezier(.2,.75,.2,1); color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root{ --ground:#0a110e; --panel:#111a16; --ink:#e9efec; --soft:#a0aea7; --faint:#6f7d76; --line:#1f2b26; --accent:#33c47a; --accent-ink:#04120b; --tint:#12291e; --deep:#050a08; --deep-ink:#e9efec; --deep-soft:#8fa199; --deep-line:#17231e; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6); color-scheme:dark; }
+  :root{ --ground:#080d1a; --panel:#0f1628; --ink:#e8ecf6; --soft:#a1aac0; --faint:#6d7790; --line:#1c2540; --accent:#7c9bff; --accent-ink:#06102b; --tint:#17224a; --deep:#050a17; --deep-ink:#e8ecf6; --deep-soft:#8e99b6; --deep-line:#17213d; --icon:#7c9bff; --icon-bg:#16234a; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6); color-scheme:dark; }
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -129,15 +130,15 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .chatpane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
 .chatpane .feed{position:absolute;inset:auto 0 0 0;padding:26px;display:flex;flex-direction:column;gap:10px}
 .chatpane .m{font-size:14.5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
-.chatpane .m.in{background:#ffffff;color:#0d1b15;border:0}
-.chatpane .m.out{background:#dff3e6;color:#0d1b15}
+.chatpane .m.in{background:#ffffff;color:#0b1630;border:0}
+.chatpane .m.out{background:#e3e9fd;color:#0b1630}
 .chatpane .m small{color:#6c7a73}
 .chatpane .card{display:flex;gap:10px;align-items:center;margin-top:6px;padding:8px;border-radius:10px;background:#ffffff;border:1px solid #e1e6e3}
-.chatpane .card i{width:38px;height:38px;border-radius:9px;background:#0d1b15;display:grid;place-items:center;font-style:normal}
+.chatpane .card i{width:38px;height:38px;border-radius:9px;background:#0b1630;display:grid;place-items:center;font-style:normal}
 .chatpane .card i::after{content:"";width:18px;height:18px;border-radius:50%;border:2.5px solid #d7c38a}
 .chatpane .card b{display:block;font-size:13px}
 .chatpane .card small{margin:0}
-.chatpane .paybtn{display:inline-block;margin-top:6px;padding:6px 11px;border-radius:8px;background:#16a05a;color:#fff;font-weight:600;font-size:13px}
+.chatpane .paybtn{display:inline-block;margin-top:6px;padding:6px 11px;border-radius:8px;background:#1f3fae;color:#fff;font-weight:600;font-size:13px}
 
 /* Features */
 .feat-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px}
@@ -185,7 +186,7 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .statement .muted{color:var(--deep-soft)}
 .tfacts{display:grid;gap:1px;background:var(--deep-line);border:1px solid var(--deep-line);border-radius:var(--r);overflow:hidden}
 .tfact{background:var(--deep);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:16px}
-.tfact .ic{width:34px;height:34px;border-radius:10px;background:#12291e;color:#33c47a;display:grid;place-items:center}
+.tfact .ic{width:34px;height:34px;border-radius:10px;background:var(--icon-bg);color:#8fa8ff;display:grid;place-items:center}
 .tfact .ic svg{width:17px;height:17px}
 .tfact b{font:600 18px/1.25 var(--display)}
 .tfact p{color:var(--deep-soft);font-size:15px;margin-top:4px}
@@ -210,7 +211,7 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .cta-copy .sub{color:var(--deep-soft)}
 .plan{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--deep-soft);font-size:15px}
 .plan span{display:inline-flex;gap:8px;align-items:center}
-.plan svg{width:16px;height:16px;color:#33c47a}
+.plan svg{width:16px;height:16px;color:#8fa8ff}
 .cta-pic{position:relative;overflow:hidden}
 .cta-pic img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:50% 25%;will-change:transform}
 .wl-box{margin-top:34px;background:var(--panel);color:var(--ink);border-radius:18px;padding:24px;max-width:460px}
