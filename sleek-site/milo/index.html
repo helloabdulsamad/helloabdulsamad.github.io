@@ -695,6 +695,48 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 @media (max-width:360px){.iphone{width:262px;height:560px}.lclock{font-size:62px}}
 @media (prefers-reduced-motion:reduce){.iphone{transform:none}}
 
+
+/* ===== iOS lock screen notifications ===== */
+.phone-float{transform-style:preserve-3d;animation:float 12s ease-in-out infinite;will-change:transform}
+@keyframes float{0%,100%{transform:rotateY(-10deg) rotateX(4deg) rotateZ(1deg) translateY(0)}50%{transform:rotateY(6deg) rotateX(2deg) rotateZ(-.5deg) translateY(-10px)}}
+.iphone{animation:none;transform:none;transform-style:flat;transition:transform 1.2s cubic-bezier(.22,1,.36,1)}
+.iphone.push{animation:none;transform:scale(1.035)}
+.screen{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;padding:0 10px 12px}
+.ldate{font:600 16px/1.2 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:rgba(255,255,255,.88)}
+.lclock{font-family:-apple-system,BlinkMacSystemFont,"-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif Pro Display",system-ui,sans-serif;font-weight:700;font-size:82px;letter-spacing:-.025em;line-height:.95}
+.screen .lock .np-badge{display:none}
+.screen .np-stack{position:relative;z-index:2;margin-top:auto;display:grid;gap:5px;padding-bottom:2px;align-content:end}
+.screen .nt{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr);gap:9px;align-items:center;padding:8px 11px 8px 9px;border-radius:17px;background:rgba(246,246,248,.74);-webkit-backdrop-filter:blur(24px) saturate(1.8);backdrop-filter:blur(24px) saturate(1.8);color:#000;box-shadow:none;animation:none;transition:none;will-change:transform}
+.screen .nt.done{background:rgba(246,246,248,.74)}
+.screen .nt.ghost{position:absolute;z-index:1;margin:0;pointer-events:none}
+.screen .nt .av{position:relative;width:30px;height:30px;border-radius:50%;background:#c7c7cc}
+.screen .nt .av img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.screen .nt .av i{position:absolute;right:-3px;bottom:-2px;width:14px;height:14px;border-radius:4px;background:#25d366 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3.4a8.5 8.5 0 0 0-7.3 12.9L3.6 20.4l4.2-1.1A8.5 8.5 0 1 0 12 3.4z' fill='none' stroke='%23fff' stroke-width='2'/%3E%3Cpath d='M9.1 7.9c.3-.3.8-.3 1 .1l.7 1.6c.1.3 0 .6-.2.8l-.5.5c.5 1.1 1.4 2 2.5 2.5l.5-.5c.2-.2.5-.3.8-.2l1.6.7c.4.2.4.7.1 1l-.6.6c-.6.6-1.5.8-2.3.4a9 9 0 0 1-4.5-4.5c-.4-.8-.2-1.7.4-2.3z' fill='%23fff'/%3E%3C/svg%3E") center/11px no-repeat;box-shadow:0 0 0 1.3px rgba(240,240,243,.95)}
+.screen .nt .tx{min-width:0;display:grid}
+.screen .nt .row{grid-area:1/1;padding:0;border:0;display:flex;justify-content:space-between;align-items:baseline;gap:6px;min-width:0}
+.screen .nt b{display:block;font:600 12.5px/1.25 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000;letter-spacing:-.008em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.screen .nt time{flex:none;font:400 11px/1.25 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:rgba(60,60,67,.6);white-space:nowrap;transition:color .3s}
+.screen .nt .msg,.screen .nt .rep{grid-area:2/1;margin:0;max-height:none;font:400 12.5px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000;letter-spacing:-.008em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity .35s ease,transform .5s cubic-bezier(.22,1,.36,1)}
+.screen .nt .rep{opacity:0;transform:translateY(6px)}
+.screen .nt .rep::before{content:"Milo: ";font-weight:600;color:#0b7a43}
+.screen .nt.done .msg{opacity:0;transform:translateY(-6px)}
+.screen .nt.done .rep{opacity:1;transform:none;margin:0}
+.screen .nt.done time{color:#0b7a43}
+.screen .np-more{position:relative;z-index:1;display:block;margin:-3px auto 0;top:auto;width:92%;height:8px;padding:0;border-radius:0 0 14px 14px;background:rgba(246,246,248,.45);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:0}
+.screen .np-more.two::after{content:"";position:absolute;left:5%;right:5%;top:8px;height:6px;border-radius:0 0 12px 12px;background:rgba(246,246,248,.26)}
+.screen .np-summary{position:relative;z-index:2;margin:auto 0 2px;padding:0;display:grid;gap:8px;justify-items:center;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;border-radius:0;text-align:left;animation:none}
+.screen .np-summary .nt{width:100%;align-items:start}
+.screen .np-summary .nt b{font:600 12.5px/1.25 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000}
+.screen .np-summary .nt p{margin:0;font:400 12.5px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000;letter-spacing:-.008em}
+.screen .nt .av.app{border-radius:8px;background:#10213d;color:#f1ede6;display:grid;place-items:center;font:700 15px/1 var(--display)}
+.screen .np-replay{margin:0;padding:7px 16px;border:0;border-radius:999px;background:rgba(246,246,248,.22);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:#fff;font:600 12px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;cursor:pointer}
+.screen .np-replay:hover{background:rgba(246,246,248,.32)}
+.lk-btns{position:relative;z-index:2;display:flex;justify-content:space-between;padding:12px 26px 16px}
+.lk{width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.34);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);display:grid;place-items:center}
+.lk.torch::after{content:"";width:8px;height:16px;border-radius:2px 2px 3px 3px;border:1.8px solid #fff;border-top-width:4px}
+.lk.cam::after{content:"";width:16px;height:12px;border-radius:3px;border:1.8px solid #fff}
+@media (max-width:900px){.island{width:92px;height:28px;margin-left:-46px;top:10px}.sbar{padding:15px 18px 0 22px;font-size:14px}.sb-icons{gap:4px}.sig em{width:2.5px}.wifi{width:13px;height:10px}.bat{width:22px;height:11px}.lclock{font-size:70px}.screen .nt b,.screen .nt .msg,.screen .nt .rep,.screen .np-summary .nt p{font-size:12px}}
+@media (prefers-reduced-motion:reduce){.phone-float{animation:none}}
 </style>
 </head>
 <body>
@@ -816,7 +858,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <p class="np-hint" id="npHint">Switch Milo on and watch what happens.</p>
       </div>
       <div class="phone-stage" id="phoneStage">
-        <div class="iphone" id="iphone">
+        <div class="phone-float"><div class="iphone" id="iphone">
           <span class="btn-act"></span><span class="btn-vu"></span><span class="btn-vd"></span><span class="btn-pw"></span>
           <div class="screen">
             <span class="wp wp1"></span><span class="wp wp2"></span><span class="wp wp3"></span>
@@ -830,15 +872,13 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
             <div class="np-stack" id="npStack" aria-live="polite"></div>
             <div class="np-more" id="npMore" hidden></div>
             <div class="np-summary" id="npSummary" hidden>
-              <b>All caught up</b>
-              <p>Milo answered every message, took the orders and the payments.</p>
-              <div class="np-nums"><span><strong>10</strong>chats</span><span><strong>3</strong>orders</span><span><strong>₦84.5k</strong>paid</span></div>
               <button type="button" class="np-replay" id="npReplay">Replay</button>
-              <small>Example evening at a demo shop</small>
+              <div class="nt milo"><span class="av app" aria-hidden="true">M</span><div class="tx"><div class="row"><b>All caught up</b><time>now</time></div><p>Milo answered 10 chats tonight. 3 orders paid, ₦84,500 received.</p></div></div>
             </div>
+            <div class="lk-btns" aria-hidden="true"><span class="lk torch"></span><span class="lk cam"></span></div>
             <div class="homebar"></div>
           </div>
-        </div>
+        </div></div>
         <div class="phone-shadow"></div>
       </div>
     </div>
@@ -1086,25 +1126,41 @@ document.addEventListener('DOMContentLoaded', function(){
   /* ---------- 9pm scene ---------- */
   (function(){
     const stack=$('#npStack'); if(!stack) return;
-    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today'],['Musa','Send me your account number','Sent a secure Paystack link'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?'],['Kemi','Do you have size 42?','Yes, 2 left in size 42'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm'],['Bayo','Any discount for two?','Passed to Bola to decide'],['Ife','Is it original?','Yes, checked before dispatch']];
-    const toggle=$('#npToggle'), badge=$('#npBadge'), timeEl=$('#npTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel');
+    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock','tolu'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days','chidi'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today','amaka'],['Musa','Send me your account number','Sent a secure Paystack link','musa'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓','ngozi'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?','femi'],['Kemi','Do you have size 42?','Yes, 2 left in size 42','kemi'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm','zainab'],['Bayo','Any discount for two?','Passed to Bola to decide','bayo'],['Ife','Is it original?','Yes, checked before dispatch','ife']];
+    const toggle=$('#npToggle'), timeEl=$('#npTime'), sb=$('#npSbTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel'), phone=$('#iphone'), screen=stack.parentNode;
     const MAXV=()=>innerWidth<900?3:4;
+    const EASE='cubic-bezier(.22,1,.36,1)', SPRING='cubic-bezier(.18,1.22,.32,1)';
+    const anim=(el,k,o)=>RM||!el.animate?null:el.animate(k,o);
     let timers=[], shown=0, on=false, started=false, minute=41;
     const clear=()=>{timers.forEach(clearTimeout);timers=[]};
-    const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
-    const setBadge=n=>{badge.textContent=n?n+' unread':'All answered';badge.classList.toggle('zero',!n)};
-    const tick=()=>{minute=Math.min(59,minute+1);const t='9:'+String(minute).padStart(2,'0');timeEl.textContent=t;const sb=$('#npSbTime');if(sb)sb.textContent=t};
-    const view=()=>{const cards=$$('.nt',stack);cards.forEach((c,k)=>c.hidden=k>=MAXV());const extra=cards.length-MAXV();more.hidden=extra<=0;if(extra>0)more.textContent='+'+extra+' more';};
-    const add=k=>{const [n,m,r]=N[k];const d=document.createElement('div');d.className='nt';d.innerHTML='<span class="ic" aria-hidden="true"></span><div><b></b><p></p></div><time>now</time><div class="rep"></div>';$('b',d).textContent=n;$('p',d).textContent=m;$('.rep',d).textContent='✓ Milo replied: '+r;$('time',d).textContent='now';stack.prepend(d);shown++;setBadge(shown);tick();view()};
-    const reset=()=>{clear();stack.innerHTML='';sum.hidden=true;stack.hidden=false;shown=0;on=false;minute=41;timeEl.textContent='9:41';$('#npSbTime')&&($('#npSbTime').textContent='9:41');$('#iphone')&&$('#iphone').classList.remove('push');setBadge(0);toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent='Your WhatsApp never stops.';sub.textContent='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false;more.hidden=true};
-    const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},RM?0:k*650));later(()=>{if(!on)switchOn(true)},RM?200:N.length*650+3200)};
-    const switchOn=auto=>{if(on)return;on=true;clear();$('#iphone')&&$('#iphone').classList.add('push');later(()=>$('#iphone')&&$('#iphone').classList.remove('push'),RM?0:2600);toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.hidden=true;
-      while(shown<N.length)add(shown);
-      const cards=$$('.nt',stack).reverse();let left=cards.length;
-      cards.forEach((c,k)=>later(()=>{c.hidden=false;c.classList.add('done');left--;setBadge(left);if(k>=MAXV())$$('.nt',stack).forEach((x,ix)=>x.hidden=!(x.classList.contains('done')&&ix<MAXV()));},RM?0:300+k*380));
-      later(()=>{h.textContent='Milo answers every one.';sub.textContent='Replies in seconds, orders taken, payments confirmed. You did not lift a finger.';},RM?0:400);
-      later(()=>{stack.hidden=true;more.hidden=true;sum.hidden=false},RM?50:300+cards.length*380+900)};
-    toggle.addEventListener('click',()=>{if(on){reset();started=true;flood()}else switchOn(false)});
+    const later=(fn,ms)=>timers.push(setTimeout(fn,RM?0:ms));
+    const setTime=m=>{const t='9:'+String(m).padStart(2,'0');timeEl.textContent=t;if(sb)sb.textContent=t};
+    const cards=()=>$$('.nt',stack);
+    const yOf=e=>e.offsetTop+stack.offsetTop;
+    const flip=mut=>{const before=new Map(cards().filter(c=>!c.hidden).map(c=>[c,yOf(c)]));mut();cards().forEach(c=>{if(c.hidden||!before.has(c))return;const d=before.get(c)-yOf(c);if(Math.abs(d)>.5)anim(c,[{transform:'translateY('+d+'px)'},{transform:'none'}],{duration:560,easing:EASE})})};
+    const ghost=c=>{if(RM)return;const g=c.cloneNode(true);g.classList.add('ghost');Object.assign(g.style,{left:(c.offsetLeft+stack.offsetLeft)+'px',top:yOf(c)+'px',width:c.offsetWidth+'px'});screen.appendChild(g);const a=anim(g,[{opacity:1,transform:'none'},{opacity:0,transform:'translateY(10px) scale(.92)'}],{duration:480,easing:EASE,fill:'forwards'});if(a)a.onfinish=()=>g.remove();else g.remove()};
+    const layers=()=>{const extra=cards().filter(c=>c.hidden).length;more.hidden=!extra;more.classList.toggle('two',extra>1)};
+    const ages=()=>cards().forEach((c,i)=>{if(!c.classList.contains('done'))$('time',c).textContent=i?i+'m ago':'now'});
+    const make=k=>{const [n,m,r,img]=N[k];const d=document.createElement('div');d.className='nt';d.innerHTML='<span class="av" aria-hidden="true"><img alt="" src="img/av/'+img+'.webp" width="30" height="30" decoding="async"><i></i></span><div class="tx"><div class="row"><b></b><time>now</time></div><p class="msg"></p><p class="rep"></p></div>';$('b',d).textContent=n;$('.msg',d).textContent=m;$('.rep',d).textContent=r;return d};
+    const add=k=>{const vis=cards().filter(c=>!c.hidden);const full=vis.length>=MAXV();const d=make(k);if(full)ghost(vis[vis.length-1]);
+      flip(()=>{stack.prepend(d);if(full)vis[vis.length-1].hidden=true;layers()});
+      anim(d,[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:640,easing:SPRING});
+      shown++;ages();minute=Math.min(59,minute+1);setTime(minute)};
+    const swap=(el,txt)=>{if(RM){el.textContent=txt;return}el.style.opacity=0;setTimeout(()=>{el.textContent=txt;el.style.opacity=1},380)};
+    const OFF_H='Your WhatsApp never stops.', OFF_S='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';
+    const reset=()=>{clear();$$('.ghost',screen).forEach(g=>g.remove());stack.innerHTML='';stack.hidden=false;sum.hidden=true;more.hidden=true;shown=0;on=false;minute=41;setTime(41);phone.classList.remove('push');toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent=OFF_H;h.style.opacity=1;sub.textContent=OFF_S;sub.style.opacity=1;hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false};
+    const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},k*700));later(()=>{if(!on)switchOn()},N.length*700+3000)};
+    const switchOn=()=>{if(on)return;on=true;clear();phone.classList.add('push');toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.textContent='Example evening at a demo shop.';
+      let t=150;for(let k=shown;k<N.length;k++){later(()=>add(k),t);t+=260}
+      t+=500;later(()=>{swap(h,'Milo answers every one.');swap(sub,'Replies in seconds, orders taken, payments confirmed. You did not lift a finger.')},150);
+      const V=Math.min(MAXV(),N.length);
+      for(let v=0;v<V;v++)later(()=>{const vis=cards().filter(c=>!c.hidden);const c=vis[vis.length-1-v];if(c){c.classList.add('done');$('time',c).textContent='Replied'}},t+v*480);
+      t+=V*480+900;
+      later(()=>{cards().forEach(c=>c.classList.add('done'));const vis=cards().filter(c=>!c.hidden);vis.forEach((c,i)=>setTimeout(()=>anim(c,[{opacity:1,transform:'none'},{opacity:0,transform:'translateX(115%)'}],{duration:420,easing:'cubic-bezier(.5,0,.75,0)',fill:'forwards'}),RM?0:i*110));anim(more,[{opacity:1},{opacity:0}],{duration:300,fill:'forwards'})},t);
+      t+=V*110+520;
+      later(()=>{stack.innerHTML='';more.hidden=true;more.getAnimations&&more.getAnimations().forEach(a=>a.cancel());sum.hidden=false;anim($('.nt',sum),[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:700,easing:SPRING});anim($('.np-replay',sum),[{opacity:0},{opacity:1}],{duration:500,delay:500,fill:'backwards'})},t);
+      later(()=>phone.classList.remove('push'),t+800)};
+    toggle.addEventListener('click',()=>{if(on){reset();started=true;flood()}else switchOn()});
     $('#npReplay').addEventListener('click',()=>{reset();started=true;flood()});
     reset();
     const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)&&!started){started=true;flood();io.disconnect()}},{threshold:.35});
