@@ -9,9 +9,9 @@
 <meta property="og:title" content="Milo · AI sales assistant for WhatsApp" />
 <meta property="og:description" content="Every WhatsApp message answered. Every order paid. Join the waitlist." />
 <meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
-<meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/stall-1600.webp" />
+<meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/shop-2200.webp" />
 <meta name="theme-color" content="#f4f6fa" />
-<link rel="preload" as="image" href="img/stall-1600.webp" imagesrcset="img/stall-900.webp 900w, img/stall-1600.webp 1600w" imagesizes="100vw" />
+<link rel="preload" as="image" href="img/shop-2200.webp" imagesrcset="img/shop-1000.webp 1000w, img/shop-2200.webp 2200w" imagesizes="100vw" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&display=swap" />
@@ -330,6 +330,151 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
   .chatpane .feed{position:relative;inset:auto;padding:22px 16px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ===== Chaos to calm hero ===== */
+.chaos{position:relative;background:#070d1f}
+.chaos-pin{position:relative;height:100vh;min-height:640px;overflow:hidden}
+.chaos-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;transform:scale(1.04)}
+.chaos-veil{position:absolute;inset:0;background:rgba(6,12,30,.62)}
+.chaos-copy{position:absolute;left:0;right:0;bottom:12vh;z-index:3;color:#fff}
+.chaos-copy .label{color:rgba(255,255,255,.75)}
+.chaos-copy .label::before{background:#8fa8ff}
+.chaos-h{position:relative;margin-top:18px;font-size:clamp(44px,6.6vw,104px);line-height:.98;max-width:11.5em;min-height:2em}
+.chaos-h span{display:block}
+.chaos-h .h-b{position:absolute;left:0;top:0;opacity:0;color:#fff}
+.chaos-h .h-b em{font-style:normal;color:#8fa8ff}
+.chaos-sub{margin-top:22px;color:rgba(255,255,255,.78);font-size:clamp(17px,1.5vw,20px);max-width:32em}
+.chaos .cta{margin-top:30px}
+.btn.glass{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.btn.glass:hover{background:rgba(255,255,255,.2)}
+.chaos .btn.accent{background:#ffffff;color:#0b1630}
+.counter{position:absolute;z-index:3;right:max(24px,4vw);top:110px;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
+.counter b{min-width:44px;height:32px;padding:0 10px;border-radius:999px;background:#ff5a4e;display:grid;place-items:center;font:600 15px/1 var(--body);transition:background .4s}
+.counter.zero b{background:#2fbf71}
+.counter span{font-size:14px}
+.bubbles{position:absolute;inset:0;z-index:2;pointer-events:none}
+.qb{position:absolute;left:var(--x);top:var(--y);width:max-content;max-width:250px;padding:10px 13px 9px;border-radius:16px 16px 16px 5px;background:#ffffff;color:#0b1630;font-size:14px;line-height:1.4;box-shadow:0 18px 40px -16px rgba(0,0,0,.55);transform:rotate(var(--r,0deg));transition:background .45s var(--ease)}
+.qb small{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#6f7890;margin-bottom:2px}
+.qb small i{font-style:normal;background:#ff5a4e;color:#fff;border-radius:999px;padding:0 6px;font-weight:600;transition:opacity .3s}
+.qb .tick{display:block;max-height:0;overflow:hidden;font-size:11.5px;font-weight:600;color:#1f3fae;transition:max-height .45s var(--ease),margin .45s var(--ease)}
+.qb.answered{background:#e6ecfd}
+.qb.answered .tick{max-height:20px;margin-top:4px}
+.qb.answered small i{opacity:0}
+.qb{animation:bob 6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.inbox{position:absolute;z-index:3;right:max(24px,5vw);top:50%;width:min(360px,34vw);transform:translateY(-50%);opacity:0;background:#fff;color:#0b1630;border-radius:20px;box-shadow:0 30px 60px -24px rgba(0,0,0,.6);overflow:hidden}
+.inbox-h{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #e6e9f2;font-weight:600}
+.inbox-h span{color:#2fbf71;font-size:13px;font-weight:600}
+.inbox-r{display:flex;justify-content:space-between;gap:10px;padding:11px 16px;border-bottom:1px solid #f0f2f7;font-size:13.5px}
+.inbox-r b{font-weight:500}
+.inbox-r span{color:#1f3fae;font-size:12px;font-weight:600;white-space:nowrap}
+.scrollhint{position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:13px;display:flex;align-items:center;gap:8px}
+.scrollhint i{width:18px;height:28px;border:1.5px solid rgba(255,255,255,.6);border-radius:10px;position:relative}
+.scrollhint i::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(9px)}}
+header.top.on-dark:not(.solid) .logo,header.top.on-dark:not(.solid) .links a:not(.btn){color:#fff}
+header.top.on-dark:not(.solid) .links .btn{background:#fff;color:#0b1630}
+header.top.on-dark:not(.solid) .theme{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+header.top.on-dark:not(.solid) .theme button{color:rgba(255,255,255,.7)}
+header.top.on-dark:not(.solid) .theme button[aria-checked="true"]{background:rgba(255,255,255,.22);color:#fff}
+header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3)}
+@media (max-width:860px){
+  .chaos-pin{height:auto;min-height:0;padding:96px 0 40px;display:flex;flex-direction:column}
+  .chaos-copy{order:1}.counter{order:2;margin-top:28px!important}.bubbles{order:3}.inbox{order:4}
+  .chaos-copy{position:relative;bottom:auto}
+  .counter{position:relative;right:auto;top:auto;margin:0 0 18px max(20px,env(safe-area-inset-left,0px));width:max-content}
+  .bubbles{position:relative;inset:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:26px max(20px,env(safe-area-inset-left,0px)) 0;pointer-events:auto}
+  .qb{position:relative;left:auto;top:auto;max-width:none;width:auto;transform:none;animation:none}
+  .qb:nth-child(n+7){display:none}
+  .inbox{position:relative;right:auto;top:auto;transform:none;width:auto;margin:16px max(20px,env(safe-area-inset-left,0px)) 0;opacity:1;display:none}
+  .inbox.show{display:block}
+  .chaos-h{min-height:0}
+  .chaos-h .h-b{position:relative;display:none}
+  .scrollhint{display:none}
+}
+
+/* ===== Try Milo live demo ===== */
+.try-grid{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch}
+.chatwin,.ownerwin{border-radius:24px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-height:620px;position:relative}
+.cw-h{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0b1736;color:#fff}
+.cw-h .av{width:38px;height:38px;border-radius:50%;background:#e8edfb;color:#1f3fae;display:grid;place-items:center;font:700 15px var(--display)}
+.cw-h b{display:block;font-weight:600}
+.cw-h small{display:flex;align-items:center;gap:6px;color:#b8c4e6;font-size:12.5px}
+.cw-h small::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fbf71}
+.cw-h .reset{margin-left:auto;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:10px;padding:8px 12px;font:500 13px var(--body);cursor:pointer}
+.cw-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--ground);max-height:470px;scroll-behavior:smooth}
+.bub{max-width:82%;padding:9px 12px 7px;border-radius:14px;font-size:14.5px;line-height:1.45;animation:bubIn .35s var(--ease) both}
+.bub.me{align-self:flex-end;background:#1f3fae;color:#fff;border-bottom-right-radius:5px}
+.bub.mi{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:5px}
+.bub time{display:block;text-align:right;font-size:10.5px;opacity:.65;margin-top:2px}
+@keyframes bubIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+.pcards{display:grid;gap:6px;margin:6px 0 2px}
+.pcard{display:flex;align-items:center;gap:10px;padding:7px;border-radius:11px;background:var(--ground);border:1px solid var(--line)}
+.pcard i{width:40px;height:40px;border-radius:9px;flex:none;display:grid;place-items:center;font-style:normal}
+.pcard i::after{content:"";width:20px;height:16px;border-radius:3px 3px 6px 6px;border:2.5px solid #fff;border-top-width:5px}
+.pcard b{display:block;font-size:13px;font-weight:600}
+.pcard small{font-size:12px;color:var(--faint)}
+.pcard .st{margin-left:auto;font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--tint);color:var(--accent);white-space:nowrap}
+.pcard .st.out{background:#fdeceb;color:#c2413a}
+.paybtn2{display:inline-flex;margin-top:8px;align-items:center;gap:8px;border:0;border-radius:10px;padding:9px 13px;background:#1f3fae;color:#fff;font:600 13.5px var(--body);cursor:pointer}
+.paybtn2[disabled]{opacity:.55;cursor:default}
+.typing2{align-self:flex-start;display:inline-flex;gap:4px;padding:11px 13px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
+.typing2 b{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:dot 1.1s infinite}
+.typing2 b:nth-child(2){animation-delay:.15s}.typing2 b:nth-child(3){animation-delay:.3s}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px 0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:999px;padding:8px 13px;font:500 13.5px var(--body);cursor:pointer;transition:border-color .2s,background .2s}
+.chip:hover{border-color:var(--accent);background:var(--tint)}
+.chip mark{background:transparent;color:var(--accent);font-weight:600}
+.cw-form{display:flex;gap:8px;padding:12px 14px 14px}
+.cw-form input{flex:1;min-width:0;border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:12px;padding:12px 14px;font:15px var(--body);outline:none}
+.cw-form input:focus{border-color:var(--accent)}
+.cw-form button{border:0;border-radius:12px;background:#1f3fae;color:#fff;width:48px;display:grid;place-items:center;cursor:pointer}
+.cw-form button svg{width:18px;height:18px}
+.sheet2{position:absolute;inset:0;z-index:5;background:rgba(6,12,30,.5);display:flex;align-items:flex-end}
+.sheet2 .card{width:100%;background:var(--panel);border-radius:22px 22px 0 0;padding:22px;display:grid;gap:12px;animation:up .35s var(--ease) both}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.sheet2 .brand{display:flex;justify-content:space-between;align-items:center;font-weight:600}
+.sheet2 .brand small{color:var(--faint);font-weight:500}
+.sheet2 .amt{font:600 34px/1 var(--display)}
+.sheet2 .row2{display:flex;justify-content:space-between;color:var(--soft);font-size:14px}
+.sheet2 .go{border:0;border-radius:12px;background:#0aa05c;color:#fff;padding:14px;font:600 15px var(--body);cursor:pointer}
+.sheet2 .cancel{border:0;background:transparent;color:var(--soft);font:500 14px var(--body);cursor:pointer}
+.ow-h{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+.ow-h b{font:600 16px var(--display)}
+.ow-h span{font-size:12.5px;color:var(--faint)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.stat{background:var(--panel);padding:16px 18px}
+.stat small{display:block;color:var(--faint);font-size:12.5px}
+.stat b{font:600 26px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.ow-body{padding:18px;display:grid;gap:16px;align-content:start;flex:1}
+.ow-body h4{margin:0 0 8px;font:600 12px/1 var(--body);text-transform:uppercase;letter-spacing:.09em;color:var(--faint)}
+.ordercard{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--ground);display:grid;gap:8px}
+.ordercard .r{display:flex;justify-content:space-between;font-size:14px}
+.ordercard .r span{color:var(--soft)}
+.status{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--line);color:var(--soft)}
+.status.wait{background:#fff4dc;color:#a46a00}
+.status.paid{background:#e2f6ea;color:#0a8a4c}
+.empty{color:var(--faint);font-size:14px;padding:14px 16px;border:1px dashed var(--line);border-radius:16px}
+.feed{display:grid;gap:0;max-height:210px;overflow-y:auto}
+.feed div{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13.5px;animation:bubIn .35s var(--ease) both}
+.feed time{color:var(--faint);font-size:12px;min-width:38px;font-variant-numeric:tabular-nums}
+.feed .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);margin-top:6px;flex:none}
+.feed .dot.warn{background:#e0a100}.feed .dot.ok{background:#0aa05c}.feed .dot.alert{background:#e0483e}
+.alert{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:14px;background:#fdeceb;color:#8f2a24;font-size:14px}
+.alert b{display:block}
+.try-note{margin-top:18px;text-align:center;color:var(--faint);font-size:13.5px}
+@media (max-width:980px){.try-grid{grid-template-columns:1fr}.chatwin,.ownerwin{min-height:0}.cw-body{max-height:420px;min-height:360px}}
+
+.ftrack{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ft{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--faint);padding:7px 10px;border-radius:10px;border:1px solid var(--line);transition:all .35s var(--ease)}
+.ft::before{content:"";width:14px;height:14px;border-radius:50%;border:1.5px solid var(--line);flex:none;transition:all .35s var(--ease)}
+.ft.on{color:var(--ink);border-color:var(--accent);background:var(--tint)}
+.ft.on::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--tint)}
+.ftcount{float:right;color:var(--accent);font-weight:600;letter-spacing:0;text-transform:none}
+.linkline{display:block;margin-top:6px;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;word-break:break-all}
+@media (max-width:420px){.ftrack{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -342,7 +487,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
     </a>
     <div class="nav-right">
     <nav class="links" aria-label="Main">
-      <a href="#story">How it works</a>
+      <a href="#try">Try Milo</a>
       <a href="#features">Features</a>
       <a href="#trust">Security</a>
       <a href="#faq">FAQ</a>
@@ -358,7 +503,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
   </div>
 </header>
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
-  <a href="#story">How it works</a>
+  <a href="#try">Try Milo</a>
   <a href="#features">Features</a>
   <a href="#trust">Security</a>
   <a href="#faq">FAQ</a>
@@ -366,72 +511,78 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 </nav>
 
 <main id="top">
-  <!-- Hero -->
-  <section class="hero2">
-    <div class="hero-canvas">
-      <div class="hero-bg" id="heroPhoto"><img src="img/stall-1600.webp" srcset="img/stall-900.webp 900w, img/stall-1600.webp 1600w" sizes="100vw" width="1600" height="1143" alt="A trader at her stall checking customer messages on her phone" fetchpriority="high" /></div>
-      <div class="wrap hero-inner">
-        <div class="hero-panel">
-          <span class="label" data-hero>AI sales assistant for WhatsApp</span>
-          <h1 style="margin-top:18px">
-            <span class="line"><span>Every WhatsApp</span></span>
-            <span class="line"><span>message answered.</span></span>
-            <span class="line"><span>Every order <em>paid.</em></span></span>
-          </h1>
-          <p class="lede" data-hero>Milo answers your customers in seconds, finds the right product, checks their orders and sends a Paystack payment link. You stay in charge of the chats that need you.</p>
-          <div class="cta" data-hero>
-            <a class="btn accent" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a class="btn ghost" href="#story">See how it works</a>
-          </div>
-          <div class="meta" data-hero>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>No new app for customers</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Paystack payments</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>No developer needed</span>
-          </div>
-        </div>
-        <div class="hero-float">
-          <div class="toast" data-pop><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><div><b>Payment received</b><small>₦34,500 via Paystack · example</small></div></div>
-          <div class="app" data-pop aria-label="Example of the Milo inbox">
-            <div class="app-bar"><b><i>M</i>Milo inbox</b><span class="live">Replying</span></div>
-            <div class="thread">
-              <div class="m in"><small>Customer</small>Do you still have the black one in stock?</div>
-              <div class="m out"><small>Milo</small>Yes, it's ₦34,500 and in stock. Shall I send a payment link?</div>
-            </div>
-            <div class="order"><div><small>Order · example</small><b>Classic Leather, Black</b></div><span class="pill">Paid</span></div>
-          </div>
+  <!-- Hero: chaos to calm -->
+  <section class="chaos" id="hero">
+    <div class="chaos-pin" id="chaosPin">
+      <img class="chaos-bg" id="chaosBg" src="img/shop-2200.webp" srcset="img/shop-1000.webp 1000w, img/shop-2200.webp 2200w" sizes="100vw" width="2200" height="1469" alt="A smiling shop owner in her clothing store" fetchpriority="high" />
+      <div class="chaos-veil"></div>
+      <div class="counter" id="counter"><b id="unread">128</b><span id="unreadLabel">unread messages</span></div>
+      <div class="bubbles" id="bubbles" aria-hidden="true">
+        <div class="qb" style="--x:4%;--y:14%;--r:-3deg;--d:-1s"><small>Tolu · 21:02 <i>1</i></small>Do you have this bag in black?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:60%;--y:11%;--r:2deg;--d:-3s"><small>Chidi · 21:03 <i>2</i></small>How much is delivery to Abuja?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:70%;--y:31%;--r:-2deg;--d:-2s"><small>Amaka · 21:04 <i>1</i></small>Where is my order? I paid yesterday<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:21%;--y:27%;--r:3deg;--d:-4s"><small>Ife · 21:05 <i>3</i></small>Is it original?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:61%;--y:49%;--r:-1deg;--d:-1.5s"><small>Musa · 21:06 <i>1</i></small>Send me your account number<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:3%;--y:37%;--r:-2deg;--d:-2.5s"><small>Ngozi · 21:06 <i>2</i></small>Can I pay on delivery?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:81%;--y:57%;--r:2deg;--d:-3.5s"><small>Kemi · 21:07 <i>1</i></small>Do you have size 42?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:35%;--y:7%;--r:-2deg;--d:-.5s"><small>Femi · 21:08 <i>4</i></small>Hello?? Are you there?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:64%;--y:69%;--r:1deg;--d:-4.5s"><small>Zainab · 21:09 <i>1</i></small>When will it arrive in Ibadan?<span class="tick">✓✓ Answered by Milo</span></div>
+        <div class="qb" style="--x:83%;--y:21%;--r:3deg;--d:-2.2s"><small>Bayo · 21:10 <i>2</i></small>Any discount for two?<span class="tick">✓✓ Answered by Milo</span></div>
+      </div>
+      <div class="inbox" id="inbox">
+        <div class="inbox-h">Inbox <span>All answered</span></div>
+        <div class="inbox-r"><b>Tolu · Black bag</b><span>✓✓ Replied</span></div>
+        <div class="inbox-r"><b>Chidi · Delivery to Abuja</b><span>✓✓ Replied</span></div>
+        <div class="inbox-r"><b>Amaka · Order status</b><span>✓✓ Replied</span></div>
+        <div class="inbox-r"><b>Musa · Payment link sent</b><span>✓✓ Replied</span></div>
+        <div class="inbox-r"><b>Ngozi · Paid ₦28,000</b><span>✓✓ Paid</span></div>
+      </div>
+      <div class="wrap chaos-copy">
+        <span class="label">AI sales assistant for WhatsApp</span>
+        <h1 class="chaos-h"><span class="h-a">Your WhatsApp never stops.</span><span class="h-b">Milo answers<br><em>every one.</em></span></h1>
+        <p class="chaos-sub">Questions, orders and payments, handled in seconds, while you run your shop.</p>
+        <div class="cta">
+          <a class="btn accent" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn glass" href="#try">Try Milo now</a>
         </div>
       </div>
+      <div class="scrollhint"><i></i>Scroll and watch Milo work</div>
     </div>
   </section>
 
-  <div class="works" style="padding-top:48px"><div class="wrap"><span>Works where your customers already are</span><b>WhatsApp Business</b><b>Paystack</b><b>Your product catalogue</b></div></div>
-
-  <!-- Pinned story -->
-  <section class="story band-white" id="story">
-    <div class="story-pin" id="storyPin">
-      <div class="wrap story-grid">
-        <div>
-          <span class="label">How a sale happens</span>
-          <h2 class="h2">From first message to paid order, in one chat.</h2>
-          <div class="beats" id="beats">
-            <i class="bar" id="beatBar"></i>
-            <div class="beat on"><h3>A customer asks</h3><p>They message your WhatsApp number, any time of day.</p></div>
-            <div class="beat on"><h3>Milo finds the product</h3><p>It checks your live catalogue for price, size and stock.</p></div>
-            <div class="beat on"><h3>Milo takes the order</h3><p>It places the order and sends a Paystack payment link.</p></div>
-            <div class="beat on"><h3>Payment is confirmed</h3><p>The amount and order are checked before it counts.</p></div>
-          </div>
+  <!-- Try Milo live -->
+  <section class="band-white" id="try">
+    <div class="wrap">
+      <span class="label">Try it yourself</span>
+      <h2 class="h2">Be the customer. Watch the owner's side update.</h2>
+      <p class="sub">Chat with Milo as a customer of a demo bag shop. Ask about products, stock, delivery or your order. Milo creates a Paystack payment link, confirms the payment and keeps the owner's dashboard up to date. Try to tick off every feature.</p>
+      <div class="try-grid">
+        <div class="chatwin" id="chatwin">
+          <div class="cw-h"><div class="av">B</div><div><b>Bola's Bags</b><small>Milo is replying</small></div><button class="reset" type="button" id="resetDemo">Start over</button></div>
+          <div class="cw-body" id="cwBody" aria-live="polite"></div>
+          <div class="chips" id="chips"></div>
+          <form class="cw-form" id="cwForm" autocomplete="off">
+            <label for="cwInput" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Message</label>
+            <input id="cwInput" type="text" placeholder="Type a message, e.g. do you have a black tote?" maxlength="200" />
+            <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
         </div>
-        <div class="chatpane">
-          <img src="img/market-1600.webp" srcset="img/market-900.webp 900w, img/market-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 50vw" width="1600" height="1068" alt="A trader at a fruit stall giving a thumbs up with his phone" loading="lazy" />
-          <div class="feed" aria-label="Example conversation">
-            <div class="m in" data-b><small>Customer · 21:14</small>Good evening. Do you have a black leather watch under ₦40k?</div>
-            <div class="m out" data-b><small>Milo · 21:14</small>Yes, this one fits:<div class="card"><i></i><div><b>Classic Leather, Black</b><small>₦34,500 · in stock</small></div></div></div>
-            <div class="m in" data-b><small>Customer · 21:15</small>I'll take it. Delivery to Lekki.</div>
-            <div class="m out" data-b><small>Milo · 21:15</small>Done. Your order is ready, pay here:<br><span class="paybtn">Pay ₦34,500</span></div>
-            <div class="m out" data-b><small>Milo · 21:17</small>Payment received. Thank you, we'll start delivery.</div>
+        <div class="ownerwin" aria-live="polite">
+          <div class="ow-h"><b>Owner dashboard</b><span>Bola's Bags · live</span></div>
+          <div class="stats">
+            <div class="stat"><small>Chats</small><b id="sChats">0</b></div>
+            <div class="stat"><small>Orders</small><b id="sOrders">0</b></div>
+            <div class="stat"><small>Paid</small><b id="sPaid">₦0</b></div>
+          </div>
+          <div class="ow-body">
+            <div id="alertBox"></div>
+            <div><h4>Current order</h4><div id="orderBox"><div class="empty">No order yet. Ask about a bag and say you'll take it.</div></div></div>
+            <div><h4>Features you've tried <span class="ftcount" id="ftCount">0 of 10</span></h4><div class="ftrack" id="ftrack"><div class="ft" data-f="search">Product search</div><div class="ft" data-f="stock">Live stock check</div><div class="ft" data-f="delivery">Delivery quote</div><div class="ft" data-f="order">Order created</div><div class="ft" data-f="link">Paystack link</div><div class="ft" data-f="paid">Payment confirmed</div><div class="ft" data-f="track">Order tracking</div><div class="ft" data-f="safe">No account numbers</div><div class="ft" data-f="handover">Hand over to you</div><div class="ft" data-f="restock">Restock alert</div></div></div>
+            <div><h4>Activity</h4><div class="feed" id="feed"><div><span class="dot"></span><time>now</time><span>Waiting for a customer message</span></div></div></div>
           </div>
         </div>
       </div>
+      <p class="try-note">Demo shop with simulated replies. The real Milo uses your own products, prices and delivery rules.</p>
     </div>
   </section>
 
@@ -476,40 +627,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
         <img src="img/watchshop-bar.webp" width="1440" height="55" alt="" aria-hidden="true" loading="lazy" style="width:100%;height:auto" />
         <div class="shot"><img src="img/watchshop-card.webp" width="590" height="810" alt="A watch for sale on WatchShop.ng" loading="lazy" /></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Dashboard -->
-  <section class="band-tint">
-    <div class="wrap">
-      <span class="label">Your dashboard</span>
-      <h2 class="h2">Every conversation and order, in one place.</h2>
-      <p class="sub">See what Milo said, step into any chat, and follow every order from question to payment.</p>
-      <div class="dash" data-reveal aria-label="Example of the Milo dashboard">
-        <div class="dash-top"><i></i><i></i><i></i><span>milo · inbox</span></div>
-        <div class="dash-body">
-          <div class="d-list">
-            <div class="d-item on"><div class="d-av">AO</div><div><b>Adaeze O.</b><small>Payment received, thank you</small></div></div>
-            <div class="d-item"><div class="d-av">TB</div><div><b>Tunde B.</b><small>How much is delivery to Abuja?</small></div></div>
-            <div class="d-item"><div class="d-av">FM</div><div><b>Fatima M.</b><small>Do you have size 42?</small></div></div>
-            <div class="d-item"><div class="d-av">KE</div><div><b>Kelechi E.</b><small>Where is my order?</small></div></div>
-          </div>
-          <div class="d-chat">
-            <div class="m in"><small>Adaeze O.</small>Do you have a black leather watch under ₦40k?</div>
-            <div class="m out"><small>Milo</small>Yes, the Classic Leather in black is ₦34,500 and in stock.</div>
-            <div class="m in"><small>Adaeze O.</small>I'll take it. Delivery to Lekki.</div>
-            <div class="m out"><small>Milo</small>Here's your Paystack link. Payment received, thank you!</div>
-          </div>
-          <div class="d-side">
-            <h4>Order</h4>
-            <div class="row"><span>Item</span><b>Classic Leather</b></div>
-            <div class="row"><span>Amount</span><b>₦34,500</b></div>
-            <div class="row"><span>Delivery</span><b>Lekki</b></div>
-            <div class="row"><span>Status</span><span class="pill">Paid</span></div>
-          </div>
-        </div>
-      </div>
-      <p class="example">Example screen. The dashboard comes with the version for businesses.</p>
     </div>
   </section>
 
@@ -599,74 +716,185 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 const TALLY_FORM_ID = "";
 
 document.addEventListener('DOMContentLoaded', function(){
-  // Menu
-  const b=document.getElementById('burger'), s=document.getElementById('sheet'), hdr=document.getElementById('hdr');
-  const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.documentElement.style.overflow=o?'hidden':'';hdr.classList.toggle('solid',o||scrollY>10)};
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Header, menu, theme ---------- */
+  const b=$('#burger'), s=$('#sheet'), hdr=$('#hdr');
+  hdr.classList.add('on-dark');
+  const solid=()=>{const heroH=($('#hero')||{offsetHeight:0}).offsetHeight; hdr.classList.toggle('solid',scrollY>heroH-80||!s.hidden)};
+  const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.documentElement.style.overflow=o?'hidden':'';solid()};
   b.addEventListener('click',()=>set(s.hidden));
-  s.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+  $$('a',s).forEach(a=>a.addEventListener('click',()=>set(false)));
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!s.hidden){set(false);b.focus()}});
   matchMedia('(min-width:861px)').addEventListener('change',e=>e.matches&&set(false));
-  const solid=()=>hdr.classList.toggle('solid',scrollY>10||!s.hidden); solid(); addEventListener('scroll',solid,{passive:true});
+  solid(); addEventListener('scroll',solid,{passive:true});
 
-  // Theme switch: System (default), Light, Dark
-  const tb=[...document.querySelectorAll('[data-theme-set]')], mq=matchMedia('(prefers-color-scheme: dark)');
+  const tb=$$('[data-theme-set]'), mq=matchMedia('(prefers-color-scheme: dark)');
   const getC=()=>{try{const c=localStorage.getItem('milo-theme');return c==='light'||c==='dark'?c:'system'}catch(e){return 'system'}};
   const applyT=c=>{document.documentElement.dataset.theme=(c==='dark'||(c==='system'&&mq.matches))?'dark':'light';tb.forEach(x=>x.setAttribute('aria-checked',String(x.dataset.themeSet===c)))};
   tb.forEach(x=>x.addEventListener('click',()=>{const c=x.dataset.themeSet;try{c==='system'?localStorage.removeItem('milo-theme'):localStorage.setItem('milo-theme',c)}catch(e){}applyT(c)}));
   mq.addEventListener('change',()=>getC()==='system'&&applyT('system'));
   applyT(getC());
 
-  // Waitlist embed
   if(TALLY_FORM_ID){
-    document.getElementById('wlbox').innerHTML='<iframe title="Milo waitlist" loading="lazy" src="https://tally.so/embed/'+TALLY_FORM_ID+'?hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>';
+    $('#wlbox').innerHTML='<iframe title="Milo waitlist" loading="lazy" src="https://tally.so/embed/'+TALLY_FORM_ID+'?hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>';
     const t=document.createElement('script');t.src='https://tally.so/widgets/embed.js';t.async=true;document.body.appendChild(t);
   }
 
-  // Motion: everything is visible without it. Skipped for reduced motion or if the libraries fail to load.
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap) return;
+  /* ---------- Try Milo: simulated shop assistant ---------- */
+  const naira=n=>'₦'+n.toLocaleString('en-NG');
+  const now=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+  const CAT=[
+    {id:'tote-black',name:'Mini Tote, Black',price:28000,stock:6,color:'#141a2b',keys:['black','tote black','black tote','black bag']},
+    {id:'tote-tan',name:'Mini Tote, Tan',price:28000,stock:0,color:'#b98a5e',keys:['tan','camel','beige']},
+    {id:'cross',name:'Crossbody, Brown',price:19500,stock:3,color:'#6b4430',keys:['crossbody','cross body','brown','small bag','sling']},
+    {id:'week',name:'Weekender, Navy',price:45000,stock:2,color:'#1f3fae',keys:['weekender','travel','navy','big bag','large']}
+  ];
+  const CITIES={lagos:[2500,'1 day'],abuja:[4500,'2 days'],ibadan:[3500,'2 days'],'port harcourt':[5000,'3 days'],kano:[5500,'3 days'],enugu:[4500,'2 days']};
+  const ALL_SUGG=['Do you have a black tote?','What bags do you have?','How much is delivery to Abuja?','I\'ll take it','Deliver to Lagos','Where is my order?','Can I pay on delivery?','Send me your account number','Is the tan tote available?','I want a refund','How much is the weekender?','Thank you'];
+  const body=$('#cwBody'), chips=$('#chips'), form=$('#cwForm'), input=$('#cwInput');
+  let st;
+  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$('#feed').innerHTML='';$('#alertBox').innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;renderOrder();stats();log('Waiting for a customer message','');
+    bot([{t:'Hi! I\'m Milo, the assistant for Bola\'s Bags. Ask me about our bags, delivery, or your order.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
+  const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length;$('#ftCount').textContent=n+' of '+$$('.ft').length}};
+  const stats=()=>{$('#sChats').textContent=st.chats;$('#sOrders').textContent=st.orders;$('#sPaid').textContent=naira(st.paid)};
+  const log=(txt,kind)=>{const d=document.createElement('div');d.innerHTML='<span class="dot '+(kind||'')+'"></span><time>'+now()+'</time><span></span>';d.lastChild.textContent=txt;const f=$('#feed');f.prepend(d)};
+  const renderOrder=()=>{const o=st.order, box=$('#orderBox');
+    if(!o){box.innerHTML='<div class="empty">No order yet. Ask about a bag and say you\'ll take it.</div>';return}
+    const cls=o.status==='Paid'?'paid':'wait';
+    box.innerHTML='<div class="ordercard"><div class="r"><b>'+o.p.name+'</b><span class="status '+cls+'">'+o.status+'</span></div><div class="r"><span>Delivery</span><b>'+o.cityName+' · '+naira(o.fee)+'</b></div><div class="r"><span>Total</span><b>'+naira(o.total)+'</b></div></div>'};
+  const scroll=()=>{body.scrollTop=body.scrollHeight};
+  const addMe=txt=>{const d=document.createElement('div');d.className='bub me';d.textContent=txt;const t=document.createElement('time');t.textContent=now();d.appendChild(t);body.appendChild(d);scroll()};
+  const card=p=>'<div class="pcard"><i style="background:'+p.color+'"></i><div><b>'+p.name+'</b><small>'+naira(p.price)+'</small></div><span class="st'+(p.stock?'':' out')+'">'+(p.stock?p.stock+' in stock':'Sold out')+'</span></div>';
+  const addBot=m=>{const d=document.createElement('div');d.className='bub mi';const p=document.createElement('div');p.textContent=m.t;d.appendChild(p);
+    if(m.cards){const c=document.createElement('div');c.className='pcards';c.innerHTML=m.cards.map(card).join('');d.appendChild(c)}
+    if(m.pay){const ref='BB-'+String(1000+Math.floor((Date.now()/1000)%9000));const ln=document.createElement('span');ln.className='linkline';ln.textContent='paystack.com/pay/bolasbags · ref '+ref+' · demo link';d.appendChild(ln);const bt=document.createElement('button');bt.type='button';bt.className='paybtn2';bt.textContent='Pay '+naira(m.pay)+' with Paystack';bt.addEventListener('click',()=>openPay(bt));d.appendChild(bt)}
+    const t=document.createElement('time');t.textContent=now()+' · Milo';d.appendChild(t);body.appendChild(d);scroll()};
+  const setChips=list=>{chips.innerHTML='';(list||[]).forEach(x=>{const c=document.createElement('button');c.type='button';c.className='chip';c.textContent=x;c.addEventListener('click',()=>send(x));chips.appendChild(c)})};
+  const bot=(msgs,next,delay=650)=>{st.busy=true;const ty=document.createElement('div');ty.className='typing2';ty.innerHTML='<b></b><b></b><b></b>';
+    const go=i=>{if(i>=msgs.length){st.busy=false;setChips(next);return}
+      body.appendChild(ty);scroll();setTimeout(()=>{ty.remove();addBot(msgs[i]);go(i+1)},RM?0:delay+Math.min(900,msgs[i].t.length*9))};
+    if(delay===0){msgs.forEach(addBot);st.busy=false;setChips(next)}else go(0)};
+  const has=(t,arr)=>arr.some(k=>t.includes(k));
+  const findP=t=>CAT.find(p=>has(t,p.keys));
+  const findCity=t=>Object.keys(CITIES).find(c=>t.includes(c));
+  const makeOrder=()=>{const p=st.last, c=st.city, [fee,days]=CITIES[c];st.order={p,city:c,cityName:c.replace(/\b\w/g,x=>x.toUpperCase()),fee,days,total:p.price+fee,status:'Awaiting payment'};st.orders++;st.pending=false;stats();renderOrder();markF('order');markF('link');log('Order created: '+p.name+' to '+st.order.cityName,'warn');log('Paystack payment link sent','');
+    return [{t:'Order ready! '+p.name+' with delivery to '+st.order.cityName+' ('+days+'). Total '+naira(st.order.total)+'. Pay securely here:',pay:st.order.total}]};
+  function reply(raw){
+    const t=raw.toLowerCase();
+    if(has(t,['refund','complain','damaged','broken','angry','manager','owner','human','real person','speak to','not happy','wrong item'])){
+      $('#alertBox').innerHTML='<div class="alert"><span>⚠</span><div><b>Milo needs you</b>A customer asked for a person: "'+raw.replace(/[<>&"]/g,'').slice(0,60)+'"</div></div>';log('Handed over to the owner','alert');markF('handover');
+      return [[{t:'I\'m sorry about that. I\'ve passed this to Bola, the owner, and she\'ll reply to you here shortly.'}],['What bags do you have?','Where is my order?']]}
+    if(has(t,['account number','account no','transfer','bank details','acct'])){log('Asked for account number, sent secure link instead','');markF('safe');
+      return [[{t:'No need to send money to an account. I\'ll give you a secure Paystack link when you\'re ready, so your payment is confirmed instantly.'}],['Do you have a black tote?','I\'ll take it']]}
+    if(has(t,['pay on delivery','payment on delivery','cash on delivery','pod'])){markF('safe');
+      return [[{t:'We take payment before delivery through a Paystack link. It reserves your bag and you get a confirmation straight away.'}],['I\'ll take it','How much is delivery to Abuja?']]}
+    if(has(t,['where is my order','track','my order','order status','arrive','when will'])&&!findCity(t)){
+      const o=st.order;markF('track');
+      if(o&&o.status==='Paid')return [[{t:'Your '+o.p.name+' is paid and being packed. Delivery to '+o.cityName+' takes '+o.days+'. You\'ll get a message when it\'s on the way.'}],['Thank you','What bags do you have?']];
+      if(o)return [[{t:'I can see your order for '+o.p.name+', but it\'s still waiting for payment.',pay:o.total}],['Can I pay on delivery?']];
+      log('Order lookup: none found for this number','');
+      return [[{t:'I can\'t find an order on this WhatsApp number yet. Would you like to place one?'}],['What bags do you have?','Do you have a black tote?']]}
+    const city=findCity(t), p=findP(t);
+    if(p){st.last=p;}
+    if(has(t,['take it','buy','order','i want','i\'ll have','ill take','add to','i\'ll take']) || (st.pending&&city)){
+      if(!st.last) return [[{t:'Happy to help you order. Which bag would you like?',cards:CAT}],['Do you have a black tote?','How much is the weekender?']];
+      if(!st.last.stock){markF('stock');const alt=CAT.find(x=>x.stock&&x.price===st.last.price)||CAT[0];st.last=alt;return [[{t:'That one is sold out, but the '+alt.name+' is the same price and in stock.',cards:[alt]}],['I\'ll take it']]}
+      if(city){st.city=city;return [makeOrder(),['Where is my order?']]}
+      st.pending=true;log('Customer wants '+st.last.name,'');
+      return [[{t:'Great choice. Where should we deliver the '+st.last.name+'?'}],['Deliver to Lagos','Deliver to Abuja','Deliver to Ibadan']]}
+    if(city||has(t,['deliver','delivery','shipping','ship'])){
+      if(city){st.city=city;const [fee,days]=CITIES[city];markF('delivery');log('Asked about delivery to '+city.replace(/\b\w/g,x=>x.toUpperCase()),'');
+        if(st.pending&&st.last)return [makeOrder(),['Where is my order?']];
+        return [[{t:'Delivery to '+city.replace(/\b\w/g,x=>x.toUpperCase())+' is '+naira(fee)+' and takes '+days+'.'}],st.last?['I\'ll take it','What bags do you have?']:['What bags do you have?','Do you have a black tote?']]}
+      markF('delivery');return [[{t:'We deliver nationwide. Lagos is ₦2,500 (1 day) and most other cities are ₦3,500 to ₦5,500. Which city are you in?'}],['Deliver to Lagos','Deliver to Abuja','Deliver to Port Harcourt']]}
+    if(p){log('Asked about '+p.name,'');markF('search');markF('stock');
+      if(!p.stock){const alt=CAT[0];return [[{t:'The '+p.name+' is sold out right now. The '+alt.name+' is the same price and in stock.',cards:[p,alt]}],['I\'ll take the black one','Notify me when it\'s back']]}
+      return [[{t:'Yes! The '+p.name+' is '+naira(p.price)+' and in stock.',cards:[p]}],['I\'ll take it','How much is delivery to Abuja?','Is it original?']]}
+    if(has(t,['how much','price','cost'])){
+      if(st.last)return [[{t:'The '+st.last.name+' is '+naira(st.last.price)+'.'}],['I\'ll take it','How much is delivery to Abuja?']];
+      markF('search');return [[{t:'Here are our prices:',cards:CAT}],['Do you have a black tote?','I\'ll take it']]}
+    if(has(t,['what do you have','bags','show','catalogue','catalog','collection','available','sell','options','products'])){
+      markF('search');return [[{t:'Here\'s what we have today:',cards:CAT}],['Do you have a black tote?','How much is the weekender?','Is the tan tote available?']]}
+    if(has(t,['original','quality','real','authentic','leather'])){
+      return [[{t:'Every bag is checked before it leaves the shop, and Bola only stocks quality leather and canvas bags.'}],['What bags do you have?','I\'ll take it']]}
+    if(has(t,['discount','cheaper','reduce','best price'])){
+      return [[{t:'Prices are fixed, but delivery in Lagos is only ₦2,500. Want to see what\'s in stock?'}],['What bags do you have?']]}
+    if(has(t,['notify','back in stock'])){markF('restock');log('Customer wants restock alert for Mini Tote, Tan','');return [[{t:'Done. I\'ll message you here as soon as the tan tote is back.'}],['What bags do you have?']]}
+    if(has(t,['thank','thanks','ok','okay','great','nice'])) return [[{t:'You\'re welcome! Anything else I can help with?'}],['What bags do you have?','Where is my order?']];
+    if(has(t,['hi','hello','hey','good morning','good evening','good afternoon'])) return [[{t:'Hello! Welcome to Bola\'s Bags. Are you looking for something today?'}],['What bags do you have?','Do you have a black tote?']];
+    return [[{t:'I can help with our bags, prices, delivery, your order or payment. Try one of these:'}],['What bags do you have?','How much is delivery to Abuja?','Where is my order?']];
+  }
+  function send(txt){txt=(txt||'').trim();if(!txt||st.busy)return;
+    if(!st.started){st.started=true;st.chats=1;stats();log('New chat started','')}
+    addMe(txt);input.value='';setChips([]);const [msgs,next]=reply(txt);bot(msgs,next)}
+  function openPay(btn){if(!st.order||st.order.status==='Paid'){return}
+    const o=st.order, sh=document.createElement('div');sh.className='sheet2';
+    sh.innerHTML='<div class="card" role="dialog" aria-label="Demo payment"><div class="brand"><span>Paystack checkout</span><small>Demo, no real payment</small></div><div class="amt">'+naira(o.total)+'</div><div class="row2"><span>'+o.p.name+'</span><span>Bola\'s Bags</span></div><button class="go" type="button">Pay now</button><button class="cancel" type="button">Cancel</button></div>';
+    $('#chatwin').appendChild(sh);const go=$('.go',sh);go.focus();
+    $('.cancel',sh).addEventListener('click',()=>sh.remove());
+    go.addEventListener('click',()=>{go.textContent='Processing…';go.disabled=true;setTimeout(()=>{sh.remove();
+      o.status='Paid';st.paid+=o.total;stats();renderOrder();markF('paid');log('Payment confirmed: '+naira(o.total),'ok');
+      $$('.paybtn2',body).forEach(x=>{x.disabled=true;x.textContent='Paid ✓'});
+      addMe('Paid ✓');bot([{t:'Payment received, thank you! Your '+o.p.name+' is confirmed and will be delivered to '+o.cityName+' in '+o.days+'.'}],['Where is my order?','Thank you'])},RM?0:1300)})}
+  form.addEventListener('submit',e=>{e.preventDefault();send(input.value)});
+  input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();if(!q){setChips(['What bags do you have?','Do you have a black tote?','Where is my order?']);return}
+    const m=ALL_SUGG.filter(x=>x.toLowerCase().includes(q)).slice(0,4);
+    chips.innerHTML='';m.forEach(x=>{const c=document.createElement('button');c.type='button';c.className='chip';const i=x.toLowerCase().indexOf(q);
+      c.append(x.slice(0,i));const mk=document.createElement('mark');mk.textContent=x.slice(i,i+q.length);c.append(mk,x.slice(i+q.length));c.addEventListener('click',()=>send(x));chips.appendChild(c)})});
+  $('#resetDemo').addEventListener('click',reset);
+  reset();
+
+  /* ---------- Motion ---------- */
+  if(RM || !window.gsap){$('#inbox')&&$('#inbox').classList.add('show');return}
   gsap.registerPlugin(ScrollTrigger);
+  let lenis=null;
   if(window.Lenis){
-    const lenis=new Lenis({lerp:.1,smoothWheel:true});
+    lenis=new Lenis({lerp:.1,smoothWheel:true});
     lenis.on('scroll',ScrollTrigger.update);
     gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
-    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}}));
+    $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1&&$(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}}));
   }
+  $('#cwBody').setAttribute('data-lenis-prevent','');
 
-  // Hero load sequence
-  const tl=gsap.timeline({defaults:{ease:'expo.out'}});
-  tl.from('.hero2 .line > span',{yPercent:110,duration:1.2,stagger:.09},.1)
-    .from('[data-hero]',{y:24,opacity:0,duration:1,stagger:.08},.35)
-    .from('#heroPhoto',{clipPath:'inset(6% 6% 6% 6% round 32px)',duration:1.6,ease:'expo.inOut'},.1)
-    .from('.hero-panel',{y:40,opacity:0,duration:1.2},.3)
-    .from('#heroPhoto img',{scale:1.18,duration:1.8},.2)
-    .from('.app',{y:60,opacity:0,duration:1.1},.9)
-    .from('.app .m',{y:12,opacity:0,duration:.7,stagger:.35},1.2)
-    .from('.app .order',{opacity:0,duration:.6},1.9)
-    .from('.toast',{y:-20,opacity:0,scale:.95,duration:.9},2.2);
-  gsap.to('#heroPhoto img',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.hero2',start:'top top',end:'bottom top',scrub:true}});
-  gsap.to('.hero-float',{y:-50,ease:'none',scrollTrigger:{trigger:'.hero2',start:'top top',end:'bottom top',scrub:true}});
+  const qbs=$$('.qb'), unread=$('#unread'), counter=$('#counter');
+  const count={n:0};
+  const setCount=n=>{unread.textContent=Math.round(n);counter.classList.toggle('zero',Math.round(n)===0);$('#unreadLabel').textContent=Math.round(n)===0?'All answered':'unread messages'};
+  // Load: the shop fills with messages
+  const intro=gsap.timeline({defaults:{ease:'expo.out'}});
+  intro.from('#chaosBg',{scale:1.18,duration:2.2},0)
+       .from('.chaos-copy > *',{y:40,opacity:0,duration:1.2,stagger:.1},.2)
+       .from(qbs,{y:40,scale:.85,opacity:0,duration:.9,stagger:.12,ease:'back.out(1.6)'},.5)
+       .to(count,{n:128,duration:2,ease:'power2.out',onUpdate:()=>setCount(count.n)},.5);
 
-  // Pinned story on wide screens: the conversation builds as you scroll
   const mm=gsap.matchMedia();
-  mm.add('(min-width: 981px)',()=>{
-    const bubbles=gsap.utils.toArray('[data-b]'), beats=gsap.utils.toArray('.beat');
-    beats.forEach(x=>x.classList.remove('on'));
-    const st=gsap.timeline({scrollTrigger:{trigger:'#storyPin',start:'top top',end:'+=320%',pin:true,scrub:1.2,
-      onUpdate:self=>{const i=Math.min(beats.length-1,Math.floor(self.progress*beats.length*0.999)); beats.forEach((x,k)=>x.classList.toggle('on',k<=i));}}});
-    st.fromTo('#beatBar',{height:0},{height:'calc(100% - 12px)',ease:'none',duration:bubbles.length},0);
-    st.fromTo('.chatpane img',{scale:1.16},{scale:1,ease:'none',duration:bubbles.length},0);
-    bubbles.forEach((m,i)=>st.from(m,{y:36,opacity:0,scale:.97,duration:.9,ease:'power3.out'},i*1+.25));
-    return ()=>beats.forEach(x=>x.classList.add('on'));
+  mm.add('(min-width: 861px)',()=>{
+    const tl=gsap.timeline({scrollTrigger:{trigger:'#chaosPin',start:'top top',end:'+=200%',pin:true,scrub:1}});
+    tl.to('#chaosBg',{scale:1.12,ease:'none',duration:10},0);
+    qbs.forEach((q,i)=>{tl.call(()=>q.classList.add('answered'),null,1+i*.55); tl.call(()=>q.classList.remove('answered'),null,.99+i*.55)});
+    tl.to(count,{n:0,ease:'none',duration:qbs.length*.55,onUpdate:()=>setCount(count.n)},1);
+    tl.to(qbs,{x:(i,el)=>innerWidth*0.78-el.offsetLeft-el.offsetWidth/2,y:(i,el)=>innerHeight*0.5-el.offsetTop,scale:.4,opacity:0,stagger:.05,duration:1.4,ease:'power2.in'},7.2);
+    tl.fromTo('#inbox',{opacity:0,y:30,scale:.95},{opacity:1,y:0,scale:1,duration:1},8.4);
+    tl.to('.chaos-h .h-a',{yPercent:-40,opacity:0,duration:.8},7.4).fromTo('.chaos-h .h-b',{yPercent:40,opacity:0},{yPercent:0,opacity:1,duration:.9},7.9);
+    tl.to('.scrollhint',{opacity:0,duration:.5},0);
+  });
+  mm.add('(max-width: 860px)',()=>{
+    ScrollTrigger.create({trigger:'#bubbles',start:'top 60%',once:true,onEnter:()=>{intro.progress(1);
+      qbs.slice(0,6).forEach((q,i)=>setTimeout(()=>q.classList.add('answered'),400+i*450));
+      gsap.to(count,{n:0,duration:3,delay:.4,ease:'none',onUpdate:()=>setCount(count.n)});
+      setTimeout(()=>$('#inbox').classList.add('show'),3300)}});
   });
 
-  // Soft reveals and parallax
-  gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
-  gsap.utils.toArray('.feat').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:(i%3)*.08,scrollTrigger:{trigger:el,start:'top 90%'}}));
-  gsap.utils.toArray('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
-  gsap.from('#stepLine',{scaleX:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'top 35%',scrub:true}});
-  gsap.utils.toArray('[data-step]').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'#steps',start:'top 78%'}}));
-  gsap.utils.toArray('.dash .m').forEach((el,i)=>gsap.from(el,{y:14,opacity:0,duration:.8,ease:'expo.out',delay:.3+i*.25,scrollTrigger:{trigger:'.dash',start:'top 70%'}}));
+  // Soft reveals and parallax for the rest of the page
+  $$('[data-reveal]').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
+  $$('.feat').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:(i%3)*.08,scrollTrigger:{trigger:el,start:'top 90%'}}));
+  $$('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
+  if($('#stepLine')) gsap.from('#stepLine',{scaleX:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'top 35%',scrub:true}});
+  $$('[data-step]').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'#steps',start:'top 78%'}}));
+  gsap.from('.try-grid > *',{y:50,opacity:0,duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#try',start:'top 70%'}});
 });
 </script>
+
 </body>
 </html>
