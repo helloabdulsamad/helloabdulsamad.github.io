@@ -637,6 +637,8 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
   .np-clock b{font-size:44px}
 }
 
+.sim-lives{margin-top:14px;display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px;font-weight:500;max-width:46em}
+.sim-lives::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--accent)}
 </style>
 </head>
 <body>
@@ -678,6 +680,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <span class="label">Live simulation · no sign up</span>
         <h1 class="sim-h">It's 11:47pm. Bola is asleep. <em>Her shop is still selling.</em></h1>
         <p class="sim-sub">Bola runs a bag shop on WhatsApp. Message it below like a real customer. Ask about a bag, delivery to your city, or pay for an order. Milo, her AI sales assistant, handles every step, and her dashboard fills up while she sleeps.</p>
+        <p class="sim-lives">Milo lives inside your WhatsApp. Customers message the number they already know, and Milo answers right there in the chat. No app to download, nothing new to learn.</p>
       </div>
       <div class="sim-grid">
         <aside class="tasks" aria-label="Things to try">
@@ -741,7 +744,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <div class="cmp-r"><span>When it can't help</span><p>Customers left on blue ticks.</p><p class="m">The chat comes to you, with the full conversation.</p></div>
       </div>
       <div class="perks2">
-        <span>No new app for customers</span><span>Runs on WhatsApp</span><span>Paystack payments</span><span>You stay in control</span><span>No developer needed to set up</span>
+        <span>No new app for customers</span><span>Lives in your WhatsApp chat</span><span>Paystack payments</span><span>You stay in control</span><span>No developer needed to set up</span>
       </div>
     </div>
   </section>
@@ -898,7 +901,7 @@ document.addEventListener('DOMContentLoaded', function(){
       try{const r=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:v,_subject:'New Milo waitlist sign up',_template:'table',_captcha:'false',source:'Milo simulation page'})});ok=r.ok}catch(err){ok=false}
       setTimeout(()=>{t.remove();
         if(ok){done=true;say('mi','You\'re on the list! I\'ll email '+v+' as soon as Milo opens for businesses.');inp.placeholder='You\'re on the waitlist';}
-        else{say('mi','I couldn\'t save that just now. Please try again in a moment.');inp.disabled=false}
+        else{say('mi','I couldn\'t save that just now. Please try again in a moment, or message Abdulsamad on LinkedIn at linkedin.com/in/helloabdulsamad.');inp.disabled=false}
         busy=false},700)});
   })();
 
