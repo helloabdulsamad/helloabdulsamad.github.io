@@ -9,238 +9,271 @@
 <meta property="og:description" content="Every WhatsApp message answered. Every order paid. Join the waitlist." />
 <meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
 <meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/stall-1600.webp" />
-<meta name="theme-color" content="#fbf8f1" />
-<link rel="preload" as="image" href="img/stall-900.webp" imagesrcset="img/stall-900.webp 900w, img/stall-1600.webp 1600w" imagesizes="(max-width: 980px) 100vw, 50vw" />
+<meta name="theme-color" content="#f3f5f4" />
+<link rel="preload" as="image" href="img/stall-1600.webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;700;800&family=Golos+Text:wght@400;500;600&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&display=swap" />
 <style>
-/* Layout: a bright market-day page. Photo-led hero with live chat bubbles, a sunflower strip of real customer questions,
-   a colourful bento of what Milo does, a deep green trust band, three coloured steps and a green waitlist band. Flat colours only. */
+/* Layout: calm SaaS. Quiet neutrals, one green accent, real photography, and a product interface built in HTML.
+   Motion: a load sequence, a pinned scroll story where a conversation builds, soft reveals and parallax. Flat colours only. */
 :root{
-  --ground:#fbf8f1; --panel:#ffffff; --ink:#10241b; --soft:#56655d; --line:#e7e1d4;
-  --brand:#0f8a55; --brand-ink:#ffffff;
-  --sun:#ffc83d; --coral:#ff6b4a; --sky:#47a8ff; --mint:#c9f2d6; --blush:#ffd9cf;
-  --on-bright:#10241b;
-  --deep:#0f2a1f; --deep-ink:#f1f7f3; --deep-soft:#a8bfb2; --deep-line:#25443a;
+  --ground:#f3f5f4; --panel:#ffffff; --ink:#0d1b15; --soft:#5b6a63; --faint:#8a9791; --line:#e1e6e3;
+  --accent:#16a05a; --accent-ink:#ffffff; --tint:#e6f4ec; --deep:#0d1b15; --deep-ink:#eef3f0; --deep-soft:#9aaba2; --deep-line:#1f2f28;
+  --shadow:0 1px 2px rgba(13,27,21,.06),0 12px 32px -12px rgba(13,27,21,.18);
   --display:"Funnel Display","Golos Text",system-ui,sans-serif;
   --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --r:22px; color-scheme:light;
+  --r:18px; --ease:cubic-bezier(.2,.75,.2,1); color-scheme:light;
 }
 @media (prefers-color-scheme:dark){
-  :root{ --ground:#0d1512; --panel:#141f1b; --ink:#eef4f0; --soft:#a7b6ae; --line:#26352f; --brand:#2fbf7e; --brand-ink:#04140c; --mint:#1d4a35; --blush:#4a2a22; --deep:#07110d; --deep-ink:#eef4f0; --deep-soft:#97ada1; --deep-line:#1c2e27; color-scheme:dark; }
+  :root{ --ground:#0a110e; --panel:#111a16; --ink:#e9efec; --soft:#a0aea7; --faint:#6f7d76; --line:#1f2b26; --accent:#33c47a; --accent-ink:#04120b; --tint:#12291e; --deep:#050a08; --deep-ink:#e9efec; --deep-soft:#8fa199; --deep-line:#17231e; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6); color-scheme:dark; }
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-html{scroll-behavior:smooth}
+html.lenis,html.lenis body{height:auto}
 body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit}
 img{max-width:100%;display:block}
 .wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);line-height:1;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.02;letter-spacing:-.03em;margin:0;text-wrap:balance}
 p{margin:0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;background:var(--brand);color:var(--brand-ink);text-decoration:none;border:0;cursor:pointer;font:600 16px/1 var(--body);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s;box-shadow:0 4px 0 0 var(--ink)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 0 var(--ink)}
-.btn:active{transform:translateY(2px);box-shadow:0 1px 0 0 var(--ink)}
-.btn svg{width:18px;height:18px;transition:transform .25s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:12px;background:var(--ink);color:var(--ground);text-decoration:none;border:0;cursor:pointer;font:500 15.5px/1 var(--body);transition:transform .35s var(--ease),background .3s}
+.btn:hover{transform:translateY(-1px)}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
 .btn:hover svg{transform:translateX(3px)}
-.btn.ghost{background:var(--panel);color:var(--ink);border:2px solid var(--ink)}
-.btn.sun{background:var(--sun);color:var(--on-bright)}
-:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
-.eyebrow{font:600 13px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--coral)}
+.btn.accent{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ghost:hover{box-shadow:inset 0 0 0 1px var(--soft)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.label{display:inline-flex;align-items:center;gap:8px;font:500 13px/1 var(--body);color:var(--soft)}
+.label::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.h2{font-size:clamp(34px,4.6vw,58px);max-width:14em;margin-top:16px}
+.sub{color:var(--soft);font-size:18px;max-width:34em;margin-top:18px}
+section{padding-block:120px}
 
 /* Header */
-header.top{position:sticky;top:0;z-index:30;background:var(--ground);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
-.logo{display:flex;align-items:center;gap:10px;font:800 24px/1 var(--display);text-decoration:none;letter-spacing:-.03em}
-.logo svg{width:32px;height:32px}
+header.top{position:fixed;left:0;right:0;top:0;z-index:40;transition:background .4s,box-shadow .4s}
+header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:saturate(1.4) blur(12px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px;font:600 22px/1 var(--display);text-decoration:none;letter-spacing:-.03em}
+.logo svg{width:28px;height:28px}
 .links{display:flex;align-items:center;gap:30px}
-.links a{text-decoration:none;color:var(--soft);font-weight:500;position:relative}
-.links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:2px;background:var(--sun);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.links a:not(.btn):hover{color:var(--ink)}
-.links a:not(.btn):hover::after{transform:scaleX(1)}
-.links .btn{color:var(--brand-ink);min-height:44px;padding:0 20px}
-.burger{display:none;width:46px;height:46px;border:2px solid var(--ink);border-radius:14px;background:var(--sun);color:var(--on-bright);cursor:pointer}
-.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s}
-.burger[aria-expanded="true"] span:first-child{transform:translateY(3px) rotate(45deg)}
-.burger[aria-expanded="true"] span:last-child{transform:translateY(-3px) rotate(-45deg)}
-.sheet{position:fixed;inset:72px 0 0 0;z-index:29;background:var(--ground);padding:24px max(20px,env(safe-area-inset-left,0px)) 40px;display:flex;flex-direction:column}
-.sheet a{font:800 34px/1.35 var(--display);letter-spacing:-.02em;text-decoration:none;border-bottom:1px solid var(--line);padding:12px 0}
-.sheet a:nth-child(1){color:var(--brand)}.sheet a:nth-child(2){color:var(--coral)}.sheet a:nth-child(3){color:var(--sky)}
-.sheet .btn{margin-top:24px;font-size:18px;border-bottom:0;color:var(--brand-ink)}
+.links a{text-decoration:none;color:var(--soft);font-size:15px;transition:color .25s}
+.links a:hover{color:var(--ink)}
+.links .btn{color:var(--ground);min-height:40px;padding:0 16px;font-size:14.5px}
+.burger{display:none;width:44px;height:44px;border:0;border-radius:12px;background:var(--panel);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink);cursor:pointer}
+.burger span{display:block;width:18px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .35s var(--ease)}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(2.75px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-2.75px) rotate(-45deg)}
+.sheet{position:fixed;inset:70px 0 0 0;z-index:39;background:var(--ground);padding:20px max(20px,env(safe-area-inset-left,0px)) 40px;display:flex;flex-direction:column}
+.sheet a{font:600 32px/1.4 var(--display);letter-spacing:-.02em;text-decoration:none;border-bottom:1px solid var(--line);padding:12px 0}
+.sheet .btn{margin-top:24px;font-size:17px;color:var(--ground);border:0}
 @media (max-width:860px){.links{display:none}.burger{display:block}}
 
 /* Hero */
-.hero{padding-block:48px 44px}
-.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:48px;align-items:center}
-.hero h1{font-size:clamp(46px,7vw,96px);font-weight:800}
-.hero h1 .hl{color:var(--brand)}
-.hero h1 .ul{background:var(--sun);color:var(--on-bright);padding:0 .14em;border-radius:.14em;display:inline-block;transform:rotate(-1.5deg)}
-.lede{margin-top:24px;font-size:clamp(17px,1.5vw,20px);color:var(--soft);max-width:33em}
-.cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:14px}
-.status{margin-top:26px;display:flex;align-items:center;gap:10px;color:var(--soft);font-size:14px}
-.status i{width:10px;height:10px;border-radius:50%;background:var(--coral);animation:ping 2.2s infinite}
-@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,107,74,.55)}80%,100%{box-shadow:0 0 0 12px rgba(255,107,74,0)}}
+.hero{padding-block:150px 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(44px,6.2vw,84px)}
+.line{display:block;overflow:hidden;padding-bottom:.06em}
+.line > span{display:inline-block}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lede{margin-top:24px;font-size:clamp(17px,1.45vw,19px);color:var(--soft);max-width:31em}
+.cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px}
+.meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--faint);font-size:14px}
+.meta span{display:inline-flex;align-items:center;gap:8px}
+.meta svg{width:16px;height:16px;color:var(--accent)}
 
-.shot{position:relative;padding:28px 0 44px}
-.shot .frame{position:relative;z-index:1;border-radius:30px;overflow:hidden;aspect-ratio:4/4.4;max-width:100%;border:3px solid var(--ink)}
-.shot .frame img{width:100%;height:100%;object-fit:cover;object-position:28% 50%;transform:scale(1.02);transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
-.shot:hover .frame img{transform:scale(1.06)}
-.shot .slab{position:absolute;z-index:0;border-radius:30px;inset:46px -16px 22px 22px;background:var(--coral);transform:rotate(3deg)}
-.shot .dot{position:absolute;z-index:2;right:12%;top:6px;width:54px;height:54px;border-radius:50%;background:var(--sky);border:3px solid var(--ink)}
-.bubble{position:absolute;z-index:3;max-width:260px;padding:12px 14px 10px;border-radius:16px;background:var(--panel);color:var(--ink);font-size:14.5px;line-height:1.45;border:2px solid var(--ink);box-shadow:4px 4px 0 0 var(--ink);animation:rise .7s cubic-bezier(.2,.9,.3,1.15) both}
-.bubble small{display:block;margin-bottom:3px;font-size:11.5px;font-weight:600;color:var(--soft)}
-.bubble.c{left:-26px;top:64px;border-top-left-radius:4px;animation-delay:.35s}
-.bubble.m{right:-18px;top:46%;background:var(--mint);border-top-right-radius:4px;animation-delay:1.25s}
-.bubble.m b{color:var(--brand)}
-.paid{position:absolute;z-index:3;left:18px;bottom:12px;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:16px;background:var(--sun);color:var(--on-bright);font-size:14px;font-weight:700;border:2px solid var(--ink);box-shadow:4px 4px 0 0 var(--ink);animation:rise .7s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:2.15s}
-.paid span{width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
-.paid span svg{width:14px;height:14px}
-@keyframes rise{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+.stage{position:relative;aspect-ratio:1/1.02}
+.photo{position:absolute;inset:0 0 0 14%;border-radius:26px;overflow:hidden}
+.photo img{width:100%;height:115%;object-fit:cover;object-position:30% 50%;will-change:transform}
+/* Product window */
+.app{position:absolute;left:0;bottom:7%;width:min(400px,78%);background:var(--panel);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);overflow:hidden;font-size:13.5px}
+.app-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line)}
+.app-bar b{font-weight:600;display:flex;align-items:center;gap:8px}
+.app-bar b i{width:22px;height:22px;border-radius:7px;background:var(--accent);display:inline-grid;place-items:center;color:var(--accent-ink);font:700 11px var(--display);font-style:normal}
+.live{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:500;font-size:12px}
+.live::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.thread{padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--ground)}
+.m{max-width:85%;padding:9px 12px;border-radius:14px;line-height:1.45}
+.m.in{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:4px}
+.m.out{align-self:flex-end;background:var(--tint);border-bottom-right-radius:4px}
+.m small{display:block;font-size:11px;color:var(--faint);margin-bottom:2px}
+.order{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-top:1px solid var(--line)}
+.order div{display:flex;flex-direction:column}
+.order small{color:var(--faint);font-size:11.5px}
+.order b{font-weight:600}
+.pill{font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px;background:var(--tint);color:var(--accent)}
+.toast{position:absolute;right:-2%;top:9%;display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);font-size:13.5px}
+.toast span{width:24px;height:24px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center}
+.toast span svg{width:13px;height:13px}
+.toast small{display:block;color:var(--faint);font-size:11.5px}
 
-/* Marquee of real questions */
-.marquee{background:var(--sun);color:var(--on-bright);overflow:hidden;padding-block:22px;border-block:3px solid var(--ink)}
-.track{display:flex;gap:44px;width:max-content;animation:slide 48s linear infinite}
-.marquee:hover .track{animation-play-state:paused}
-.track span{font:800 clamp(22px,2.6vw,32px)/1 var(--display);letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:center;gap:44px}
-.track span::after{content:"";width:14px;height:14px;border-radius:50%;flex:none;background:var(--coral);border:2px solid var(--ink)}
-.track span:nth-child(3n+2)::after{background:var(--sky)}
-.track span:nth-child(3n)::after{background:var(--brand)}
-@keyframes slide{to{transform:translateX(-50%)}}
+/* Works with */
+.works{padding-block:0 40px}
+.works .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 40px;color:var(--faint);font-size:14px;border-top:1px solid var(--line);padding-top:28px}
+.works b{color:var(--ink);font-weight:600}
 
-/* Sections */
-section{padding-block:96px}
-.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px;margin-bottom:44px}
-.h2{font-size:clamp(36px,5vw,64px);font-weight:800;max-width:13em;margin-top:14px}
-.sub{color:var(--soft);font-size:18px;max-width:30em}
+/* Pinned conversation story */
+.story{padding-block:0;position:relative}
+.story-pin{min-height:100vh;display:flex;align-items:center;padding-block:80px}
+.story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center;width:100%}
+.beats{margin-top:40px;display:grid;gap:4px;position:relative;padding-left:22px}
+.beats::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:2px;background:var(--line);border-radius:2px}
+.beats .bar{position:absolute;left:0;top:6px;width:2px;height:0;background:var(--accent);border-radius:2px}
+.beat{padding:14px 0;opacity:.35;transition:opacity .5s var(--ease)}
+.beat.on{opacity:1}
+.beat h3{font-size:22px}
+.beat p{color:var(--soft);margin-top:4px;font-size:15.5px}
+.chatpane{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/4.3;background:var(--deep)}
+.chatpane img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.chatpane .feed{position:absolute;inset:auto 0 0 0;padding:26px;display:flex;flex-direction:column;gap:10px}
+.chatpane .m{font-size:14.5px;box-shadow:0 10px 24px -12px rgba(0,0,0,.5)}
+.chatpane .m.in{background:#ffffff;color:#0d1b15;border:0}
+.chatpane .m.out{background:#dff3e6;color:#0d1b15}
+.chatpane .m small{color:#6c7a73}
+.chatpane .card{display:flex;gap:10px;align-items:center;margin-top:6px;padding:8px;border-radius:10px;background:#ffffff;border:1px solid #e1e6e3}
+.chatpane .card i{width:38px;height:38px;border-radius:9px;background:#0d1b15;display:grid;place-items:center;font-style:normal}
+.chatpane .card i::after{content:"";width:18px;height:18px;border-radius:50%;border:2.5px solid #d7c38a}
+.chatpane .card b{display:block;font-size:13px}
+.chatpane .card small{margin:0}
+.chatpane .paybtn{display:inline-block;margin-top:6px;padding:6px 11px;border-radius:8px;background:#16a05a;color:#fff;font-weight:600;font-size:13px}
 
-.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:minmax(230px,auto);gap:18px}
-.tile{position:relative;border-radius:var(--r);padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;overflow:hidden;border:3px solid var(--ink);color:var(--on-bright);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;box-shadow:6px 6px 0 0 var(--ink)}
-.tile:hover{transform:translate(-2px,-4px);box-shadow:8px 10px 0 0 var(--ink)}
-.tile h3{font-size:25px;font-weight:800;letter-spacing:-.02em}
-.tile p{margin-top:8px;opacity:.85}
-.tile .ico{width:54px;height:54px;border-radius:16px;background:var(--panel);color:var(--ink);display:grid;place-items:center;border:2px solid var(--ink)}
-.tile .ico svg{width:24px;height:24px}
-.t-sun{background:var(--sun)}
-.t-coral{background:var(--coral)}
-.t-sky{background:var(--sky)}
-.t-green{background:var(--brand);color:var(--brand-ink)}
-.t-green .ico{background:var(--sun);color:var(--on-bright)}
-.tile .q{font:700 16px/1.4 var(--body);padding:10px 14px;border-radius:14px 14px 14px 4px;background:var(--panel);color:var(--ink);border:2px solid var(--ink);max-width:90%}
-.tile.photo{grid-row:span 2;padding:0;min-height:480px;background:var(--panel)}
-.tile.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
-.tile.photo:hover img{transform:scale(1.05)}
-.tile.photo .cap{position:absolute;left:16px;right:16px;bottom:16px;background:var(--panel);color:var(--ink);border:2px solid var(--ink);border-radius:16px;padding:18px 20px}
-.tile.photo .cap b{font:800 20px/1.2 var(--display)}
-.tile.photo .cap p{margin-top:4px;font-size:15px;color:var(--soft);opacity:1}
+/* Features */
+.feat-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px}
+.feats{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.feat{background:var(--panel);padding:32px;transition:background .4s}
+.feat:hover{background:var(--ground)}
+.feat .ic{width:40px;height:40px;border-radius:11px;background:var(--tint);color:var(--accent);display:grid;place-items:center}
+.feat .ic svg{width:20px;height:20px}
+.feat h3{font-size:20px;margin-top:22px}
+.feat p{color:var(--soft);margin-top:8px;font-size:15.5px}
 
-/* Trust band */
+/* Gallery */
+.gallery{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px;margin-top:56px}
+.g{border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:3/4}
+.g:first-child{aspect-ratio:auto}
+.g img{width:100%;height:118%;object-fit:cover;will-change:transform}
+.g figcaption{position:absolute;left:14px;bottom:14px;right:14px;color:#fff;font-size:14px;font-weight:500;text-shadow:0 1px 8px rgba(0,0,0,.45)}
+
+/* Dashboard */
+.dash{margin-top:56px;border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}
+.dash-top{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dash-top i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.dash-top span{margin-left:10px;color:var(--faint);font-size:13px}
+.dash-body{display:grid;grid-template-columns:240px 1fr 260px;min-height:380px}
+.d-list{border-right:1px solid var(--line);padding:10px}
+.d-item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px}
+.d-item.on{background:var(--ground)}
+.d-av{width:34px;height:34px;border-radius:50%;background:var(--tint);color:var(--accent);display:grid;place-items:center;font-weight:600;font-size:13px;flex:none}
+.d-item b{display:block;font-weight:500;font-size:14px}
+.d-item small{display:block;color:var(--faint);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:150px}
+.d-chat{padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--ground)}
+.d-chat .m{font-size:14px}
+.d-side{border-left:1px solid var(--line);padding:18px;display:grid;align-content:start;gap:14px;font-size:14px}
+.d-side h4{margin:0;font:600 13px/1 var(--body);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.row span{color:var(--soft)}
+.example{margin-top:14px;color:var(--faint);font-size:13.5px;text-align:center}
+
+/* Trust */
 .trust{background:var(--deep);color:var(--deep-ink)}
-.trust .eyebrow{color:var(--sun)}
-.trust-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
-.portrait{position:relative;margin:0;border-radius:30px;overflow:hidden;aspect-ratio:4/5;border:3px solid var(--sun)}
-.portrait img{width:100%;height:100%;object-fit:cover;object-position:40% 40%}
-.portrait figcaption{position:absolute;left:16px;right:16px;bottom:16px;background:var(--sun);color:var(--on-bright);border-radius:16px;padding:16px 18px;font:800 18px/1.3 var(--display)}
+.trust .label{color:var(--deep-soft)}
 .trust .h2{color:var(--deep-ink)}
-.trust .sub{color:var(--deep-soft);margin-top:18px}
-.facts{margin-top:36px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.fact{border:1px solid var(--deep-line);border-radius:18px;padding:20px;background:rgba(255,255,255,.03)}
-.fact b{display:flex;align-items:center;gap:10px;font:800 18px/1.2 var(--display)}
-.fact b span{width:28px;height:28px;border-radius:50%;color:var(--on-bright);display:grid;place-items:center;flex:none}
-.fact:nth-child(1) b span{background:var(--sun)}.fact:nth-child(2) b span{background:var(--coral)}.fact:nth-child(3) b span{background:var(--sky)}.fact:nth-child(4) b span{background:var(--mint)}
-.fact b span svg{width:14px;height:14px}
-.fact p{margin-top:8px;color:var(--deep-soft);font-size:15px}
-
-/* Wide WhatsApp panel */
-.tile.wide{grid-column:1/-1;display:grid;grid-template-columns:1fr 1.1fr;gap:0;padding:0;background:var(--deep);color:var(--deep-ink);min-height:360px}
-.tile.wide .txt{padding:36px;display:flex;flex-direction:column;justify-content:center;gap:12px}
-.tile.wide h3{font-size:clamp(28px,3.2vw,40px)}
-.tile.wide p{color:var(--deep-soft);opacity:1;max-width:28em}
-.tile.wide .pic{position:relative;min-height:320px}
-.tile.wide .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.tile.wide .b{position:absolute;max-width:230px;padding:10px 13px 8px;border-radius:14px;font-size:14px;line-height:1.4;border:2px solid var(--ink);box-shadow:4px 4px 0 0 var(--ink);color:var(--on-bright)}
-.tile.wide .b1{left:8%;top:18%;background:#ffffff;border-top-left-radius:4px}
-.tile.wide .b2{right:7%;top:44%;background:var(--sun);border-top-right-radius:4px}
-.tile.wide .b3{left:12%;bottom:12%;background:var(--mint);border-top-left-radius:4px;color:var(--ink)}
-@media (max-width:980px){.tile.wide{grid-template-columns:1fr}.tile.wide .pic{min-height:300px}}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.statement{font:500 clamp(26px,3vw,38px)/1.25 var(--display);letter-spacing:-.02em;margin-top:24px;color:var(--deep-ink)}
+.statement .muted{color:var(--deep-soft)}
+.tfacts{display:grid;gap:1px;background:var(--deep-line);border:1px solid var(--deep-line);border-radius:var(--r);overflow:hidden}
+.tfact{background:var(--deep);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:16px}
+.tfact .ic{width:34px;height:34px;border-radius:10px;background:#12291e;color:#33c47a;display:grid;place-items:center}
+.tfact .ic svg{width:17px;height:17px}
+.tfact b{font:600 18px/1.25 var(--display)}
+.tfact p{color:var(--deep-soft);font-size:15px;margin-top:4px}
+.founder{display:flex;align-items:center;gap:14px;margin-top:34px;color:var(--deep-soft);font-size:15px}
+.founder img{width:52px;height:52px;border-radius:50%;object-fit:cover}
 
 /* Steps */
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;position:relative}
-.steps::before{content:"";position:absolute;left:8%;right:8%;top:62px;border-top:3px dashed var(--ink);opacity:.25}
-.step{position:relative;z-index:1;padding:30px;border-radius:var(--r);background:var(--panel);border:3px solid var(--ink);box-shadow:6px 6px 0 0 var(--ink)}
-.step .n{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font:800 30px/1 var(--display);color:var(--on-bright);border:3px solid var(--ink)}
-.step:nth-child(1) .n{background:var(--sun)}.step:nth-child(2) .n{background:var(--coral)}.step:nth-child(3) .n{background:var(--sky)}
-.step h3{font-size:25px;margin-top:20px}
+.steps{margin-top:60px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;position:relative;padding-top:34px}
+.track-line{position:absolute;left:0;right:0;top:0;height:2px;background:var(--line);border-radius:2px;overflow:hidden}
+.track-line i{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(1)}
+.step .n{font:500 14px/1 var(--body);color:var(--accent)}
+.step h3{font-size:24px;margin-top:16px}
 .step p{color:var(--soft);margin-top:8px}
-.note{margin-top:26px;color:var(--soft);font-size:14px}
+.note{margin-top:40px;color:var(--faint);font-size:14px}
 
-/* Waitlist */
-.wl{background:var(--brand);color:var(--brand-ink);border-block:3px solid var(--ink)}
-.wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
-.wl .eyebrow{color:var(--sun)}
-.wl .h2{color:var(--brand-ink)}
-.wl .sub{color:var(--brand-ink);opacity:.9;margin-top:18px}
-.perks{margin:28px 0 0;padding:0;display:grid;gap:14px}
-.perks li{list-style:none;display:flex;gap:12px;align-items:center;font-weight:500}
-.perks li span{width:28px;height:28px;border-radius:50%;background:var(--sun);color:var(--on-bright);display:grid;place-items:center;flex:none}
-.perks li:nth-child(2) span{background:var(--coral)}.perks li:nth-child(3) span{background:var(--sky)}
-.perks li span svg{width:14px;height:14px}
-.wl-photo{margin-top:34px;border-radius:24px;overflow:hidden;aspect-ratio:16/10;border:3px solid var(--ink)}
-.wl-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
-.wl-box{background:var(--panel);color:var(--ink);border-radius:30px;padding:34px;display:flex;flex-direction:column;justify-content:center;min-height:420px;border:3px solid var(--ink);box-shadow:8px 8px 0 0 var(--ink)}
-.wl-box iframe{width:100%;border:0;min-height:520px}
-.wl-box h3{font-size:32px}
-.wl-box p{color:var(--soft);margin-top:10px}
-.wl-box .btn{margin-top:24px;align-self:flex-start}
+/* Pricing + waitlist */
+.cta-band{padding-block:40px 120px}
+.cta-card{position:relative;border-radius:28px;overflow:hidden;background:var(--deep);color:var(--deep-ink);display:grid;grid-template-columns:1.1fr .9fr;min-height:520px}
+.cta-copy{padding:56px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
+.cta-copy .label{color:var(--deep-soft)}
+.cta-copy .h2{color:var(--deep-ink)}
+.cta-copy .sub{color:var(--deep-soft)}
+.plan{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--deep-soft);font-size:15px}
+.plan span{display:inline-flex;gap:8px;align-items:center}
+.plan svg{width:16px;height:16px;color:#33c47a}
+.cta-pic{position:relative;overflow:hidden}
+.cta-pic img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:50% 25%;will-change:transform}
+.wl-box{margin-top:34px;background:var(--panel);color:var(--ink);border-radius:18px;padding:24px;max-width:460px}
+.wl-box iframe{width:100%;border:0;min-height:500px}
+.wl-box b{display:block;font:600 19px/1.2 var(--display)}
+.wl-box p{color:var(--soft);font-size:15px;margin-top:6px}
+.wl-box .btn{margin-top:16px}
 
 /* FAQ */
-.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
-.faq{display:grid;gap:12px}
-details{border:2px solid var(--ink);border-radius:18px;background:var(--panel);padding:20px 24px}
-details[open]{background:var(--blush)}
-summary{cursor:pointer;font:800 19px/1.3 var(--display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+.faq{display:grid}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;font:500 19px/1.35 var(--display);list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--coral);font-size:28px;line-height:.9;transition:transform .3s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{margin-top:10px;color:var(--soft)}
+summary::after{content:"";width:12px;height:12px;flex:none;margin-top:7px;border-right:1.5px solid var(--soft);border-bottom:1.5px solid var(--soft);transform:rotate(45deg);transition:transform .35s var(--ease)}
+details[open] summary::after{transform:rotate(-135deg);margin-top:12px}
+details p{margin-top:10px;color:var(--soft);max-width:40em}
 
-footer{padding-block:48px;color:var(--soft);font-size:14px}
+footer{padding-block:56px 40px;border-top:1px solid var(--line);color:var(--faint);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:center}
-footer .big{font:800 clamp(56px,14vw,190px)/.85 var(--display);letter-spacing:-.05em;width:100%;margin-bottom:28px;display:flex;gap:.04em}
-footer .big span:nth-child(1){color:var(--brand)}footer .big span:nth-child(2){color:var(--coral)}footer .big span:nth-child(3){color:var(--sky)}footer .big span:nth-child(4){color:var(--sun)}footer .big span:nth-child(5){color:var(--ink)}
 
 @media (max-width:980px){
-  .hero-grid,.trust-grid,.wl-grid,.faq-grid{grid-template-columns:1fr}
-  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .tile.photo{grid-column:span 2;grid-row:auto;min-height:380px}
-  .portrait{aspect-ratio:16/11}
+  section{padding-block:88px}
+  .hero{padding-block:120px 64px}
+  .hero-grid,.story-grid,.trust-grid,.faq-grid{grid-template-columns:1fr}
+  .stage{max-width:560px;width:100%;justify-self:center}
+  .feats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gallery{grid-template-columns:1fr 1fr}
+  .g:first-child{grid-column:1/-1;aspect-ratio:16/10}
+  .dash-body{grid-template-columns:1fr}
+  .d-list,.d-side{border:0}
+  .d-list{display:none}
+  .cta-card{grid-template-columns:1fr}
+  .cta-pic{min-height:300px}
+  .story-pin{min-height:auto}
 }
 @media (max-width:640px){
-  section{padding-block:68px}
-  .bento,.steps,.facts{grid-template-columns:1fr}
-  .tile.photo{grid-column:auto}
-  .steps::before{display:none}
-  .bubble{max-width:215px;font-size:13.5px}
-  .bubble.c{left:-4px;top:22px}
-  .bubble.m{right:-4px}
-  .shot{padding:18px 6px 50px}
-  .shot .slab{inset:40px -6px 26px 18px}
+  .feats,.steps{grid-template-columns:1fr}
+  .cta-copy{padding:32px 24px}
+  .stage{aspect-ratio:auto;display:flex;flex-direction:column}
+  .photo{position:relative;inset:auto;aspect-ratio:4/4.2;margin-left:0}
+  .photo img{height:112%}
+  .app{position:relative;left:auto;bottom:auto;width:92%;margin:-90px 0 0 auto;font-size:13px}
+  .toast{right:auto;left:12px;top:14px}
+  .chatpane{aspect-ratio:auto}
+  .chatpane .feed{position:relative;inset:auto;padding:22px 16px}
 }
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<header class="top">
+<header class="top" id="hdr">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Milo home">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="var(--brand)"/><circle cx="26" cy="6" r="5" fill="var(--sun)"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="var(--brand-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--accent)"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="var(--accent-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Milo
     </a>
     <nav class="links" aria-label="Main">
-      <a href="#what">What it does</a>
-      <a href="#trust">Built for money</a>
-      <a href="#how">How it works</a>
+      <a href="#story">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#trust">Security</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#waitlist">Join the waitlist</a>
     </nav>
@@ -248,154 +281,203 @@ footer .big span:nth-child(1){color:var(--brand)}footer .big span:nth-child(2){c
   </div>
 </header>
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
-  <a href="#what">What it does</a>
-  <a href="#trust">Built for money</a>
-  <a href="#how">How it works</a>
+  <a href="#story">How it works</a>
+  <a href="#features">Features</a>
+  <a href="#trust">Security</a>
   <a href="#faq">FAQ</a>
   <a class="btn" href="#waitlist">Join the waitlist</a>
 </nav>
 
 <main id="top">
+  <!-- Hero -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <h1>Every WhatsApp message, <span class="hl">answered.</span> Every order, <span class="ul">paid.</span></h1>
-        <p class="lede">Milo is an AI sales assistant for businesses that sell on WhatsApp. It answers questions about your products, checks a customer's orders, takes the order and sends a Paystack payment link, day and night.</p>
-        <div class="cta">
-          <a class="btn" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn ghost" href="#how">See how it works</a>
+        <span class="label" data-hero>AI sales assistant for WhatsApp</span>
+        <h1 style="margin-top:18px">
+          <span class="line"><span>Every WhatsApp</span></span>
+          <span class="line"><span>message answered.</span></span>
+          <span class="line"><span>Every order <em>paid.</em></span></span>
+        </h1>
+        <p class="lede" data-hero>Milo answers your customers in seconds, finds the right product, checks their orders and sends a Paystack payment link. You stay in charge of the chats that need you.</p>
+        <div class="cta" data-hero>
+          <a class="btn accent" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn ghost" href="#story">See how it works</a>
         </div>
-        <p class="status"><i></i> Launching soon. Waitlist members get first access.</p>
+        <div class="meta" data-hero>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>No new app for customers</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Paystack payments</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>No developer needed</span>
+        </div>
       </div>
-      <div class="shot">
-        <div class="slab" aria-hidden="true"></div>
-        <div class="dot" aria-hidden="true"></div>
-        <div class="frame"><img src="img/stall-900.webp" srcset="img/stall-900.webp 900w, img/stall-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 50vw" width="1600" height="1143" alt="A trader at her stall checking customer messages on her phone" fetchpriority="high" /></div>
-        <div class="bubble c"><small>Customer · 21:14</small>Good evening. Do you still have the black one in stock?</div>
-        <div class="bubble m"><small>Milo · 21:14</small>Yes, it's in stock at <b>₦34,500</b>. Shall I send you a payment link?</div>
-        <div class="paid"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Order paid with Paystack</div>
+
+      <div class="stage">
+        <div class="photo" id="heroPhoto"><img src="img/stall-1600.webp" width="1600" height="1143" alt="A trader at her stall checking customer messages on her phone" fetchpriority="high" /></div>
+        <div class="toast" data-pop><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span><div><b>Payment received</b><small>₦34,500 via Paystack · example</small></div></div>
+        <div class="app" data-pop aria-label="Example of the Milo inbox">
+          <div class="app-bar"><b><i>M</i>Milo inbox</b><span class="live">Replying</span></div>
+          <div class="thread">
+            <div class="m in"><small>Customer</small>Do you still have the black one in stock?</div>
+            <div class="m out"><small>Milo</small>Yes, it's ₦34,500 and in stock. Shall I send a payment link?</div>
+          </div>
+          <div class="order"><div><small>Order · example</small><b>Classic Leather, Black</b></div><span class="pill">Paid</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="marquee" aria-label="Questions customers ask on WhatsApp">
-    <div class="track" aria-hidden="true">
-      <span>Do you have this in black?</span><span>How much is delivery to Abuja?</span><span>Where is my order?</span><span>Is it original?</span><span>Can I pay on delivery?</span><span>Do you have size 42?</span><span>When will it arrive?</span><span>Send me your account number</span>
-      <span>Do you have this in black?</span><span>How much is delivery to Abuja?</span><span>Where is my order?</span><span>Is it original?</span><span>Can I pay on delivery?</span><span>Do you have size 42?</span><span>When will it arrive?</span><span>Send me your account number</span>
-    </div>
-  </div>
+  <div class="works"><div class="wrap"><span>Works where your customers already are</span><b>WhatsApp Business</b><b>Paystack</b><b>Your product catalogue</b></div></div>
 
-  <section id="what">
-    <div class="wrap">
-      <div class="head">
+  <!-- Pinned story -->
+  <section class="story" id="story">
+    <div class="story-pin" id="storyPin">
+      <div class="wrap story-grid">
         <div>
-          <p class="eyebrow">What Milo does</p>
-          <h2 class="h2">The questions you answer fifty times a day, handled.</h2>
-        </div>
-        <p class="sub">Customers get a reply in seconds, even at midnight. You keep the conversations that need a human touch.</p>
-      </div>
-      <div class="bento">
-        <div class="tile photo">
-          <img src="img/counter-900.webp" srcset="img/counter-900.webp 900w, img/counter-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 33vw" width="1600" height="1067" alt="A shop owner smiling behind her counter" loading="lazy" />
-          <div class="cap"><b>Made for shops that sell on WhatsApp</b><p>Fashion, food, beauty, gadgets and more.</p></div>
-        </div>
-        <div class="tile t-sun">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
-          <div><h3>Finds the right product</h3><p>Searches your live catalogue for price, colour, size and stock, so nobody is offered an item you've sold out of.</p></div>
-        </div>
-        <div class="tile t-green">
-          <p class="q">"Where is my order?"</p>
-          <div><h3>Checks orders</h3><p>Gives a real answer, and each customer only ever sees their own orders.</p></div>
-        </div>
-        <div class="tile t-coral">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg></div>
-          <div><h3>Takes the order and the payment</h3><p>Places the order and sends a Paystack payment link in the chat. No back and forth over account numbers.</p></div>
-        </div>
-        <div class="tile t-sky">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-          <div><h3>Hands tricky cases to you</h3><p>Complaints and special requests come straight to you, with the conversation so far.</p></div>
-        </div>
-        <div class="tile wide">
-          <div class="txt">
-            <p class="eyebrow" style="color:var(--sun)">Right inside WhatsApp</p>
-            <h3>No new app for you or your customers.</h3>
-            <p>Customers keep messaging the number they already know. Milo replies in the same chat, in plain language, in seconds.</p>
+          <span class="label">How a sale happens</span>
+          <h2 class="h2">From first message to paid order, in one chat.</h2>
+          <div class="beats" id="beats">
+            <i class="bar" id="beatBar"></i>
+            <div class="beat on"><h3>A customer asks</h3><p>They message your WhatsApp number, any time of day.</p></div>
+            <div class="beat on"><h3>Milo finds the product</h3><p>It checks your live catalogue for price, size and stock.</p></div>
+            <div class="beat on"><h3>Milo takes the order</h3><p>It places the order and sends a Paystack payment link.</p></div>
+            <div class="beat on"><h3>Payment is confirmed</h3><p>The amount and order are checked before it counts.</p></div>
           </div>
-          <div class="pic">
-            <img src="img/chat-900.webp" srcset="img/chat-900.webp 900w, img/chat-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 55vw" width="1600" height="1067" alt="A hand holding a phone with a WhatsApp chat open" loading="lazy" />
-            <div class="b b1">How much is delivery to Ibadan?</div>
-            <div class="b b2">Delivery to Ibadan is ₦3,500 and takes 2 days.</div>
-            <div class="b b3">Perfect, send me the link.</div>
+        </div>
+        <div class="chatpane">
+          <img src="img/chat-1600.webp" width="1600" height="1067" alt="" aria-hidden="true" loading="lazy" />
+          <div class="feed" aria-label="Example conversation">
+            <div class="m in" data-b><small>Customer · 21:14</small>Good evening. Do you have a black leather watch under ₦40k?</div>
+            <div class="m out" data-b><small>Milo · 21:14</small>Yes, this one fits:<div class="card"><i></i><div><b>Classic Leather, Black</b><small>₦34,500 · in stock</small></div></div></div>
+            <div class="m in" data-b><small>Customer · 21:15</small>I'll take it. Delivery to Lekki.</div>
+            <div class="m out" data-b><small>Milo · 21:15</small>Done. Your order is ready, pay here:<br><span class="paybtn">Pay ₦34,500</span></div>
+            <div class="m out" data-b><small>Milo · 21:17</small>Payment received. Thank you, we'll start delivery.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="trust" class="trust">
+  <!-- Features -->
+  <section id="features">
+    <div class="wrap">
+      <div class="feat-head">
+        <div>
+          <span class="label">Features</span>
+          <h2 class="h2">Everything a busy shop needs on WhatsApp.</h2>
+        </div>
+        <p class="sub" style="margin-top:0">The questions you answer fifty times a day, handled. The conversations that need a human touch come straight to you.</p>
+      </div>
+      <div class="feats" data-reveal>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Replies in seconds</h3><p>Customers get an answer day and night, in plain language, in the chat they already use.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Knows your catalogue</h3><p>Finds products by price, colour, size and stock, so nobody is offered an item you've sold out of.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v12H3z"/><path d="M3 7l3-4h12l3 4"/></svg></div><h3>Checks orders</h3><p>"Where is my order?" gets a real answer, and each customer only sees their own orders.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div><h3>Takes payment</h3><p>Places the order and sends a Paystack payment link. No back and forth over account numbers.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Hands over to you</h3><p>Complaints and special requests come to you, with the full conversation so far.</p></div>
+        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Never goes silent</h3><p>If something fails, the customer still gets a polite reply instead of blue ticks.</p></div>
+      </div>
+
+      <div class="gallery">
+        <figure class="g" style="margin:0"><img data-par src="img/counter-1600.webp" width="1600" height="1067" alt="A shop owner smiling behind her counter" loading="lazy" /><figcaption>Grocery and provisions</figcaption></figure>
+        <figure class="g" style="margin:0"><img data-par src="img/apron-900.webp" width="900" height="600" alt="A food seller checking an order on his phone" loading="lazy" style="object-position:45% 50%" /><figcaption>Food and catering</figcaption></figure>
+        <figure class="g" style="margin:0"><img data-par src="img/cheer-900.webp" width="900" height="601" alt="A trader celebrating a new order on his phone" loading="lazy" style="object-position:40% 40%" /><figcaption>Building materials</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dashboard -->
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <span class="label">Your dashboard</span>
+      <h2 class="h2">Every conversation and order, in one place.</h2>
+      <p class="sub">See what Milo said, step into any chat, and follow every order from question to payment.</p>
+      <div class="dash" data-reveal aria-label="Example of the Milo dashboard">
+        <div class="dash-top"><i></i><i></i><i></i><span>milo · inbox</span></div>
+        <div class="dash-body">
+          <div class="d-list">
+            <div class="d-item on"><div class="d-av">AO</div><div><b>Adaeze O.</b><small>Payment received, thank you</small></div></div>
+            <div class="d-item"><div class="d-av">TB</div><div><b>Tunde B.</b><small>How much is delivery to Abuja?</small></div></div>
+            <div class="d-item"><div class="d-av">FM</div><div><b>Fatima M.</b><small>Do you have size 42?</small></div></div>
+            <div class="d-item"><div class="d-av">KE</div><div><b>Kelechi E.</b><small>Where is my order?</small></div></div>
+          </div>
+          <div class="d-chat">
+            <div class="m in"><small>Adaeze O.</small>Do you have a black leather watch under ₦40k?</div>
+            <div class="m out"><small>Milo</small>Yes, the Classic Leather in black is ₦34,500 and in stock.</div>
+            <div class="m in"><small>Adaeze O.</small>I'll take it. Delivery to Lekki.</div>
+            <div class="m out"><small>Milo</small>Here's your Paystack link. Payment received, thank you!</div>
+          </div>
+          <div class="d-side">
+            <h4>Order</h4>
+            <div class="row"><span>Item</span><b>Classic Leather</b></div>
+            <div class="row"><span>Amount</span><b>₦34,500</b></div>
+            <div class="row"><span>Delivery</span><b>Lekki</b></div>
+            <div class="row"><span>Status</span><span class="pill">Paid</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="example">Example screen. The dashboard comes with the version for businesses.</p>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="trust" id="trust">
     <div class="wrap trust-grid">
-      <figure class="portrait">
-        <img src="img/apron-900.webp" srcset="img/apron-900.webp 900w, img/apron-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 45vw" width="1600" height="1067" alt="A food seller checking an order on his phone" loading="lazy" />
-        <figcaption>Built for my own watch store, WatchShop.ng, so it had to be safe with real money.</figcaption>
-      </figure>
       <div>
-        <p class="eyebrow">Built to be trusted with money</p>
-        <h2 class="h2">Your customers' money stays safe.</h2>
-        <p class="sub">Milo was built and hardened around real orders and payments before any other business uses it.</p>
-        <div class="facts">
-          <div class="fact"><b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Paid means paid</b><p>The amount, currency and order are checked before a payment counts, and no order is confirmed twice.</p></div>
-          <div class="fact"><b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Only their own orders</b><p>Milo knows who it's talking to from their verified WhatsApp number, never from what they type.</p></div>
-          <div class="fact"><b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>No blue ticks</b><p>If something goes wrong, the customer still gets a polite reply instead of silence.</p></div>
-          <div class="fact"><b><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>No orders left hanging</b><p>If a payment link fails, the order is cancelled cleanly.</p></div>
-        </div>
+        <span class="label">Security</span>
+        <h2 class="h2">Built to be trusted with money.</h2>
+        <p class="statement" data-reveal>I built Milo for my own watch store, WatchShop.ng. <span class="muted">So it had to be safe with real orders and real payments from the start.</span></p>
+        <div class="founder"><img src="img/apron-900.webp" alt="" aria-hidden="true" style="object-position:55% 35%" /><span>Abdulsamad Osunlana, founder, Upsert Labs</span></div>
+      </div>
+      <div class="tfacts" data-reveal>
+        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Paid means paid</b><p>The amount, currency and order are checked before a payment counts, and no order is confirmed twice.</p></div></div>
+        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Customers see only their own orders</b><p>Milo knows who it's talking to from their verified WhatsApp number, never from what they type.</p></div></div>
+        <div class="tfact"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Nothing left hanging</b><p>If a payment link fails, the order is cancelled cleanly. Every message is saved before it's handled.</p></div></div>
       </div>
     </div>
   </section>
 
-  <section id="how">
+  <!-- Setup -->
+  <section>
     <div class="wrap">
-      <div class="head">
-        <div>
-          <p class="eyebrow">How it will work for your business</p>
-          <h2 class="h2">Set up in minutes. No developer needed.</h2>
-        </div>
-      </div>
-      <div class="steps">
-        <div class="step"><div class="n">1</div><h3>Connect WhatsApp</h3><p>Log in with Meta and pick your business number. Nothing to copy and paste.</p></div>
-        <div class="step"><div class="n">2</div><h3>Add your products</h3><p>Bring in your catalogue, prices and delivery details, so Milo answers like you would.</p></div>
-        <div class="step"><div class="n">3</div><h3>Let Milo reply</h3><p>Milo answers customers and takes orders. You step in whenever you want.</p></div>
+      <span class="label">Setup</span>
+      <h2 class="h2">Live in minutes. No developer needed.</h2>
+      <div class="steps" id="steps">
+        <div class="track-line"><i id="stepLine"></i></div>
+        <div class="step" data-step><span class="n">Step 1</span><h3>Connect WhatsApp</h3><p>Log in with Meta and pick your business number. Nothing to copy and paste.</p></div>
+        <div class="step" data-step><span class="n">Step 2</span><h3>Add your products</h3><p>Bring in your catalogue, prices and delivery details, so Milo answers like you would.</p></div>
+        <div class="step" data-step><span class="n">Step 3</span><h3>Let Milo reply</h3><p>Milo answers customers and takes orders. Step in whenever you want.</p></div>
       </div>
       <p class="note">Milo is built for WatchShop.ng and getting ready to go live. The version for many businesses is in progress, and waitlist members will be the first to try it.</p>
     </div>
   </section>
 
-  <section id="waitlist" class="wl">
-    <div class="wrap wl-grid">
-      <div>
-        <p class="eyebrow">Join the waitlist</p>
-        <h2 class="h2">Be first when Milo opens.</h2>
-        <p class="sub">Tell us a little about your business. We'll reach out when your spot is ready.</p>
-        <ul class="perks">
-          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Early access before the public launch</li>
-          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>A say in what Milo does for businesses like yours</li>
-          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>First to hear about pricing and launch dates</li>
-        </ul>
-        <div class="wl-photo"><img src="img/cheer-900.webp" srcset="img/cheer-900.webp 900w, img/cheer-1600.webp 1600w" sizes="(max-width: 980px) 100vw, 45vw" width="1600" height="1068" alt="A trader celebrating a new order on his phone" decoding="async" /></div>
-      </div>
-      <div class="wl-box" id="wlbox">
-        <h3>The waitlist opens shortly</h3>
-        <p>The sign up form is being set up. Check back soon, or message Abdulsamad on LinkedIn.</p>
-        <a class="btn sun" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
+  <!-- Waitlist -->
+  <section class="cta-band" id="waitlist">
+    <div class="wrap">
+      <div class="cta-card">
+        <div class="cta-copy">
+          <span class="label">Early access</span>
+          <h2 class="h2">Be first when Milo opens.</h2>
+          <p class="sub">One simple monthly plan for your business. Waitlist members get early access and hear about pricing first.</p>
+          <div class="plan">
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Early access</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Pricing shared first</span>
+            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>A say in what's next</span>
+          </div>
+          <div class="wl-box" id="wlbox">
+            <b>The waitlist opens shortly</b>
+            <p>The sign up form is being set up. Check back soon, or message Abdulsamad on LinkedIn.</p>
+            <a class="btn" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
+          </div>
+        </div>
+        <div class="cta-pic"><img data-par src="img/cheer-1600.webp" width="1600" height="1068" alt="A trader celebrating a new order on his phone" decoding="async" /></div>
       </div>
     </div>
   </section>
 
-  <section id="faq">
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:20px">
     <div class="wrap faq-grid">
-      <div>
-        <p class="eyebrow">Questions</p>
-        <h2 class="h2">Good to know</h2>
-      </div>
+      <div><span class="label">FAQ</span><h2 class="h2">Questions, answered.</h2></div>
       <div class="faq">
         <details open><summary>Is Milo live?</summary><p>Milo is built for WatchShop.ng and getting ready to go live. The version for other businesses is in progress. Join the waitlist and you'll hear first.</p></details>
         <details><summary>Do I need a developer to set it up?</summary><p>No. The plan is a simple connect button for WhatsApp and an easy way to add your products.</p></details>
@@ -409,29 +491,77 @@ footer .big span:nth-child(1){color:var(--brand)}footer .big span:nth-child(2){c
 
 <footer>
   <div class="wrap">
-    <p class="big" aria-hidden="true"><span>M</span><span>i</span><span>l</span><span>o</span><span>.</span></p>
     <span>Milo by Upsert Labs · Lagos · Photos from Unsplash</span>
     <a href="/">Built by Abdulsamad Osunlana</a>
   </div>
 </footer>
 
+<script src="/vendor/gsap.min.js" defer></script>
+<script src="/vendor/ScrollTrigger.min.js" defer></script>
+<script src="/vendor/lenis.min.js" defer></script>
 <script>
 // Tally form id. Paste the form id here once the form exists, and the waitlist box shows it.
 const TALLY_FORM_ID = "";
 
-(function(){
-  const b=document.getElementById('burger'), s=document.getElementById('sheet');
-  const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.body.style.overflow=o?'hidden':''};
+document.addEventListener('DOMContentLoaded', function(){
+  // Menu
+  const b=document.getElementById('burger'), s=document.getElementById('sheet'), hdr=document.getElementById('hdr');
+  const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.documentElement.style.overflow=o?'hidden':'';hdr.classList.toggle('solid',o||scrollY>10)};
   b.addEventListener('click',()=>set(s.hidden));
   s.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
   addEventListener('keydown',e=>{if(e.key==='Escape'&&!s.hidden){set(false);b.focus()}});
   matchMedia('(min-width:861px)').addEventListener('change',e=>e.matches&&set(false));
+  const solid=()=>hdr.classList.toggle('solid',scrollY>10||!s.hidden); solid(); addEventListener('scroll',solid,{passive:true});
 
+  // Waitlist embed
   if(TALLY_FORM_ID){
     document.getElementById('wlbox').innerHTML='<iframe title="Milo waitlist" loading="lazy" src="https://tally.so/embed/'+TALLY_FORM_ID+'?hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>';
     const t=document.createElement('script');t.src='https://tally.so/widgets/embed.js';t.async=true;document.body.appendChild(t);
   }
-})();
+
+  // Motion: everything is visible without it. Skipped for reduced motion or if the libraries fail to load.
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){
+    const lenis=new Lenis({lerp:.1,smoothWheel:true});
+    lenis.on('scroll',ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href'); if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}}));
+  }
+
+  // Hero load sequence
+  const tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('.hero .line > span',{yPercent:110,duration:1.2,stagger:.09},.1)
+    .from('[data-hero]',{y:24,opacity:0,duration:1,stagger:.08},.35)
+    .from('#heroPhoto',{clipPath:'inset(10% 10% 10% 10% round 26px)',duration:1.4,ease:'expo.inOut'},.2)
+    .from('#heroPhoto img',{scale:1.18,duration:1.8},.2)
+    .from('.app',{y:60,opacity:0,duration:1.1},.9)
+    .from('.app .m',{y:12,opacity:0,duration:.7,stagger:.35},1.2)
+    .from('.app .order',{opacity:0,duration:.6},1.9)
+    .from('.toast',{y:-20,opacity:0,scale:.95,duration:.9},2.2);
+  gsap.to('#heroPhoto img',{yPercent:-10,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+  gsap.to('.app',{y:-40,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+
+  // Pinned story on wide screens: the conversation builds as you scroll
+  const mm=gsap.matchMedia();
+  mm.add('(min-width: 981px)',()=>{
+    const bubbles=gsap.utils.toArray('[data-b]'), beats=gsap.utils.toArray('.beat');
+    beats.forEach(x=>x.classList.remove('on'));
+    const st=gsap.timeline({scrollTrigger:{trigger:'#storyPin',start:'top top',end:'+=220%',pin:true,scrub:.6,
+      onUpdate:self=>{const i=Math.min(beats.length-1,Math.floor(self.progress*beats.length*0.999)); beats.forEach((x,k)=>x.classList.toggle('on',k<=i));}}});
+    st.fromTo('#beatBar',{height:0},{height:'calc(100% - 12px)',ease:'none',duration:bubbles.length},0);
+    bubbles.forEach((m,i)=>st.from(m,{y:30,opacity:0,duration:.6,ease:'power2.out'},i*1+.2));
+    return ()=>beats.forEach(x=>x.classList.add('on'));
+  });
+
+  // Soft reveals and parallax
+  gsap.utils.toArray('[data-reveal]').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
+  gsap.utils.toArray('.feat').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:(i%3)*.08,scrollTrigger:{trigger:el,start:'top 90%'}}));
+  gsap.utils.toArray('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
+  gsap.from('#stepLine',{scaleX:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'top 35%',scrub:true}});
+  gsap.utils.toArray('[data-step]').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'#steps',start:'top 78%'}}));
+  gsap.utils.toArray('.dash .m').forEach((el,i)=>gsap.from(el,{y:14,opacity:0,duration:.8,ease:'expo.out',delay:.3+i*.25,scrollTrigger:{trigger:'.dash',start:'top 70%'}}));
+});
 </script>
 </body>
 </html>
