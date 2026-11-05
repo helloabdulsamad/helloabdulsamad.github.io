@@ -639,6 +639,62 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 
 .sim-lives{margin-top:14px;display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:15px;font-weight:500;max-width:46em}
 .sim-lives::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:var(--accent)}
+
+/* ===== iPhone lock screen (built in code) ===== */
+.np-grid{grid-template-columns:minmax(0,1fr) minmax(0,420px)}
+.phone-stage{position:relative;display:grid;place-items:center;perspective:1800px;padding-block:10px 30px}
+.iphone{position:relative;width:330px;height:690px;border-radius:58px;background:#1b1c1f;padding:11px;box-shadow:0 0 0 1.5px #44464c,0 0 0 4px #121316,inset 0 0 0 2px #2c2e33;transform:rotateY(-12deg) rotateX(5deg) rotateZ(1deg);transform-style:preserve-3d;animation:float 10s ease-in-out infinite;transition:transform .9s var(--ease)}
+@keyframes float{0%,100%{transform:rotateY(-12deg) rotateX(5deg) rotateZ(1deg) translateY(0)}50%{transform:rotateY(8deg) rotateX(2deg) rotateZ(-1deg) translateY(-12px)}}
+.iphone.push{animation-play-state:paused;transform:rotateY(0) rotateX(0) scale(1.04)}
+.phone-shadow{position:absolute;bottom:0;left:50%;width:240px;height:26px;margin-left:-120px;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(18px);animation:shadow 10s ease-in-out infinite}
+@keyframes shadow{0%,100%{transform:scaleX(1);opacity:.55}50%{transform:scaleX(.85);opacity:.4}}
+.iphone .btn-act,.iphone .btn-vu,.iphone .btn-vd,.iphone .btn-pw{position:absolute;width:4px;border-radius:2px;background:#3a3c41}
+.iphone .btn-act{left:-4px;top:120px;height:30px}.iphone .btn-vu{left:-4px;top:172px;height:56px}.iphone .btn-vd{left:-4px;top:240px;height:56px}.iphone .btn-pw{right:-4px;top:196px;height:88px}
+.screen{position:relative;height:100%;border-radius:48px;overflow:hidden;background:#0e1d38;color:#fff;display:flex;flex-direction:column;padding:0 12px 14px}
+.wp{position:absolute;border-radius:50%;pointer-events:none}
+.wp1{width:420px;height:420px;left:-150px;top:-60px;background:#15284d}
+.wp2{width:360px;height:360px;right:-170px;top:180px;background:#1a3160}
+.wp3{width:300px;height:300px;left:-60px;bottom:-140px;background:#132546}
+.island{position:absolute;top:11px;left:50%;width:112px;height:33px;margin-left:-56px;border-radius:20px;background:#000;z-index:4}
+.sbar{position:relative;z-index:3;display:flex;justify-content:space-between;align-items:center;padding:17px 22px 0 26px;font:600 15px var(--body);letter-spacing:-.01em}
+.sb-icons{display:flex;align-items:center;gap:6px}
+.sig{display:flex;align-items:flex-end;gap:1.5px;height:11px}.sig em{display:block;width:3px;background:#fff;border-radius:1px}.sig em:nth-child(1){height:4px}.sig em:nth-child(2){height:6px}.sig em:nth-child(3){height:8px}.sig em:nth-child(4){height:11px}
+.wifi{width:15px;height:11px;border-radius:15px 15px 0 0;border:2.5px solid #fff;border-bottom:0;clip-path:polygon(50% 100%,0 0,100% 0)}
+.bat{position:relative;width:25px;height:12px;border-radius:4px;border:1.3px solid rgba(255,255,255,.55);padding:1.5px}.bat em{display:block;height:100%;width:78%;background:#fff;border-radius:2px}
+.bat::after{content:"";position:absolute;right:-4px;top:3px;width:2px;height:4px;border-radius:0 1px 1px 0;background:rgba(255,255,255,.55)}
+.lock{position:relative;z-index:2;display:grid;justify-items:center;margin-top:26px;margin-bottom:14px}
+.ldate{font:500 16px var(--body);color:rgba(255,255,255,.85)}
+.lclock{font:600 84px/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin-top:2px}
+.lock .np-badge{margin-top:10px}
+.screen .np-stack{position:relative;z-index:2;display:grid;gap:7px;align-content:start}
+.screen .nt{grid-template-columns:36px 1fr auto;padding:10px 12px;border-radius:20px;background:rgba(242,242,247,.86);backdrop-filter:blur(18px);color:#000}
+.screen .nt .ic{width:36px;height:36px;border-radius:9px;background:#25d366;color:#fff;font:700 0/0 a}
+.screen .nt .ic::after{content:"";width:17px;height:15px;border-radius:50% 50% 50% 12%;border:2.3px solid #fff}
+.screen .nt b{font-size:13.5px;color:#000}
+.screen .nt p{font-size:13px;color:#1d1d1f}
+.screen .nt time{font-size:11px;color:#6e6e73}
+.screen .nt .rep{font-size:12px;color:#0a7d44}
+.screen .nt.done{background:rgba(255,255,255,.96)}
+.screen .np-more{position:relative;z-index:2;margin:6px auto 0;padding:6px 12px;border-radius:999px;background:rgba(242,242,247,.18);backdrop-filter:blur(10px);font-size:12px;color:rgba(255,255,255,.85)}
+.screen .np-summary{position:relative;z-index:2;margin:6px 0 auto;border-radius:24px;background:rgba(242,242,247,.92);backdrop-filter:blur(18px);color:#000;padding:20px 16px;text-align:center}
+.screen .np-summary b{font:600 22px var(--display)}
+.screen .np-summary p{font-size:13.5px;color:#3a3a3c}
+.screen .np-nums{margin-top:14px;gap:6px}
+.screen .np-nums span{font-size:11.5px;padding:10px 4px;background:#fff}
+.screen .np-nums strong{font-size:17px;color:#000}
+.screen .np-replay{background:#10213d;color:#f1ede6}
+.homebar{position:absolute;z-index:3;left:50%;bottom:9px;width:124px;height:5px;margin-left:-62px;border-radius:3px;background:rgba(255,255,255,.85)}
+@media (max-width:900px){
+  .np-grid{grid-template-columns:1fr}
+  .phone-stage{padding-block:0 26px}
+  .iphone{width:290px;height:610px;border-radius:52px;padding:10px;animation-duration:12s}
+  .screen{border-radius:43px}
+  .lclock{font-size:72px}
+  .lock{margin-top:22px}
+}
+@media (max-width:360px){.iphone{width:262px;height:560px}.lclock{font-size:62px}}
+@media (prefers-reduced-motion:reduce){.iphone{transform:none}}
+
 </style>
 </head>
 <body>
@@ -759,17 +815,31 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <button class="np-toggle" id="npToggle" type="button" role="switch" aria-checked="false"><span class="sw"><span class="knob"></span></span><b id="npLabel">Milo is off</b></button>
         <p class="np-hint" id="npHint">Switch Milo on and watch what happens.</p>
       </div>
-      <div class="np-screen">
-        <div class="np-top"><div class="np-clock"><b id="npTime">9:41</b><span>Thursday evening</span></div><span class="np-badge" id="npBadge">0 unread</span></div>
-        <div class="np-stack" id="npStack" aria-live="polite"></div>
-        <div class="np-more" id="npMore" hidden></div>
-        <div class="np-summary" id="npSummary" hidden>
-          <b>All caught up</b>
-          <p>Milo answered every message in seconds, took the orders and the payments.</p>
-          <div class="np-nums"><span><strong>10</strong>chats answered</span><span><strong>3</strong>orders placed</span><span><strong>₦84,500</strong>paid</span></div>
-          <button type="button" class="np-replay" id="npReplay">Replay</button>
-          <small>Example evening at a demo shop</small>
+      <div class="phone-stage" id="phoneStage">
+        <div class="iphone" id="iphone">
+          <span class="btn-act"></span><span class="btn-vu"></span><span class="btn-vd"></span><span class="btn-pw"></span>
+          <div class="screen">
+            <span class="wp wp1"></span><span class="wp wp2"></span><span class="wp wp3"></span>
+            <div class="island"></div>
+            <div class="sbar"><b id="npSbTime">9:41</b><span class="sb-icons" aria-hidden="true"><i class="sig"><em></em><em></em><em></em><em></em></i><i class="wifi"></i><i class="bat"><em></em></i></span></div>
+            <div class="lock">
+              <span class="ldate">Thursday 6 November</span>
+              <b class="lclock" id="npTime">9:41</b>
+              <span class="np-badge" id="npBadge">0 unread</span>
+            </div>
+            <div class="np-stack" id="npStack" aria-live="polite"></div>
+            <div class="np-more" id="npMore" hidden></div>
+            <div class="np-summary" id="npSummary" hidden>
+              <b>All caught up</b>
+              <p>Milo answered every message, took the orders and the payments.</p>
+              <div class="np-nums"><span><strong>10</strong>chats</span><span><strong>3</strong>orders</span><span><strong>₦84.5k</strong>paid</span></div>
+              <button type="button" class="np-replay" id="npReplay">Replay</button>
+              <small>Example evening at a demo shop</small>
+            </div>
+            <div class="homebar"></div>
+          </div>
         </div>
+        <div class="phone-shadow"></div>
       </div>
     </div>
   </section>
@@ -1018,17 +1088,17 @@ document.addEventListener('DOMContentLoaded', function(){
     const stack=$('#npStack'); if(!stack) return;
     const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today'],['Musa','Send me your account number','Sent a secure Paystack link'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?'],['Kemi','Do you have size 42?','Yes, 2 left in size 42'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm'],['Bayo','Any discount for two?','Passed to Bola to decide'],['Ife','Is it original?','Yes, checked before dispatch']];
     const toggle=$('#npToggle'), badge=$('#npBadge'), timeEl=$('#npTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel');
-    const MAXV=()=>innerWidth<900?4:5;
+    const MAXV=()=>innerWidth<900?3:4;
     let timers=[], shown=0, on=false, started=false, minute=41;
     const clear=()=>{timers.forEach(clearTimeout);timers=[]};
     const later=(fn,ms)=>timers.push(setTimeout(fn,ms));
     const setBadge=n=>{badge.textContent=n?n+' unread':'All answered';badge.classList.toggle('zero',!n)};
-    const tick=()=>{minute=Math.min(59,minute+1);timeEl.textContent='9:'+String(minute).padStart(2,'0')};
+    const tick=()=>{minute=Math.min(59,minute+1);const t='9:'+String(minute).padStart(2,'0');timeEl.textContent=t;const sb=$('#npSbTime');if(sb)sb.textContent=t};
     const view=()=>{const cards=$$('.nt',stack);cards.forEach((c,k)=>c.hidden=k>=MAXV());const extra=cards.length-MAXV();more.hidden=extra<=0;if(extra>0)more.textContent='+'+extra+' more';};
-    const add=k=>{const [n,m,r]=N[k];const d=document.createElement('div');d.className='nt';d.innerHTML='<span class="ic">W</span><div><b></b><p></p></div><time>now</time><div class="rep"></div>';$('b',d).textContent=n;$('p',d).textContent=m;$('.rep',d).textContent='✓ Milo replied: '+r;stack.prepend(d);shown++;setBadge(shown);tick();view()};
-    const reset=()=>{clear();stack.innerHTML='';sum.hidden=true;stack.hidden=false;shown=0;on=false;minute=41;timeEl.textContent='9:41';setBadge(0);toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent='Your WhatsApp never stops.';sub.textContent='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false;more.hidden=true};
+    const add=k=>{const [n,m,r]=N[k];const d=document.createElement('div');d.className='nt';d.innerHTML='<span class="ic" aria-hidden="true"></span><div><b></b><p></p></div><time>now</time><div class="rep"></div>';$('b',d).textContent=n;$('p',d).textContent=m;$('.rep',d).textContent='✓ Milo replied: '+r;$('time',d).textContent='now';stack.prepend(d);shown++;setBadge(shown);tick();view()};
+    const reset=()=>{clear();stack.innerHTML='';sum.hidden=true;stack.hidden=false;shown=0;on=false;minute=41;timeEl.textContent='9:41';$('#npSbTime')&&($('#npSbTime').textContent='9:41');$('#iphone')&&$('#iphone').classList.remove('push');setBadge(0);toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent='Your WhatsApp never stops.';sub.textContent='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false;more.hidden=true};
     const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},RM?0:k*650));later(()=>{if(!on)switchOn(true)},RM?200:N.length*650+3200)};
-    const switchOn=auto=>{if(on)return;on=true;clear();toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.hidden=true;
+    const switchOn=auto=>{if(on)return;on=true;clear();$('#iphone')&&$('#iphone').classList.add('push');later(()=>$('#iphone')&&$('#iphone').classList.remove('push'),RM?0:2600);toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.hidden=true;
       while(shown<N.length)add(shown);
       const cards=$$('.nt',stack).reverse();let left=cards.length;
       cards.forEach((c,k)=>later(()=>{c.hidden=false;c.classList.add('done');left--;setBadge(left);if(k>=MAXV())$$('.nt',stack).forEach((x,ix)=>x.hidden=!(x.classList.contains('done')&&ix<MAXV()));},RM?0:300+k*380));
