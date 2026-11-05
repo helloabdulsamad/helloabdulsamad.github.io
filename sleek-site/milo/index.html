@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Try Milo · WhatsApp sales assistant simulation</title>
 <script>try{var c=localStorage.getItem("milo-theme");var d=(c==="dark")||(c!=="light"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
-<meta name="description" content="It's 11:47pm and the shop owner is asleep. Message her WhatsApp shop and watch Milo sell, take payment and update her dashboard. A live simulation in your browser." />
-<meta property="og:title" content="Try Milo: a live WhatsApp sales simulation" />
-<meta property="og:description" content="It's 11:47pm. Bola is asleep. Her shop is still selling. Message it and see." />
+<meta name="description" content="Milo lives inside your WhatsApp. It replies, sells and takes payment for you. Try the live demo." />
+<meta property="og:title" content="Milo: your WhatsApp sales assistant" />
+<meta property="og:description" content="Milo lives inside your WhatsApp. It replies, sells and takes payment for you." />
 <meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
 <meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/shop-2200.webp" />
 <meta name="theme-color" content="#f1ede6" />
-<link rel="preload" as="image" href="img/shop-2200.webp" imagesrcset="img/shop-1000.webp 1000w, img/shop-2200.webp 2200w" imagesizes="100vw" />
+<link rel="preload" as="image" href="img/night-2200.webp" imagesrcset="img/night-1000.webp 1000w, img/night-2200.webp 2200w" imagesizes="100vw" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Golos+Text:wght@400;500;600&display=swap" />
@@ -728,7 +728,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .screen .np-summary .nt{width:100%;align-items:start}
 .screen .np-summary .nt b{font:600 12.5px/1.25 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000}
 .screen .np-summary .nt p{margin:0;font:400 12.5px/1.3 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;color:#000;letter-spacing:-.008em}
-.screen .nt .av.app{border-radius:8px;background:#10213d;color:#f1ede6;display:grid;place-items:center;font:700 15px/1 var(--display)}
+.screen .nt .av.mlogo{border-radius:8px;background:#10213d;color:#f1ede6;display:grid;place-items:center;font:700 15px/1 var(--display)}
 .screen .np-replay{margin:0;padding:7px 16px;border:0;border-radius:999px;background:rgba(246,246,248,.22);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);color:#fff;font:600 12px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",system-ui,sans-serif;cursor:pointer}
 .screen .np-replay:hover{background:rgba(246,246,248,.32)}
 .lk-btns{position:relative;z-index:2;display:flex;justify-content:space-between;padding:12px 26px 16px}
@@ -761,11 +761,88 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .tlist .ft span{display:none}
 .tlist .ft{align-items:center}.tlist .ft::before{grid-row:auto;margin-top:0}
 @media (max-width:860px){.tlist .ft{flex:0 0 auto;max-width:240px;padding:9px 14px 9px 10px}.tlist .ft b{white-space:nowrap}}
+
+/* ===== Hero: headline left, chat right; tasks inside the chat ===== */
+.sim > .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,580px);column-gap:56px;align-items:center}
+.sim .sim-head{max-width:none}
+.sim .sim-h{font-size:clamp(36px,4vw,58px)}
+.sim .sim-grid{grid-column:2;grid-row:1/span 2;margin-top:0;display:block}
+.sim .try-note{grid-column:2;margin-top:12px}
+.sim .chatwin{min-height:0;height:620px}
+.sim .cw-body{max-height:none}
+.trybar{display:flex;align-items:center;gap:10px;padding:10px 14px 0;min-width:0;border-top:1px solid var(--line);margin-top:10px}
+.trybar-h{flex:none;font:600 11.5px/1 var(--body);color:var(--faint);text-transform:uppercase;letter-spacing:.08em}
+.trybar-h b{margin-left:4px;color:var(--amber-text);letter-spacing:0;font-weight:600}
+.trybar .tlist{position:relative;display:flex;gap:6px;flex:1;min-width:0;overflow-x:auto;padding:0;scrollbar-width:none;scroll-snap-type:none}
+.trybar .tlist::-webkit-scrollbar{display:none}
+.trybar .tlist .ft{all:unset;box-sizing:border-box;flex:none;display:inline-flex;align-items:center;gap:6px;max-width:none;padding:6px 11px 6px 8px;border-radius:999px;border:1px dashed var(--line);color:var(--soft);font:500 12.5px/1.2 var(--body);white-space:nowrap;cursor:pointer;transition:border-color .25s,color .25s,background .25s}
+.trybar .tlist .ft::before{content:"";flex:none;width:11px;height:11px;margin:0;border-radius:50%;border:1.5px solid var(--line);transition:all .3s var(--ease)}
+.trybar .tlist .ft b{font:inherit;color:inherit;white-space:nowrap}
+.trybar .tlist .ft:hover{border-color:var(--soft);color:var(--ink)}
+.trybar .tlist .ft:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.trybar .tlist .ft.on{border-style:solid;border-color:var(--amber);color:var(--ink);background:transparent}
+.trybar .tlist .ft.on::before{background:var(--amber);border-color:var(--amber);box-shadow:none}
+.trybar .tlist .ft.on b{color:var(--ink)}
+@media (max-width:980px){
+  .sim > .wrap{grid-template-columns:minmax(0,1fr)}
+  .sim .sim-grid,.sim .try-note{grid-column:auto;grid-row:auto}
+  .sim .sim-grid{margin-top:22px}
+  .sim .chatwin{height:auto}
+  .sim .cw-body{max-height:400px;min-height:340px}
+}
+
+/* ===== Amber accent ===== */
+:root{--amber:#f4a63a;--amber-hover:#f7b65a;--amber-ink:#10213d;--amber-text:#9a5b00}
+html[data-theme="dark"]{--amber:#f6b04a;--amber-hover:#f8c06d;--amber-ink:#10213d;--amber-text:#f6b04a}
+.label::before,.ninepm .label::before{background:var(--amber)}
+.links .btn,.sheet .btn,.btn.accent{background:var(--amber);color:var(--amber-ink)}
+.links .btn:hover,.sheet .btn:hover,.btn.accent:hover{background:var(--amber-hover)}
+header.top.on-dark:not(.solid) .links .btn{background:var(--amber);color:var(--amber-ink)}
+.sim-h em{color:var(--ink);text-decoration:underline;text-decoration-color:var(--amber);text-decoration-thickness:.1em;text-underline-offset:.1em;text-decoration-skip-ink:none}
+.cw-form button{background:var(--amber);color:var(--amber-ink)}
+.cw-form input:focus{border-color:var(--amber)}
+.chip mark{color:var(--amber-text)}
+.tbar i{background:var(--amber)}
+.paybtn2{background:var(--amber);color:var(--amber-ink)}
+.np-toggle[aria-checked="true"] .sw{background:var(--amber)}
+.screen .nt .av.mlogo{background:#f4a63a;color:#10213d}
+.why2-grid div{position:relative}
+.why2-grid div::before{content:"";position:absolute;left:0;top:-1px;width:40px;height:2px;background:var(--amber)}
+.route-steps i{background:var(--amber);color:var(--amber-ink)}
+.wlc-h .av{background:var(--amber);color:#10213d}
+:focus-visible{outline-color:var(--amber)}
+
+/* ===== 9pm scene as the hero ===== */
+.ninepm{position:relative;isolation:isolate;min-height:100svh;display:grid;align-items:center;padding-block:112px 64px;background:#0a1630 url(img/night-2200.webp) center/cover no-repeat}
+.ninepm::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(8,18,38,.55)}
+.np-h{font-size:clamp(40px,5.4vw,76px)}
+.np-sub{margin-top:16px;font-size:clamp(17px,1.5vw,20px);color:rgba(241,237,230,.82)}
+.np-toggle{margin-top:26px;gap:10px;padding:5px 14px 5px 5px;font:500 14px var(--body);background:rgba(241,237,230,.1);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.np-toggle .sw{width:42px;height:26px}
+.np-toggle .knob{left:3px;top:3px;width:20px;height:20px}
+.np-toggle[aria-checked="true"] .knob{transform:translateX(16px)}
+.np-cta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.np-cta .btn.glass{color:#f1ede6}
+.phone-float{animation:none!important;transform:none!important}
+.iphone,.iphone.push{transform:none!important}
+.phone-shadow{animation:none;opacity:.5}
+.sim{padding-block:96px 80px}
+.cw-h .av{color:#10213d}
+@media (max-width:900px){
+  .ninepm{min-height:0;padding-block:96px 44px;background-image:url(img/night-1000.webp);background-position:36% center}
+  .ninepm::before{background:rgba(8,18,38,.66)}
+  .np-grid{gap:30px}
+  .np-h{font-size:clamp(38px,10vw,52px)}
+  .np-toggle{margin-top:20px}
+  .np-cta{margin-top:20px}
+  .np-cta .btn{flex:1 1 auto;min-height:46px}
+}
+@media (max-width:860px){.sim{padding-block:56px 44px}}
 </style>
 </head>
 <body>
 
-<header class="top" id="hdr">
+<header class="top on-dark" id="hdr">
   <div class="wrap nav">
     <a class="logo" href="#top" aria-label="Milo home">
       <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--accent)"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="var(--accent-ink)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -795,38 +872,61 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 </nav>
 
 <main id="top">
+  <!-- 9pm scene -->
+  <section class="ninepm" id="ninepm">
+    <div class="wrap np-grid">
+      <div class="np-copy">
+        <span class="label">Milo for WhatsApp sellers</span>
+        <h1 class="np-h" id="npH">Your WhatsApp never stops.</h1>
+        <p class="np-sub" id="npSub">Every missed message is a lost sale.</p>
+        <button class="np-toggle" id="npToggle" type="button" role="switch" aria-checked="false"><span class="sw"><span class="knob"></span></span><b id="npLabel">Milo is off</b></button>
+        <p class="np-hint" id="npHint" hidden></p>
+        <div class="np-cta"><a class="btn accent" href="#waitlist">Join the waitlist</a><a class="btn glass" href="#try">Try the demo</a></div>
+      </div>
+      <div class="phone-stage" id="phoneStage">
+        <div class="phone-float"><div class="iphone" id="iphone">
+          <span class="btn-act"></span><span class="btn-vu"></span><span class="btn-vd"></span><span class="btn-pw"></span>
+          <div class="screen">
+            <span class="wp wp1"></span><span class="wp wp2"></span><span class="wp wp3"></span>
+            <div class="island"></div>
+            <div class="sbar"><b id="npSbTime">9:41</b><span class="sb-icons" aria-hidden="true"><i class="sig"><em></em><em></em><em></em><em></em></i><i class="wifi"></i><i class="bat"><em></em></i></span></div>
+            <div class="lock">
+              <span class="ldate">Thursday 6 November</span>
+              <b class="lclock" id="npTime">9:41</b>
+              <span class="np-badge" id="npBadge">0 unread</span>
+            </div>
+            <div class="np-stack" id="npStack" aria-live="polite"></div>
+            <div class="np-more" id="npMore" hidden></div>
+            <div class="np-summary" id="npSummary" hidden>
+              <button type="button" class="np-replay" id="npReplay">Replay</button>
+              <div class="nt milo"><span class="av mlogo" aria-hidden="true">M</span><div class="tx"><div class="row"><b>All caught up</b><time>now</time></div><p>Milo answered 10 chats tonight. 3 orders paid, ₦84,500 received.</p></div></div>
+            </div>
+            <div class="lk-btns" aria-hidden="true"><span class="lk torch"></span><span class="lk cam"></span></div>
+            <div class="homebar"></div>
+          </div>
+        </div></div>
+        <div class="phone-shadow"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Simulation -->
   <section class="sim" id="try">
     <div class="wrap">
       <div class="sim-head">
         <span class="label">Live demo</span>
-        <h1 class="sim-h">It's 11:47pm. Bola is asleep. <em>Her shop is still selling.</em></h1>
+        <h2 class="sim-h">Message Milo like a customer. <em>Watch it close the sale.</em></h2>
         <p class="sim-lives">Milo lives inside your WhatsApp. It replies, sells and takes payment for you.</p>
       </div>
       <div class="sim-grid">
-        <aside class="tasks" aria-label="Things to try">
-          <div class="tasks-h"><b>Try these</b><span id="ftCount">0 of 9</span></div>
-          <div class="tbar"><i id="tBar"></i></div>
-          <div class="tlist" id="tasks">
-            <button type="button" class="ft" data-f="search" data-p="What bags do you have?"><b>Find a product</b><span>Milo searches the live catalogue.</span></button>
-            <button type="button" class="ft" data-f="stock" data-p="Is the tan tote available?"><b>Ask for a sold-out bag</b><span>It checks stock first and offers what's in.</span></button>
-            <button type="button" class="ft" data-f="delivery" data-p="How much is delivery to Abuja?"><b>Get a delivery quote</b><span>Real fee and time for your city.</span></button>
-            <button type="button" class="ft" data-f="order" data-p="I'll take the black tote"><b>Order and get a Paystack link</b><span>It builds the order and a secure link.</span></button>
-            <button type="button" class="ft" data-f="paid" data-p="__pay"><b>Pay for the order</b><span>The amount is checked, then confirmed once.</span></button>
-            <button type="button" class="ft" data-f="track" data-p="Where is my order?"><b>Track your order</b><span>Answers from the real order status.</span></button>
-            <button type="button" class="ft" data-f="safe" data-p="Send me your account number"><b>Ask for an account number</b><span>Milo keeps payments on a secure link.</span></button>
-            <button type="button" class="ft" data-f="handover" data-p="I want a refund"><b>Ask for a refund</b><span>It hands the chat to Bola, with context.</span></button>
-            <button type="button" class="ft" data-f="restock" data-p="Notify me when the tan tote is back"><b>Ask for a restock alert</b><span>A sold-out bag becomes a future sale.</span></button>
-          </div>
-          <p class="tasks-note">Or type anything in the chat.</p>
-        </aside>
         <div class="chatwin" id="chatwin">
-          <div class="cw-h"><div class="av">B</div><div><b>Bola's Bags</b><small>Bola is offline · Milo is replying</small></div><button class="reset" type="button" id="resetDemo">Start over</button></div>
+          <div class="cw-h"><div class="av">D</div><div><b>Demo Bag Shop</b><small>Milo is replying</small></div><button class="reset" type="button" id="resetDemo">Start over</button></div>
           <div class="cw-body" id="cwBody" aria-live="polite"></div>
           <div class="chips" id="chips"></div>
+          <div class="trybar" aria-label="Things to try"><span class="trybar-h">Try <b id="ftCount">0 of 9</b></span><div class="tlist" id="tasks"><button type="button" class="ft" data-f="search" data-p="What bags do you have?"><b>Find a product</b></button><button type="button" class="ft" data-f="stock" data-p="Is the tan tote available?"><b>Ask for a sold-out bag</b></button><button type="button" class="ft" data-f="delivery" data-p="How much is delivery to Abuja?"><b>Get a delivery quote</b></button><button type="button" class="ft" data-f="order" data-p="I'll take the black tote"><b>Order and get a Paystack link</b></button><button type="button" class="ft" data-f="paid" data-p="__pay"><b>Pay for the order</b></button><button type="button" class="ft" data-f="track" data-p="Where is my order?"><b>Track your order</b></button><button type="button" class="ft" data-f="safe" data-p="Send me your account number"><b>Ask for an account number</b></button><button type="button" class="ft" data-f="handover" data-p="I want a refund"><b>Ask for a refund</b></button><button type="button" class="ft" data-f="restock" data-p="Notify me when the tan tote is back"><b>Ask for a restock alert</b></button></div></div>
           <form class="cw-form" id="cwForm" autocomplete="off">
             <label for="cwInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Message</label>
-            <input id="cwInput" type="text" placeholder="Message Bola's Bags…" maxlength="200" />
+            <input id="cwInput" type="text" placeholder="Message Demo Bag Shop…" maxlength="200" />
             <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </form>
         </div>
@@ -845,43 +945,6 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <div><b>Checks stock first</b><span>No one pays for a sold out bag.</span></div>
         <div><b>Secure Paystack payments</b><span>No account numbers. Every payment checked.</span></div>
         <div><b>You stay in control</b><span>Tricky chats come straight to you.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9pm scene -->
-  <section class="ninepm" id="ninepm">
-    <div class="wrap np-grid">
-      <div class="np-copy">
-        <span class="label">Your phone at 9pm</span>
-        <h2 class="np-h" id="npH">Your WhatsApp never stops.</h2>
-        <p class="np-sub" id="npSub">Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.</p>
-        <button class="np-toggle" id="npToggle" type="button" role="switch" aria-checked="false"><span class="sw"><span class="knob"></span></span><b id="npLabel">Milo is off</b></button>
-        <p class="np-hint" id="npHint">Switch Milo on and watch what happens.</p>
-      </div>
-      <div class="phone-stage" id="phoneStage">
-        <div class="phone-float"><div class="iphone" id="iphone">
-          <span class="btn-act"></span><span class="btn-vu"></span><span class="btn-vd"></span><span class="btn-pw"></span>
-          <div class="screen">
-            <span class="wp wp1"></span><span class="wp wp2"></span><span class="wp wp3"></span>
-            <div class="island"></div>
-            <div class="sbar"><b id="npSbTime">9:41</b><span class="sb-icons" aria-hidden="true"><i class="sig"><em></em><em></em><em></em><em></em></i><i class="wifi"></i><i class="bat"><em></em></i></span></div>
-            <div class="lock">
-              <span class="ldate">Thursday 6 November</span>
-              <b class="lclock" id="npTime">9:41</b>
-              <span class="np-badge" id="npBadge">0 unread</span>
-            </div>
-            <div class="np-stack" id="npStack" aria-live="polite"></div>
-            <div class="np-more" id="npMore" hidden></div>
-            <div class="np-summary" id="npSummary" hidden>
-              <button type="button" class="np-replay" id="npReplay">Replay</button>
-              <div class="nt milo"><span class="av app" aria-hidden="true">M</span><div class="tx"><div class="row"><b>All caught up</b><time>now</time></div><p>Milo answered 10 chats tonight. 3 orders paid, ₦84,500 received.</p></div></div>
-            </div>
-            <div class="lk-btns" aria-hidden="true"><span class="lk torch"></span><span class="lk cam"></span></div>
-            <div class="homebar"></div>
-          </div>
-        </div></div>
-        <div class="phone-shadow"></div>
       </div>
     </div>
   </section>
@@ -1030,9 +1093,9 @@ document.addEventListener('DOMContentLoaded', function(){
   const ALL_SUGG=['Do you have a black tote?','What bags do you have?','How much is delivery to Abuja?','I\'ll take it','Deliver to Lagos','Where is my order?','Can I pay on delivery?','Send me your account number','Is the tan tote available?','I want a refund','How much is the weekender?','Thank you'];
   const body=$('#cwBody'), chips=$('#chips'), form=$('#cwForm'), input=$('#cwInput');
   let st;
-  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;$('#tBar').style.width='0';clock=23*60+47;renderOrder();stats();log('Bola went to sleep. Milo is on duty','');
-    bot([{t:'Good evening! I\'m Milo, the assistant for Bola\'s Bags. Bola is offline, but I can help with bags, delivery, orders and payment.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
-  const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length,t=$$('.ft').length;$('#ftCount').textContent=n+' of '+t;$('#tBar').style.width=(n/t*100)+'%'}};
+  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;if($('#tBar'))$('#tBar').style.width='0';clock=23*60+47;renderOrder();stats();log('Milo is on duty','');
+    bot([{t:'Good evening! I\'m Milo, the assistant for Demo Bag Shop. the owner is away, but I can help with bags, delivery, orders and payment.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
+  const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length,t=$$('.ft').length;$('#ftCount').textContent=n+' of '+t;const tb=$('#tBar');if(tb)tb.style.width=(n/t*100)+'%'}};
   const stats=()=>{};
   const log=()=>{};
   const renderOrder=()=>{const o=st.order, box=$('#orderBox');if(!box)return;
@@ -1044,7 +1107,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const card=p=>'<div class="pcard"><i style="background:'+p.color+'"></i><div><b>'+p.name+'</b><small>'+naira(p.price)+'</small></div><span class="st'+(p.stock?'':' out')+'">'+(p.stock?p.stock+' in stock':'Sold out')+'</span></div>';
   const addBot=m=>{const d=document.createElement('div');d.className='bub mi';const p=document.createElement('div');p.textContent=m.t;d.appendChild(p);
     if(m.cards){const c=document.createElement('div');c.className='pcards';c.innerHTML=m.cards.map(card).join('');d.appendChild(c)}
-    if(m.pay){const ref='BB-'+String(1000+Math.floor((Date.now()/1000)%9000));const ln=document.createElement('span');ln.className='linkline';ln.textContent='paystack.com/pay/bolasbags · ref '+ref+' · demo link';d.appendChild(ln);const bt=document.createElement('button');bt.type='button';bt.className='paybtn2';bt.textContent='Pay '+naira(m.pay)+' with Paystack';bt.addEventListener('click',()=>openPay(bt));d.appendChild(bt)}
+    if(m.pay){const ref='DB-'+String(1000+Math.floor((Date.now()/1000)%9000));const ln=document.createElement('span');ln.className='linkline';ln.textContent='paystack.com/pay/demobagshop · ref '+ref+' · demo link';d.appendChild(ln);const bt=document.createElement('button');bt.type='button';bt.className='paybtn2';bt.textContent='Pay '+naira(m.pay)+' with Paystack';bt.addEventListener('click',()=>openPay(bt));d.appendChild(bt)}
     const t=document.createElement('time');t.textContent=now()+' · Milo';d.appendChild(t);body.appendChild(d);scroll()};
   const setChips=list=>{chips.innerHTML='';(list||[]).forEach(x=>{const c=document.createElement('button');c.type='button';c.className='chip';c.textContent=x;c.addEventListener('click',()=>send(x));chips.appendChild(c)})};
   const bot=(msgs,next,delay=650)=>{st.busy=true;const ty=document.createElement('div');ty.className='typing2';ty.innerHTML='<b></b><b></b><b></b>';
@@ -1061,7 +1124,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(has(t,['notify','back in stock'])){markF('restock');log('Customer wants restock alert for Mini Tote, Tan','');return [[{t:'Done. I\'ll message you here as soon as the tan tote is back.'}],['What bags do you have?']]}
     if(has(t,['refund','complain','damaged','broken','angry','manager','owner','human','real person','speak to','not happy','wrong item'])){
       log('Handed over to the owner','alert');markF('handover');
-      return [[{t:'I\'m sorry about that. I\'ve passed this to Bola, the owner, and she\'ll reply to you here shortly.'}],['What bags do you have?','Where is my order?']]}
+      return [[{t:'I\'m sorry about that. I\'ve passed this to the owner, who will reply to you here shortly.'}],['What bags do you have?','Where is my order?']]}
     if(has(t,['account number','account no','transfer','bank details','acct'])){log('Asked for account number, sent secure link instead','');markF('safe');
       return [[{t:'No need to send money to an account. I\'ll give you a secure Paystack link when you\'re ready, so your payment is confirmed instantly.'}],['Do you have a black tote?','I\'ll take it']]}
     if(has(t,['pay on delivery','payment on delivery','cash on delivery','pod'])){markF('safe');
@@ -1094,11 +1157,11 @@ document.addEventListener('DOMContentLoaded', function(){
     if(has(t,['what do you have','bags','show','catalogue','catalog','collection','available','sell','options','products'])){
       markF('search');return [[{t:'Here\'s what we have today:',cards:CAT}],['Do you have a black tote?','How much is the weekender?','Is the tan tote available?']]}
     if(has(t,['original','quality','real','authentic','leather'])){
-      return [[{t:'Every bag is checked before it leaves the shop, and Bola only stocks quality leather and canvas bags.'}],['What bags do you have?','I\'ll take it']]}
+      return [[{t:'Every bag is checked before it leaves the shop, and the shop only stocks quality leather and canvas bags.'}],['What bags do you have?','I\'ll take it']]}
     if(has(t,['discount','cheaper','reduce','best price'])){
       return [[{t:'Prices are fixed, but delivery in Lagos is only ₦2,500. Want to see what\'s in stock?'}],['What bags do you have?']]}
     if(has(t,['thank','thanks','ok','okay','great','nice'])) return [[{t:'You\'re welcome! Anything else I can help with?'}],['What bags do you have?','Where is my order?']];
-    if(has(t,['hi','hello','hey','good morning','good evening','good afternoon'])) return [[{t:'Hello! Welcome to Bola\'s Bags. Are you looking for something today?'}],['What bags do you have?','Do you have a black tote?']];
+    if(has(t,['hi','hello','hey','good morning','good evening','good afternoon'])) return [[{t:'Hello! Welcome to Demo Bag Shop. Are you looking for something today?'}],['What bags do you have?','Do you have a black tote?']];
     return [[{t:'I can help with our bags, prices, delivery, your order or payment. Try one of these:'}],['What bags do you have?','How much is delivery to Abuja?','Where is my order?']];
   }
   function send(txt){txt=(txt||'').trim();if(!txt||st.busy)return;clock++;
@@ -1106,7 +1169,7 @@ document.addEventListener('DOMContentLoaded', function(){
     addMe(txt);input.value='';setChips([]);const [msgs,next]=reply(txt);bot(msgs,next)}
   function openPay(btn){if(!st.order||st.order.status==='Paid'){return}
     const o=st.order, sh=document.createElement('div');sh.className='sheet2';
-    sh.innerHTML='<div class="card" role="dialog" aria-label="Demo payment"><div class="brand"><span>Paystack checkout</span><small>Demo, no real payment</small></div><div class="amt">'+naira(o.total)+'</div><div class="row2"><span>'+o.p.name+'</span><span>Bola\'s Bags</span></div><button class="go" type="button">Pay now</button><button class="cancel" type="button">Cancel</button></div>';
+    sh.innerHTML='<div class="card" role="dialog" aria-label="Demo payment"><div class="brand"><span>Paystack checkout</span><small>Demo, no real payment</small></div><div class="amt">'+naira(o.total)+'</div><div class="row2"><span>'+o.p.name+'</span><span>Demo Bag Shop</span></div><button class="go" type="button">Pay now</button><button class="cancel" type="button">Cancel</button></div>';
     $('#chatwin').appendChild(sh);const go=$('.go',sh);go.focus();
     $('.cancel',sh).addEventListener('click',()=>sh.remove());
     go.addEventListener('click',()=>{go.textContent='Processing…';go.disabled=true;setTimeout(()=>{sh.remove();
@@ -1121,14 +1184,14 @@ document.addEventListener('DOMContentLoaded', function(){
   $('#resetDemo').addEventListener('click',reset);
   $$('#tasks .ft').forEach(btn=>btn.addEventListener('click',()=>{const p=btn.dataset.p;
     if(p==='__pay'){const pb=$$('.paybtn2',body).filter(x=>!x.disabled).pop();if(pb&&st.order&&st.order.status!=='Paid'){pb.scrollIntoView({block:'nearest'});openPay(pb)}else if(!st.order){send("I'll take the black tote")}return}
-    send(p);if(innerWidth<861){$('.tasks').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{const tl=$('#tasks'),nx=$$('#tasks .ft:not(.on)')[0];if(nx)tl.scrollTo({left:nx.offsetLeft-14,behavior:'smooth'})},1400)}}));
+    send(p);setTimeout(()=>{const tl=$('#tasks'),nx=$$('#tasks .ft:not(.on)')[0];if(nx)tl.scrollTo({left:nx.offsetLeft-2,behavior:'smooth'})},1400)}));
   reset();
 
 
   /* ---------- 9pm scene ---------- */
   (function(){
     const stack=$('#npStack'); if(!stack) return;
-    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock','tolu'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days','chidi'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today','amaka'],['Musa','Send me your account number','Sent a secure Paystack link','musa'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓','ngozi'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?','femi'],['Kemi','Do you have size 42?','Yes, 2 left in size 42','kemi'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm','zainab'],['Bayo','Any discount for two?','Passed to Bola to decide','bayo'],['Ife','Is it original?','Yes, checked before dispatch','ife']];
+    const N=[['Tolu','Do you have this bag in black?','Yes, ₦28,000 and in stock','tolu'],['Chidi','How much is delivery to Abuja?','₦4,500, arrives in 2 days','chidi'],['Amaka','Where is my order? I paid yesterday','Paid, out for delivery today','amaka'],['Musa','Send me your account number','Sent a secure Paystack link','musa'],['Ngozi','Can I pay on delivery?','Paystack link sent. Paid ✓','ngozi'],['Femi','Hello?? Are you there?','Hi Femi! How can I help?','femi'],['Kemi','Do you have size 42?','Yes, 2 left in size 42','kemi'],['Zainab','When will it arrive in Ibadan?','Tomorrow by 6pm','zainab'],['Bayo','Any discount for two?','Passed to the owner','bayo'],['Ife','Is it original?','Yes, checked before dispatch','ife']];
     const toggle=$('#npToggle'), timeEl=$('#npTime'), sb=$('#npSbTime'), more=$('#npMore'), sum=$('#npSummary'), h=$('#npH'), sub=$('#npSub'), hint=$('#npHint'), label=$('#npLabel'), phone=$('#iphone'), screen=stack.parentNode;
     const MAXV=()=>innerWidth<900?3:4;
     const EASE='cubic-bezier(.22,1,.36,1)', SPRING='cubic-bezier(.18,1.22,.32,1)';
@@ -1149,12 +1212,12 @@ document.addEventListener('DOMContentLoaded', function(){
       anim(d,[{opacity:0,transform:'translateY(-16px) scale(.94)'},{opacity:1,transform:'none'}],{duration:640,easing:SPRING});
       shown++;ages();minute=Math.min(59,minute+1);setTime(minute)};
     const swap=(el,txt)=>{if(RM){el.textContent=txt;return}el.style.opacity=0;setTimeout(()=>{el.textContent=txt;el.style.opacity=1},380)};
-    const OFF_H='Your WhatsApp never stops.', OFF_S='Messages pile up while you serve a customer, cook dinner or sleep. Every one you miss is a sale walking away.';
-    const reset=()=>{clear();$$('.ghost',screen).forEach(g=>g.remove());stack.innerHTML='';stack.hidden=false;sum.hidden=true;more.hidden=true;shown=0;on=false;minute=41;setTime(41);phone.classList.remove('push');toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent=OFF_H;h.style.opacity=1;sub.textContent=OFF_S;sub.style.opacity=1;hint.textContent='Switch Milo on and watch what happens.';hint.hidden=false};
+    const OFF_H='Your WhatsApp never stops.', OFF_S='Every missed message is a lost sale.';
+    const reset=()=>{clear();$$('.ghost',screen).forEach(g=>g.remove());stack.innerHTML='';stack.hidden=false;sum.hidden=true;more.hidden=true;shown=0;on=false;minute=41;setTime(41);phone.classList.remove('push');toggle.setAttribute('aria-checked','false');label.textContent='Milo is off';h.textContent=OFF_H;h.style.opacity=1;sub.textContent=OFF_S;sub.style.opacity=1;hint.hidden=true};
     const flood=()=>{N.forEach((_,k)=>later(()=>{if(!on)add(k)},k*700));later(()=>{if(!on)switchOn()},N.length*700+3000)};
-    const switchOn=()=>{if(on)return;on=true;clear();phone.classList.add('push');toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';hint.textContent='Example evening at a demo shop.';
+    const switchOn=()=>{if(on)return;on=true;clear();phone.classList.add('push');toggle.setAttribute('aria-checked','true');label.textContent='Milo is on';
       let t=150;for(let k=shown;k<N.length;k++){later(()=>add(k),t);t+=260}
-      t+=500;later(()=>{swap(h,'Milo answers every one.');swap(sub,'Replies in seconds, orders taken, payments confirmed. You did not lift a finger.')},150);
+      t+=500;later(()=>{swap(h,'Milo answers every one.');swap(sub,'Replies, orders and payments, handled.')},150);
       const V=Math.min(MAXV(),N.length);
       for(let v=0;v<V;v++)later(()=>{const vis=cards().filter(c=>!c.hidden);const c=vis[vis.length-1-v];if(c){c.classList.add('done');$('time',c).textContent='Replied'}},t+v*480);
       t+=V*480+900;
@@ -1187,7 +1250,7 @@ document.addEventListener('DOMContentLoaded', function(){
   $$('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
   if($('#routeDraw')) gsap.fromTo('#routeDraw',{strokeDashoffset:1},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#routeMap',start:'top 85%',end:'top 45%',scrub:true}});
   $$('.route-steps li').forEach((el,i)=>gsap.from(el,{y:16,opacity:0,duration:.8,ease:'expo.out',delay:i*.15,scrollTrigger:{trigger:'#routeMap',start:'top 82%'}}));
-  gsap.from('.sim-grid > *',{y:40,opacity:0,duration:1.1,ease:'expo.out',stagger:.1,delay:.2});gsap.from('.sim-head > *',{y:30,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});
+  gsap.from('.np-copy > *',{y:30,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});gsap.from('.phone-stage',{y:40,opacity:0,duration:1.3,ease:'expo.out',delay:.15});
 });
 </script>
 
