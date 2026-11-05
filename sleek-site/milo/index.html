@@ -737,6 +737,30 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .lk.cam::after{content:"";width:16px;height:12px;border-radius:3px;border:1.8px solid #fff}
 @media (max-width:900px){.island{width:92px;height:28px;margin-left:-46px;top:10px}.sbar{padding:15px 18px 0 22px;font-size:14px}.sb-icons{gap:4px}.sig em{width:2.5px}.wifi{width:13px;height:10px}.bat{width:22px;height:11px}.lclock{font-size:70px}.screen .nt b,.screen .nt .msg,.screen .nt .rep,.screen .np-summary .nt p{font-size:12px}}
 @media (prefers-reduced-motion:reduce){.phone-float{animation:none}}
+
+/* ===== Simulation without dashboard, short Why Milo ===== */
+.sim-grid{grid-template-columns:300px minmax(0,760px);justify-content:center}
+@media (max-width:1180px){.sim-grid{grid-template-columns:270px minmax(0,1fr)}.tasks{grid-column:auto}.tlist{grid-template-columns:1fr}.tasks-note{margin-top:auto}}
+@media (max-width:860px){
+  .sim-grid{grid-template-columns:minmax(0,1fr)}
+  .tasks{order:1;padding:14px 0 12px;gap:10px;scroll-margin-top:76px;border-radius:20px}
+  .chatwin{order:2}
+  .tasks-h,.tbar{margin-inline:14px}
+  .tlist{position:relative;display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:14px;padding:0 14px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tlist::-webkit-scrollbar{display:none}
+  .tlist .ft{flex:0 0 210px;scroll-snap-align:start;border-color:var(--line);background:var(--ground)}
+  .tasks-note{display:none}
+}
+.why2{padding-block:72px}
+.why2-grid{margin-top:32px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.why2-grid div{border-top:1px solid var(--line);padding-top:16px;display:grid;gap:4px;align-content:start}
+.why2-grid b{font:600 18px/1.3 var(--display);color:var(--ink)}
+.why2-grid span{color:var(--soft);font-size:15px;line-height:1.5}
+@media (max-width:860px){.why2{padding-block:48px}.why2-grid{grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:22px}.why2-grid b{font-size:16px}.why2-grid span{font-size:14px}}
+.sim-lives{margin-top:18px;font-size:clamp(16px,1.3vw,18.5px)}
+.tlist .ft span{display:none}
+.tlist .ft{align-items:center}.tlist .ft::before{grid-row:auto;margin-top:0}
+@media (max-width:860px){.tlist .ft{flex:0 0 auto;max-width:240px;padding:9px 14px 9px 10px}.tlist .ft b{white-space:nowrap}}
 </style>
 </head>
 <body>
@@ -750,7 +774,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
     <div class="nav-right">
     <nav class="links" aria-label="Main">
       <a href="#try">Simulation</a>
-      <a href="#ninepm">Why Milo</a>
+      <a href="#why">Why Milo</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#waitlist">Join the waitlist</a>
     </nav>
@@ -765,7 +789,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 </header>
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
   <a href="#try">Simulation</a>
-  <a href="#ninepm">Why Milo</a>
+  <a href="#why">Why Milo</a>
   <a href="#faq">FAQ</a>
   <a class="btn" href="#waitlist">Join the waitlist</a>
 </nav>
@@ -775,10 +799,9 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
   <section class="sim" id="try">
     <div class="wrap">
       <div class="sim-head">
-        <span class="label">Live simulation · no sign up</span>
+        <span class="label">Live demo</span>
         <h1 class="sim-h">It's 11:47pm. Bola is asleep. <em>Her shop is still selling.</em></h1>
-        <p class="sim-sub">Bola runs a bag shop on WhatsApp. Message it below like a real customer. Ask about a bag, delivery to your city, or pay for an order. Milo, her AI sales assistant, handles every step, and her dashboard fills up while she sleeps.</p>
-        <p class="sim-lives">Milo lives inside your WhatsApp. Customers message the number they already know, and Milo answers right there in the chat. No app to download, nothing new to learn.</p>
+        <p class="sim-lives">Milo lives inside your WhatsApp. It replies, sells and takes payment for you.</p>
       </div>
       <div class="sim-grid">
         <aside class="tasks" aria-label="Things to try">
@@ -807,21 +830,22 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
             <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
           </form>
         </div>
-        <div class="ownerwin" aria-live="polite">
-          <div class="ow-h"><b>Bola's dashboard</b><span class="moon">She's asleep</span></div>
-          <div class="stats">
-            <div class="stat"><small>Chats</small><b id="sChats">0</b></div>
-            <div class="stat"><small>Orders</small><b id="sOrders">0</b></div>
-            <div class="stat"><small>Paid tonight</small><b id="sPaid">₦0</b></div>
-          </div>
-          <div class="ow-body">
-            <div id="alertBox"></div>
-            <div><h4>Current order</h4><div id="orderBox"><div class="empty">No order yet.</div></div></div>
-            <div><h4>Activity</h4><div class="feed" id="feed"></div></div>
-          </div>
-        </div>
       </div>
-      <p class="try-note">Demo shop with simulated replies. The real Milo answers from your own products, prices and delivery rules.</p>
+      <p class="try-note">Demo shop. Try it like a real customer.</p>
+    </div>
+  </section>
+
+  <!-- Why Milo -->
+  <section class="why2 band-white" id="why">
+    <div class="wrap">
+      <span class="label">Why Milo</span>
+      <h2 class="h2">Not another chatbot. It closes the sale.</h2>
+      <div class="why2-grid" data-reveal>
+        <div><b>Replies in seconds</b><span>Day or night, in normal language.</span></div>
+        <div><b>Checks stock first</b><span>No one pays for a sold out bag.</span></div>
+        <div><b>Secure Paystack payments</b><span>No account numbers. Every payment checked.</span></div>
+        <div><b>You stay in control</b><span>Tricky chats come straight to you.</span></div>
+      </div>
     </div>
   </section>
 
@@ -873,8 +897,8 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
       </div>
       <div class="browser" data-reveal>
         <div class="bar"><i></i><i></i><i></i><span>watchshop.ng</span></div>
-        <img src="img/watchshop-bar.webp" width="1440" height="55" alt="" aria-hidden="true" loading="lazy" style="width:100%;height:auto" />
-        <div class="shot"><img src="img/watchshop-card.webp" width="590" height="810" alt="A watch for sale on WatchShop.ng" loading="lazy" /></div>
+        <img src="img/watchshop-bar.webp" width="1440" height="55" alt="" aria-hidden="true" style="width:100%;height:auto" />
+        <div class="shot"><img src="img/watchshop-card.webp" width="590" height="810" alt="A watch for sale on WatchShop.ng" /></div>
       </div>
     </div>
   </section>
@@ -1006,12 +1030,12 @@ document.addEventListener('DOMContentLoaded', function(){
   const ALL_SUGG=['Do you have a black tote?','What bags do you have?','How much is delivery to Abuja?','I\'ll take it','Deliver to Lagos','Where is my order?','Can I pay on delivery?','Send me your account number','Is the tan tote available?','I want a refund','How much is the weekender?','Thank you'];
   const body=$('#cwBody'), chips=$('#chips'), form=$('#cwForm'), input=$('#cwInput');
   let st;
-  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$('#feed').innerHTML='';$('#alertBox').innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;$('#tBar').style.width='0';clock=23*60+47;renderOrder();stats();log('Bola went to sleep. Milo is on duty','');
+  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;$('#tBar').style.width='0';clock=23*60+47;renderOrder();stats();log('Bola went to sleep. Milo is on duty','');
     bot([{t:'Good evening! I\'m Milo, the assistant for Bola\'s Bags. Bola is offline, but I can help with bags, delivery, orders and payment.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
   const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length,t=$$('.ft').length;$('#ftCount').textContent=n+' of '+t;$('#tBar').style.width=(n/t*100)+'%'}};
-  const stats=()=>{$('#sChats').textContent=st.chats;$('#sOrders').textContent=st.orders;$('#sPaid').textContent=naira(st.paid)};
-  const log=(txt,kind)=>{const d=document.createElement('div');d.innerHTML='<span class="dot '+(kind||'')+'"></span><time>'+now()+'</time><span></span>';d.lastChild.textContent=txt;const f=$('#feed');f.prepend(d)};
-  const renderOrder=()=>{const o=st.order, box=$('#orderBox');
+  const stats=()=>{};
+  const log=()=>{};
+  const renderOrder=()=>{const o=st.order, box=$('#orderBox');if(!box)return;
     if(!o){box.innerHTML='<div class="empty">No order yet. Ask about a bag and say you\'ll take it.</div>';return}
     const cls=o.status==='Paid'?'paid':'wait';
     box.innerHTML='<div class="ordercard"><div class="r"><b>'+o.p.name+'</b><span class="status '+cls+'">'+o.status+'</span></div><div class="r"><span>Delivery</span><b>'+o.cityName+' · '+naira(o.fee)+'</b></div><div class="r"><span>Total</span><b>'+naira(o.total)+'</b></div></div>'};
@@ -1036,7 +1060,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const t=raw.toLowerCase();
     if(has(t,['notify','back in stock'])){markF('restock');log('Customer wants restock alert for Mini Tote, Tan','');return [[{t:'Done. I\'ll message you here as soon as the tan tote is back.'}],['What bags do you have?']]}
     if(has(t,['refund','complain','damaged','broken','angry','manager','owner','human','real person','speak to','not happy','wrong item'])){
-      $('#alertBox').innerHTML='<div class="alert"><span>⚠</span><div><b>Milo needs you</b>A customer asked for a person: "'+raw.replace(/[<>&"]/g,'').slice(0,60)+'"</div></div>';log('Handed over to the owner','alert');markF('handover');
+      log('Handed over to the owner','alert');markF('handover');
       return [[{t:'I\'m sorry about that. I\'ve passed this to Bola, the owner, and she\'ll reply to you here shortly.'}],['What bags do you have?','Where is my order?']]}
     if(has(t,['account number','account no','transfer','bank details','acct'])){log('Asked for account number, sent secure link instead','');markF('safe');
       return [[{t:'No need to send money to an account. I\'ll give you a secure Paystack link when you\'re ready, so your payment is confirmed instantly.'}],['Do you have a black tote?','I\'ll take it']]}
@@ -1097,7 +1121,7 @@ document.addEventListener('DOMContentLoaded', function(){
   $('#resetDemo').addEventListener('click',reset);
   $$('#tasks .ft').forEach(btn=>btn.addEventListener('click',()=>{const p=btn.dataset.p;
     if(p==='__pay'){const pb=$$('.paybtn2',body).filter(x=>!x.disabled).pop();if(pb&&st.order&&st.order.status!=='Paid'){pb.scrollIntoView({block:'nearest'});openPay(pb)}else if(!st.order){send("I'll take the black tote")}return}
-    send(p);if(innerWidth<861)$('#chatwin').scrollIntoView({behavior:'smooth',block:'start'})}));
+    send(p);if(innerWidth<861){$('.tasks').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>{const tl=$('#tasks'),nx=$$('#tasks .ft:not(.on)')[0];if(nx)tl.scrollTo({left:nx.offsetLeft-14,behavior:'smooth'})},1400)}}));
   reset();
 
 
