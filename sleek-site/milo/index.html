@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Milo · AI sales assistant for WhatsApp</title>
+<title>Try Milo · WhatsApp sales assistant simulation</title>
 <script>try{var c=localStorage.getItem("milo-theme");var d=(c==="dark")||(c!=="light"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
-<meta name="description" content="Milo answers your customers on WhatsApp, finds products, checks orders and sends Paystack payment links. Join the waitlist." />
-<meta property="og:title" content="Milo · AI sales assistant for WhatsApp" />
-<meta property="og:description" content="Every WhatsApp message answered. Every order paid. Join the waitlist." />
+<meta name="description" content="It's 11:47pm and the shop owner is asleep. Message her WhatsApp shop and watch Milo sell, take payment and update her dashboard. A live simulation in your browser." />
+<meta property="og:title" content="Try Milo: a live WhatsApp sales simulation" />
+<meta property="og:description" content="It's 11:47pm. Bola is asleep. Her shop is still selling. Message it and see." />
 <meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
 <meta property="og:image" content="https://helloabdulsamad.github.io/milo/img/shop-2200.webp" />
-<meta name="theme-color" content="#f4f6fa" />
+<meta name="theme-color" content="#f1ede6" />
 <link rel="preload" as="image" href="img/shop-2200.webp" imagesrcset="img/shop-1000.webp 1000w, img/shop-2200.webp 2200w" imagesizes="100vw" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,15 +19,15 @@
 /* Layout: calm SaaS. Quiet neutrals, one green accent, real photography, and a product interface built in HTML.
    Motion: a load sequence, a pinned scroll story where a conversation builds, soft reveals and parallax. Flat colours only. */
 :root{
-  --ground:#f4f6fa; --panel:#ffffff; --ink:#0b1630; --soft:#566079; --faint:#8a93a8; --line:#e1e6f0;
-  --accent:#1f3fae; --accent-ink:#ffffff; --tint:#e8edfb; --deep:#0b1736; --deep-ink:#eef2fb; --deep-soft:#9aa6c4; --deep-line:#1d2a4d;
-  --icon:#2448c7; --icon-bg:#16234a; --band:#e8eefc; --band-line:#d5def6;
-  --shadow:0 1px 2px rgba(11,22,48,.06),0 12px 32px -12px rgba(11,22,48,.2);
+  --ground:#f1ede6; --panel:#fbf9f5; --ink:#10213d; --soft:#58607a; --faint:#8a8f9c; --line:#e1dbd0;
+  --accent:#10213d; --accent-ink:#f1ede6; --tint:#e3e3e2; --deep:#10213d; --deep-ink:#f1ede6; --deep-soft:#a9b2c6; --deep-line:#22365c;
+  --icon:#10213d; --icon-bg:#1a2e52; --band:#e9e4da; --band-line:#ddd5c7; --navy:#10213d; --navy-ink:#f1ede6;
+  --shadow:0 1px 2px rgba(16,33,61,.06),0 12px 32px -12px rgba(16,33,61,.22);
   --display:"Funnel Display","Golos Text",system-ui,sans-serif;
   --body:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r:18px; --ease:cubic-bezier(.2,.75,.2,1); color-scheme:light;
 }
-html[data-theme="dark"]{ --ground:#080d1a; --panel:#0f1628; --ink:#e8ecf6; --soft:#a1aac0; --faint:#6d7790; --line:#1c2540; --accent:#7c9bff; --accent-ink:#06102b; --tint:#17224a; --deep:#050a17; --deep-ink:#e8ecf6; --deep-soft:#8e99b6; --deep-line:#17213d; --icon:#7c9bff; --icon-bg:#16234a; --band:#0c1530; --band-line:#1a2648; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6); color-scheme:dark; }
+html[data-theme="dark"]{ --ground:#0b1528; --panel:#10213d; --ink:#f1ede6; --soft:#b3b9c6; --faint:#7d869a; --line:#22365c; --accent:#f1ede6; --accent-ink:#10213d; --tint:#1a2e52; --deep:#071021; --deep-ink:#f1ede6; --deep-soft:#97a2b8; --deep-line:#1a2b4a; --icon:#f1ede6; --icon-bg:#1a2e52; --band:#0e1b33; --band-line:#1d2f50; --navy:#f1ede6; --navy-ink:#10213d; --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 40px -16px rgba(0,0,0,.6); color-scheme:dark; }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html.lenis,html.lenis body{height:auto}
@@ -207,7 +207,7 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .chatpane .card i::after{content:"";width:18px;height:18px;border-radius:50%;border:2.5px solid #d7c38a}
 .chatpane .card b{display:block;font-size:13px}
 .chatpane .card small{margin:0}
-.chatpane .paybtn{display:inline-block;margin-top:6px;padding:6px 11px;border-radius:8px;background:#1f3fae;color:#fff;font-weight:600;font-size:13px}
+.chatpane .paybtn{display:inline-block;margin-top:6px;padding:6px 11px;border-radius:8px;background:var(--navy);color:#fff;font-weight:600;font-size:13px}
 
 /* Features */
 .feat-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px 40px}
@@ -255,7 +255,7 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .statement .muted{color:var(--deep-soft)}
 .tfacts{display:grid;gap:1px;background:var(--deep-line);border:1px solid var(--deep-line);border-radius:var(--r);overflow:hidden}
 .tfact{background:var(--deep);padding:24px 26px;display:grid;grid-template-columns:auto 1fr;gap:16px}
-.tfact .ic{width:34px;height:34px;border-radius:10px;background:var(--icon-bg);color:#8fa8ff;display:grid;place-items:center}
+.tfact .ic{width:34px;height:34px;border-radius:10px;background:var(--icon-bg);color:#f1ede6;display:grid;place-items:center}
 .tfact .ic svg{width:17px;height:17px}
 .tfact b{font:600 18px/1.25 var(--display)}
 .tfact p{color:var(--deep-soft);font-size:15px;margin-top:4px}
@@ -280,7 +280,7 @@ header.top.solid{background:color-mix(in srgb,var(--ground) 90%,transparent);bac
 .cta-copy .sub{color:var(--deep-soft)}
 .plan{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px 24px;color:var(--deep-soft);font-size:15px}
 .plan span{display:inline-flex;gap:8px;align-items:center}
-.plan svg{width:16px;height:16px;color:#8fa8ff}
+.plan svg{width:16px;height:16px;color:#f1ede6}
 .cta-pic{position:relative;overflow:hidden}
 .cta-pic img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;object-position:50% 25%;will-change:transform}
 .wl-box{margin-top:34px;background:var(--panel);color:var(--ink);border-radius:18px;padding:24px;max-width:460px}
@@ -332,22 +332,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ===== Chaos to calm hero ===== */
-.chaos{position:relative;background:#070d1f}
+.chaos{position:relative;background:#0b1528}
 .chaos-pin{position:relative;height:100vh;min-height:640px;overflow:hidden}
 .chaos-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 35%;transform:scale(1.04)}
-.chaos-veil{position:absolute;inset:0;background:rgba(6,12,30,.62)}
+.chaos-veil{position:absolute;inset:0;background:rgba(16,33,61,.66)}
 .chaos-copy{position:absolute;left:0;right:0;bottom:12vh;z-index:3;color:#fff}
 .chaos-copy .label{color:rgba(255,255,255,.75)}
-.chaos-copy .label::before{background:#8fa8ff}
+.chaos-copy .label::before{background:#f1ede6}
 .chaos-h{position:relative;margin-top:18px;font-size:clamp(44px,6.6vw,104px);line-height:.98;max-width:11.5em;min-height:2em}
 .chaos-h span{display:block}
 .chaos-h .h-b{position:absolute;left:0;top:0;opacity:0;color:#fff}
-.chaos-h .h-b em{font-style:normal;color:#8fa8ff}
+.chaos-h .h-b em{font-style:normal;color:#f1ede6}
 .chaos-sub{margin-top:22px;color:rgba(255,255,255,.78);font-size:clamp(17px,1.5vw,20px);max-width:32em}
 .chaos .cta{margin-top:30px}
 .btn.glass{background:rgba(255,255,255,.12);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);backdrop-filter:blur(6px)}
 .btn.glass:hover{background:rgba(255,255,255,.2)}
-.chaos .btn.accent{background:#ffffff;color:#0b1630}
+.chaos .btn.accent{background:#f1ede6;color:#10213d}
 .counter{position:absolute;z-index:3;right:max(24px,4vw);top:110px;display:flex;align-items:center;gap:10px;padding:10px 16px 10px 10px;border-radius:999px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25)}
 .counter b{min-width:44px;height:32px;padding:0 10px;border-radius:999px;background:#ff5a4e;display:grid;place-items:center;font:600 15px/1 var(--body);transition:background .4s}
 .counter.zero b{background:#2fbf71}
@@ -356,8 +356,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .qb{position:absolute;left:var(--x);top:var(--y);width:max-content;max-width:250px;padding:10px 13px 9px;border-radius:16px 16px 16px 5px;background:#ffffff;color:#0b1630;font-size:14px;line-height:1.4;box-shadow:0 18px 40px -16px rgba(0,0,0,.55);transform:rotate(var(--r,0deg));transition:background .45s var(--ease)}
 .qb small{display:flex;justify-content:space-between;gap:12px;font-size:11px;color:#6f7890;margin-bottom:2px}
 .qb small i{font-style:normal;background:#ff5a4e;color:#fff;border-radius:999px;padding:0 6px;font-weight:600;transition:opacity .3s}
-.qb .tick{display:block;max-height:0;overflow:hidden;font-size:11.5px;font-weight:600;color:#1f3fae;transition:max-height .45s var(--ease),margin .45s var(--ease)}
-.qb.answered{background:#e6ecfd}
+.qb .tick{display:block;max-height:0;overflow:hidden;font-size:11.5px;font-weight:600;color:var(--navy);transition:max-height .45s var(--ease),margin .45s var(--ease)}
+.qb.answered{background:#f1ede6}
 .qb.answered .tick{max-height:20px;margin-top:4px}
 .qb.answered small i{opacity:0}
 .qb{animation:bob 6s ease-in-out infinite;animation-delay:var(--d,0s)}
@@ -367,7 +367,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-bet
 .inbox-h span{color:#2fbf71;font-size:13px;font-weight:600}
 .inbox-r{display:flex;justify-content:space-between;gap:10px;padding:11px 16px;border-bottom:1px solid #f0f2f7;font-size:13.5px}
 .inbox-r b{font-weight:500}
-.inbox-r span{color:#1f3fae;font-size:12px;font-weight:600;white-space:nowrap}
+.inbox-r span{color:var(--navy);font-size:12px;font-weight:600;white-space:nowrap}
 .scrollhint{position:absolute;z-index:3;left:50%;bottom:22px;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:13px;display:flex;align-items:center;gap:8px}
 .scrollhint i{width:18px;height:28px;border:1.5px solid rgba(255,255,255,.6);border-radius:10px;position:relative}
 .scrollhint i::after{content:"";position:absolute;left:50%;top:5px;width:3px;height:6px;margin-left:-1.5px;border-radius:2px;background:#fff;animation:wheel 1.6s infinite}
@@ -396,15 +396,15 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 /* ===== Try Milo live demo ===== */
 .try-grid{margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:stretch}
 .chatwin,.ownerwin{border-radius:24px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-height:620px;position:relative}
-.cw-h{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#0b1736;color:#fff}
-.cw-h .av{width:38px;height:38px;border-radius:50%;background:#e8edfb;color:#1f3fae;display:grid;place-items:center;font:700 15px var(--display)}
+.cw-h{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#10213d;color:#f1ede6}
+.cw-h .av{width:38px;height:38px;border-radius:50%;background:#e8edfb;color:var(--navy);display:grid;place-items:center;font:700 15px var(--display)}
 .cw-h b{display:block;font-weight:600}
 .cw-h small{display:flex;align-items:center;gap:6px;color:#b8c4e6;font-size:12.5px}
 .cw-h small::before{content:"";width:7px;height:7px;border-radius:50%;background:#2fbf71}
 .cw-h .reset{margin-left:auto;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:10px;padding:8px 12px;font:500 13px var(--body);cursor:pointer}
 .cw-body{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--ground);max-height:470px;scroll-behavior:smooth}
 .bub{max-width:82%;padding:9px 12px 7px;border-radius:14px;font-size:14.5px;line-height:1.45;animation:bubIn .35s var(--ease) both}
-.bub.me{align-self:flex-end;background:#1f3fae;color:#fff;border-bottom-right-radius:5px}
+.bub.me{align-self:flex-end;background:var(--navy);color:var(--navy-ink);border-bottom-right-radius:5px}
 .bub.mi{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:5px}
 .bub time{display:block;text-align:right;font-size:10.5px;opacity:.65;margin-top:2px}
 @keyframes bubIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
@@ -416,7 +416,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .pcard small{font-size:12px;color:var(--faint)}
 .pcard .st{margin-left:auto;font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--tint);color:var(--accent);white-space:nowrap}
 .pcard .st.out{background:#fdeceb;color:#c2413a}
-.paybtn2{display:inline-flex;margin-top:8px;align-items:center;gap:8px;border:0;border-radius:10px;padding:9px 13px;background:#1f3fae;color:#fff;font:600 13.5px var(--body);cursor:pointer}
+.paybtn2{display:inline-flex;margin-top:8px;align-items:center;gap:8px;border:0;border-radius:10px;padding:9px 13px;background:var(--navy);color:var(--navy-ink);font:600 13.5px var(--body);cursor:pointer}
 .paybtn2[disabled]{opacity:.55;cursor:default}
 .typing2{align-self:flex-start;display:inline-flex;gap:4px;padding:11px 13px;border-radius:14px;background:var(--panel);border:1px solid var(--line)}
 .typing2 b{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:dot 1.1s infinite}
@@ -429,7 +429,7 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .cw-form{display:flex;gap:8px;padding:12px 14px 14px}
 .cw-form input{flex:1;min-width:0;border:1px solid var(--line);background:var(--ground);color:var(--ink);border-radius:12px;padding:12px 14px;font:15px var(--body);outline:none}
 .cw-form input:focus{border-color:var(--accent)}
-.cw-form button{border:0;border-radius:12px;background:#1f3fae;color:#fff;width:48px;display:grid;place-items:center;cursor:pointer}
+.cw-form button{border:0;border-radius:12px;background:var(--navy);color:var(--navy-ink);width:48px;display:grid;place-items:center;cursor:pointer}
 .cw-form button svg{width:18px;height:18px}
 .sheet2{position:absolute;inset:0;z-index:5;background:rgba(6,12,30,.5);display:flex;align-items:flex-end}
 .sheet2 .card{width:100%;background:var(--panel);border-radius:22px 22px 0 0;padding:22px;display:grid;gap:12px;animation:up .35s var(--ease) both}
@@ -475,6 +475,63 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
 .linkline{display:block;margin-top:6px;font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums;word-break:break-all}
 @media (max-width:420px){.ftrack{grid-template-columns:1fr}}
 
+
+/* ===== Simulation first ===== */
+.sim{padding-block:104px 72px;background:var(--ground)}
+.sim-head{max-width:860px}
+.sim-h{margin-top:16px;font-size:clamp(36px,4.6vw,64px);line-height:1.02}
+.sim-h em{font-style:normal;color:var(--soft)}
+.sim-sub{margin-top:18px;color:var(--soft);font-size:clamp(16px,1.3vw,18.5px);max-width:46em}
+.sim-grid{margin-top:36px;display:grid;grid-template-columns:280px minmax(0,1.05fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.tasks{border-radius:22px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:12px}
+.tasks-h{display:flex;justify-content:space-between;align-items:center}
+.tasks-h b{font:600 16px var(--display)}
+.tasks-h span{font-size:13px;font-weight:600;color:var(--accent)}
+.tbar{height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+.tbar i{display:block;height:100%;width:0;background:var(--accent);transition:width .5s var(--ease)}
+.tlist{display:grid;gap:6px}
+.tlist .ft{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:18px 1fr;column-gap:10px;align-items:start;padding:9px 10px;border-radius:12px;border:1px solid transparent;transition:background .25s,border-color .25s}
+.tlist .ft:hover{background:var(--ground);border-color:var(--line)}
+.tlist .ft:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tlist .ft::before{content:"";grid-row:span 2;width:16px;height:16px;margin-top:2px;border-radius:50%;border:1.5px solid var(--line);transition:all .35s var(--ease)}
+.tlist .ft b{font-weight:600;font-size:14px;color:var(--ink)}
+.tlist .ft span{font-size:12.5px;color:var(--faint);line-height:1.4}
+.tlist .ft.on::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--panel)}
+.tlist .ft.on b{color:var(--accent)}
+.tasks-note{margin-top:auto;font-size:12.5px;color:var(--faint)}
+.moon{display:inline-flex;align-items:center;gap:6px}
+.moon::before{content:"";width:10px;height:10px;border-radius:50%;box-shadow:inset -3px -2px 0 0 var(--faint)}
+.sim .chatwin,.sim .ownerwin{min-height:600px}
+@media (max-width:1180px){.sim-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tasks{grid-column:1/-1}.tlist{grid-template-columns:repeat(3,minmax(0,1fr))}.tasks-note{margin-top:0}}
+@media (max-width:860px){.sim{padding-block:92px 56px}.sim-grid{grid-template-columns:1fr}.tasks{order:2}.chatwin{order:1}.ownerwin{order:3}.tlist{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.tlist{grid-template-columns:1fr}}
+
+/* ===== Comparison ===== */
+.cmp{margin-top:48px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--panel)}
+.cmp-h,.cmp-r{display:grid;grid-template-columns:200px 1fr 1fr;gap:0}
+.cmp-h{background:var(--ground);border-bottom:1px solid var(--line)}
+.cmp-h b{padding:16px 22px;font:600 15px var(--display);color:var(--soft)}
+.cmp-h b.m{color:var(--accent);background:var(--tint)}
+.cmp-r{border-bottom:1px solid var(--line)}
+.cmp-r:last-child{border-bottom:0}
+.cmp-r span{padding:18px 22px;font-weight:600;font-size:14.5px}
+.cmp-r p{padding:18px 22px;color:var(--soft);font-size:15px;border-left:1px solid var(--line)}
+.cmp-r p.m{color:var(--ink);background:color-mix(in srgb,var(--tint) 55%,transparent);font-weight:500}
+.perks2{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.perks2 span{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);font-size:14px}
+.perks2 span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+@media (max-width:760px){
+  .cmp-h{display:none}
+  .cmp-r{grid-template-columns:1fr}
+  .cmp-r span{padding:16px 18px 6px}
+  .cmp-r p{border-left:0;padding:6px 18px}
+  .cmp-r p::before{display:block;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;color:var(--faint)}
+  .cmp-r p:not(.m)::before{content:"The usual way"}
+  .cmp-r p.m::before{content:"With Milo";color:var(--accent)}
+  .cmp-r p.m{margin-bottom:12px;padding-block:10px}
+}
+.chaos .chaos-h{font-size:clamp(40px,6vw,96px)}
+
 </style>
 </head>
 <body>
@@ -487,8 +544,8 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
     </a>
     <div class="nav-right">
     <nav class="links" aria-label="Main">
-      <a href="#try">Try Milo</a>
-      <a href="#features">Features</a>
+      <a href="#try">Simulation</a>
+      <a href="#why">Why Milo</a>
       <a href="#trust">Security</a>
       <a href="#faq">FAQ</a>
       <a class="btn" href="#waitlist">Join the waitlist</a>
@@ -503,14 +560,89 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
   </div>
 </header>
 <nav class="sheet" id="sheet" hidden aria-label="Menu">
-  <a href="#try">Try Milo</a>
-  <a href="#features">Features</a>
+  <a href="#try">Simulation</a>
+  <a href="#why">Why Milo</a>
   <a href="#trust">Security</a>
   <a href="#faq">FAQ</a>
   <a class="btn" href="#waitlist">Join the waitlist</a>
 </nav>
 
 <main id="top">
+  <!-- Simulation -->
+  <section class="sim" id="try">
+    <div class="wrap">
+      <div class="sim-head">
+        <span class="label">Live simulation · no sign up</span>
+        <h1 class="sim-h">It's 11:47pm. Bola is asleep. <em>Her shop is still selling.</em></h1>
+        <p class="sim-sub">Bola runs a bag shop on WhatsApp. Message it below like a real customer. Ask about a bag, delivery to your city, or pay for an order. Milo, her AI sales assistant, handles every step, and her dashboard fills up while she sleeps.</p>
+      </div>
+      <div class="sim-grid">
+        <aside class="tasks" aria-label="Things to try">
+          <div class="tasks-h"><b>Try these</b><span id="ftCount">0 of 9</span></div>
+          <div class="tbar"><i id="tBar"></i></div>
+          <div class="tlist" id="tasks">
+            <button type="button" class="ft" data-f="search" data-p="What bags do you have?"><b>Find a product</b><span>Milo searches the live catalogue.</span></button>
+            <button type="button" class="ft" data-f="stock" data-p="Is the tan tote available?"><b>Ask for a sold-out bag</b><span>It checks stock first and offers what's in.</span></button>
+            <button type="button" class="ft" data-f="delivery" data-p="How much is delivery to Abuja?"><b>Get a delivery quote</b><span>Real fee and time for your city.</span></button>
+            <button type="button" class="ft" data-f="order" data-p="I'll take the black tote"><b>Order and get a Paystack link</b><span>It builds the order and a secure link.</span></button>
+            <button type="button" class="ft" data-f="paid" data-p="__pay"><b>Pay for the order</b><span>The amount is checked, then confirmed once.</span></button>
+            <button type="button" class="ft" data-f="track" data-p="Where is my order?"><b>Track your order</b><span>Answers from the real order status.</span></button>
+            <button type="button" class="ft" data-f="safe" data-p="Send me your account number"><b>Ask for an account number</b><span>Milo keeps payments on a secure link.</span></button>
+            <button type="button" class="ft" data-f="handover" data-p="I want a refund"><b>Ask for a refund</b><span>It hands the chat to Bola, with context.</span></button>
+            <button type="button" class="ft" data-f="restock" data-p="Notify me when the tan tote is back"><b>Ask for a restock alert</b><span>A sold-out bag becomes a future sale.</span></button>
+          </div>
+          <p class="tasks-note">Or type anything in the chat.</p>
+        </aside>
+        <div class="chatwin" id="chatwin">
+          <div class="cw-h"><div class="av">B</div><div><b>Bola's Bags</b><small>Bola is offline · Milo is replying</small></div><button class="reset" type="button" id="resetDemo">Start over</button></div>
+          <div class="cw-body" id="cwBody" aria-live="polite"></div>
+          <div class="chips" id="chips"></div>
+          <form class="cw-form" id="cwForm" autocomplete="off">
+            <label for="cwInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Message</label>
+            <input id="cwInput" type="text" placeholder="Message Bola's Bags…" maxlength="200" />
+            <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </form>
+        </div>
+        <div class="ownerwin" aria-live="polite">
+          <div class="ow-h"><b>Bola's dashboard</b><span class="moon">She's asleep</span></div>
+          <div class="stats">
+            <div class="stat"><small>Chats</small><b id="sChats">0</b></div>
+            <div class="stat"><small>Orders</small><b id="sOrders">0</b></div>
+            <div class="stat"><small>Paid tonight</small><b id="sPaid">₦0</b></div>
+          </div>
+          <div class="ow-body">
+            <div id="alertBox"></div>
+            <div><h4>Current order</h4><div id="orderBox"><div class="empty">No order yet.</div></div></div>
+            <div><h4>Activity</h4><div class="feed" id="feed"></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="try-note">Demo shop with simulated replies. The real Milo answers from your own products, prices and delivery rules.</p>
+    </div>
+  </section>
+
+  <!-- Not another chatbot -->
+  <section class="band-white" id="why">
+    <div class="wrap">
+      <span class="label">Why it's different</span>
+      <h2 class="h2">Not another chatbot. A sales assistant that closes the order.</h2>
+      <p class="sub">Most WhatsApp bots send a menu and give up. Milo understands normal messages, checks your stock, takes payment properly and knows when to call you.</p>
+      <div class="cmp" data-reveal>
+        <div class="cmp-h"><span></span><b>The usual way</b><b class="m">With Milo</b></div>
+        <div class="cmp-r"><span>Reply time</span><p>Whenever you're free, often hours later.</p><p class="m">Seconds, at 11:47pm or 6am.</p></div>
+        <div class="cmp-r"><span>How customers ask</span><p>Menus like "reply 1 for prices".</p><p class="m">Normal messages, the way people really text.</p></div>
+        <div class="cmp-r"><span>Stock</span><p>The customer pays, then you find it's sold out.</p><p class="m">Live stock is checked first, with an alternative offered.</p></div>
+        <div class="cmp-r"><span>Payment</span><p>Account numbers and "I've sent it, check your alert".</p><p class="m">A Paystack link. The amount is checked before it counts.</p></div>
+        <div class="cmp-r"><span>Keeping track</span><p>Scrolling through chats to see who paid.</p><p class="m">Every order and payment on one dashboard.</p></div>
+        <div class="cmp-r"><span>Privacy</span><p>Anyone can claim an order is theirs.</p><p class="m">Milo knows the customer from their verified WhatsApp number.</p></div>
+        <div class="cmp-r"><span>When it can't help</span><p>Customers left on blue ticks.</p><p class="m">The chat comes to you, with the full conversation.</p></div>
+      </div>
+      <div class="perks2">
+        <span>No new app for customers</span><span>Runs on WhatsApp</span><span>Paystack payments</span><span>You stay in control</span><span>No developer needed to set up</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Hero: chaos to calm -->
   <section class="chaos" id="hero">
     <div class="chaos-pin" id="chaosPin">
@@ -538,78 +670,15 @@ header.top.on-dark:not(.solid) .burger{background:rgba(255,255,255,.14);color:#f
         <div class="inbox-r"><b>Ngozi · Paid ₦28,000</b><span>✓✓ Paid</span></div>
       </div>
       <div class="wrap chaos-copy">
-        <span class="label">AI sales assistant for WhatsApp</span>
-        <h1 class="chaos-h"><span class="h-a">Your WhatsApp never stops.</span><span class="h-b">Milo answers<br><em>every one.</em></span></h1>
+        <span class="label">Your phone at 9pm, without Milo</span>
+        <h2 class="chaos-h"><span class="h-a">Your WhatsApp never stops.</span><span class="h-b">Milo answers<br><em>every one.</em></span></h2>
         <p class="chaos-sub">Questions, orders and payments, handled in seconds, while you run your shop.</p>
         <div class="cta">
           <a class="btn accent" href="#waitlist">Join the waitlist <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn glass" href="#try">Try Milo now</a>
+          <a class="btn glass" href="#try">Back to the simulation</a>
         </div>
       </div>
       <div class="scrollhint"><i></i>Scroll and watch Milo work</div>
-    </div>
-  </section>
-
-  <!-- Try Milo live -->
-  <section class="band-white" id="try">
-    <div class="wrap">
-      <span class="label">Try it yourself</span>
-      <h2 class="h2">Be the customer. Watch the owner's side update.</h2>
-      <p class="sub">Chat with Milo as a customer of a demo bag shop. Ask about products, stock, delivery or your order. Milo creates a Paystack payment link, confirms the payment and keeps the owner's dashboard up to date. Try to tick off every feature.</p>
-      <div class="try-grid">
-        <div class="chatwin" id="chatwin">
-          <div class="cw-h"><div class="av">B</div><div><b>Bola's Bags</b><small>Milo is replying</small></div><button class="reset" type="button" id="resetDemo">Start over</button></div>
-          <div class="cw-body" id="cwBody" aria-live="polite"></div>
-          <div class="chips" id="chips"></div>
-          <form class="cw-form" id="cwForm" autocomplete="off">
-            <label for="cwInput" class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Message</label>
-            <input id="cwInput" type="text" placeholder="Type a message, e.g. do you have a black tote?" maxlength="200" />
-            <button type="submit" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-          </form>
-        </div>
-        <div class="ownerwin" aria-live="polite">
-          <div class="ow-h"><b>Owner dashboard</b><span>Bola's Bags · live</span></div>
-          <div class="stats">
-            <div class="stat"><small>Chats</small><b id="sChats">0</b></div>
-            <div class="stat"><small>Orders</small><b id="sOrders">0</b></div>
-            <div class="stat"><small>Paid</small><b id="sPaid">₦0</b></div>
-          </div>
-          <div class="ow-body">
-            <div id="alertBox"></div>
-            <div><h4>Current order</h4><div id="orderBox"><div class="empty">No order yet. Ask about a bag and say you'll take it.</div></div></div>
-            <div><h4>Features you've tried <span class="ftcount" id="ftCount">0 of 10</span></h4><div class="ftrack" id="ftrack"><div class="ft" data-f="search">Product search</div><div class="ft" data-f="stock">Live stock check</div><div class="ft" data-f="delivery">Delivery quote</div><div class="ft" data-f="order">Order created</div><div class="ft" data-f="link">Paystack link</div><div class="ft" data-f="paid">Payment confirmed</div><div class="ft" data-f="track">Order tracking</div><div class="ft" data-f="safe">No account numbers</div><div class="ft" data-f="handover">Hand over to you</div><div class="ft" data-f="restock">Restock alert</div></div></div>
-            <div><h4>Activity</h4><div class="feed" id="feed"><div><span class="dot"></span><time>now</time><span>Waiting for a customer message</span></div></div></div>
-          </div>
-        </div>
-      </div>
-      <p class="try-note">Demo shop with simulated replies. The real Milo uses your own products, prices and delivery rules.</p>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features">
-    <div class="wrap">
-      <div class="feat-head">
-        <div>
-          <span class="label">Features</span>
-          <h2 class="h2">Everything a busy shop needs on WhatsApp.</h2>
-        </div>
-        <p class="sub" style="margin-top:0">The questions you answer fifty times a day, handled. The conversations that need a human touch come straight to you.</p>
-      </div>
-      <div class="feats" data-reveal>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Replies in seconds</h3><p>Customers get an answer day and night, in plain language, in the chat they already use.</p><div class="mini" aria-hidden="true"><div class="m in">Are you open on Sunday?</div><div class="typing"><b></b><b></b><b></b></div></div></div>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3>Knows your catalogue</h3><p>Finds products by price, colour, size and stock, so nobody is offered an item you've sold out of.</p><div class="mini" aria-hidden="true"><div class="prod"><i></i><div><b>Classic Leather, Black</b><small>₦34,500</small></div><span class="pill">In stock</span></div></div></div>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v12H3z"/><path d="M3 7l3-4h12l3 4"/></svg></div><h3>Checks orders</h3><p>"Where is my order?" gets a real answer, and each customer only sees their own orders.</p><div class="mini tl" aria-hidden="true"><span class="ok">Order placed</span><span class="ok">Payment confirmed</span><span class="now ok">Out for delivery</span><span>Delivered</span></div></div>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h3"/></svg></div><h3>Takes payment</h3><p>Places the order and sends a Paystack payment link. No back and forth over account numbers.</p><div class="mini" aria-hidden="true"><div class="paybox"><div><b style="font-weight:600">Order total</b><br><small style="color:var(--faint)">Paystack secure link</small></div><span class="pb">Pay ₦34,500</span></div></div></div>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Hands over to you</h3><p>Complaints and special requests come to you, with the full conversation so far.</p><div class="mini" aria-hidden="true"><div class="notice"><i>!</i><div><b style="font-weight:600">Milo needs you</b><br><span style="color:var(--soft)">A customer wants a custom engraving.</span></div></div></div></div>
-        <div class="feat"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Never goes silent</h3><p>If something fails, the customer still gets a polite reply instead of blue ticks.</p><div class="mini" aria-hidden="true"><div class="m out">Thanks for your patience. We're checking this and will reply shortly.</div></div></div>
-      </div>
-
-      <div class="gallery">
-        <figure class="g" style="margin:0"><img data-par src="img/counter-1600.webp" width="1600" height="1067" alt="A shop owner smiling behind her counter" loading="lazy" /><figcaption>Grocery and provisions</figcaption></figure>
-        <figure class="g" style="margin:0"><img data-par src="img/apron-900.webp" width="900" height="600" alt="A food seller checking an order on his phone" loading="lazy" style="object-position:45% 50%" /><figcaption>Food and catering</figcaption></figure>
-        <figure class="g" style="margin:0"><img data-par src="img/cheer-900.webp" width="900" height="601" alt="A trader celebrating a new order on his phone" loading="lazy" style="object-position:40% 40%" /><figcaption>Building materials</figcaption></figure>
-      </div>
     </div>
   </section>
 
@@ -721,8 +790,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /* ---------- Header, menu, theme ---------- */
   const b=$('#burger'), s=$('#sheet'), hdr=$('#hdr');
-  hdr.classList.add('on-dark');
-  const solid=()=>{const heroH=($('#hero')||{offsetHeight:0}).offsetHeight; hdr.classList.toggle('solid',scrollY>heroH-80||!s.hidden)};
+  const solid=()=>hdr.classList.toggle('solid',scrollY>10||!s.hidden);
   const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.documentElement.style.overflow=o?'hidden':'';solid()};
   b.addEventListener('click',()=>set(s.hidden));
   $$('a',s).forEach(a=>a.addEventListener('click',()=>set(false)));
@@ -744,20 +812,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
   /* ---------- Try Milo: simulated shop assistant ---------- */
   const naira=n=>'₦'+n.toLocaleString('en-NG');
-  const now=()=>{const d=new Date();return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+  let clock=23*60+47;const now=()=>{const h=Math.floor(clock/60)%24,m=clock%60;const hh=((h+11)%12)+1;return hh+':'+String(m).padStart(2,'0')+(h>=12?'pm':'am')};
   const CAT=[
     {id:'tote-black',name:'Mini Tote, Black',price:28000,stock:6,color:'#141a2b',keys:['black','tote black','black tote','black bag']},
     {id:'tote-tan',name:'Mini Tote, Tan',price:28000,stock:0,color:'#b98a5e',keys:['tan','camel','beige']},
     {id:'cross',name:'Crossbody, Brown',price:19500,stock:3,color:'#6b4430',keys:['crossbody','cross body','brown','small bag','sling']},
-    {id:'week',name:'Weekender, Navy',price:45000,stock:2,color:'#1f3fae',keys:['weekender','travel','navy','big bag','large']}
+    {id:'week',name:'Weekender, Navy',price:45000,stock:2,color:'var(--navy)',keys:['weekender','travel','navy','big bag','large']}
   ];
   const CITIES={lagos:[2500,'1 day'],abuja:[4500,'2 days'],ibadan:[3500,'2 days'],'port harcourt':[5000,'3 days'],kano:[5500,'3 days'],enugu:[4500,'2 days']};
   const ALL_SUGG=['Do you have a black tote?','What bags do you have?','How much is delivery to Abuja?','I\'ll take it','Deliver to Lagos','Where is my order?','Can I pay on delivery?','Send me your account number','Is the tan tote available?','I want a refund','How much is the weekender?','Thank you'];
   const body=$('#cwBody'), chips=$('#chips'), form=$('#cwForm'), input=$('#cwInput');
   let st;
-  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$('#feed').innerHTML='';$('#alertBox').innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;renderOrder();stats();log('Waiting for a customer message','');
-    bot([{t:'Hi! I\'m Milo, the assistant for Bola\'s Bags. Ask me about our bags, delivery, or your order.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
-  const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length;$('#ftCount').textContent=n+' of '+$$('.ft').length}};
+  const reset=()=>{st={last:null,pending:false,city:null,order:null,chats:0,orders:0,paid:0,started:false,busy:false};body.innerHTML='';$('#feed').innerHTML='';$('#alertBox').innerHTML='';$$('.ft').forEach(x=>x.classList.remove('on'));$('#ftCount').textContent='0 of '+$$('.ft').length;$('#tBar').style.width='0';clock=23*60+47;renderOrder();stats();log('Bola went to sleep. Milo is on duty','');
+    bot([{t:'Good evening! I\'m Milo, the assistant for Bola\'s Bags. Bola is offline, but I can help with bags, delivery, orders and payment.'}],['What bags do you have?','Do you have a black tote?','How much is delivery to Abuja?'],0)};
+  const markF=k=>{const el=document.querySelector('.ft[data-f="'+k+'"]');if(el&&!el.classList.contains('on')){el.classList.add('on');const n=$$('.ft.on').length,t=$$('.ft').length;$('#ftCount').textContent=n+' of '+t;$('#tBar').style.width=(n/t*100)+'%'}};
   const stats=()=>{$('#sChats').textContent=st.chats;$('#sOrders').textContent=st.orders;$('#sPaid').textContent=naira(st.paid)};
   const log=(txt,kind)=>{const d=document.createElement('div');d.innerHTML='<span class="dot '+(kind||'')+'"></span><time>'+now()+'</time><span></span>';d.lastChild.textContent=txt;const f=$('#feed');f.prepend(d)};
   const renderOrder=()=>{const o=st.order, box=$('#orderBox');
@@ -783,6 +851,7 @@ document.addEventListener('DOMContentLoaded', function(){
     return [{t:'Order ready! '+p.name+' with delivery to '+st.order.cityName+' ('+days+'). Total '+naira(st.order.total)+'. Pay securely here:',pay:st.order.total}]};
   function reply(raw){
     const t=raw.toLowerCase();
+    if(has(t,['notify','back in stock'])){markF('restock');log('Customer wants restock alert for Mini Tote, Tan','');return [[{t:'Done. I\'ll message you here as soon as the tan tote is back.'}],['What bags do you have?']]}
     if(has(t,['refund','complain','damaged','broken','angry','manager','owner','human','real person','speak to','not happy','wrong item'])){
       $('#alertBox').innerHTML='<div class="alert"><span>⚠</span><div><b>Milo needs you</b>A customer asked for a person: "'+raw.replace(/[<>&"]/g,'').slice(0,60)+'"</div></div>';log('Handed over to the owner','alert');markF('handover');
       return [[{t:'I\'m sorry about that. I\'ve passed this to Bola, the owner, and she\'ll reply to you here shortly.'}],['What bags do you have?','Where is my order?']]}
@@ -821,12 +890,11 @@ document.addEventListener('DOMContentLoaded', function(){
       return [[{t:'Every bag is checked before it leaves the shop, and Bola only stocks quality leather and canvas bags.'}],['What bags do you have?','I\'ll take it']]}
     if(has(t,['discount','cheaper','reduce','best price'])){
       return [[{t:'Prices are fixed, but delivery in Lagos is only ₦2,500. Want to see what\'s in stock?'}],['What bags do you have?']]}
-    if(has(t,['notify','back in stock'])){markF('restock');log('Customer wants restock alert for Mini Tote, Tan','');return [[{t:'Done. I\'ll message you here as soon as the tan tote is back.'}],['What bags do you have?']]}
     if(has(t,['thank','thanks','ok','okay','great','nice'])) return [[{t:'You\'re welcome! Anything else I can help with?'}],['What bags do you have?','Where is my order?']];
     if(has(t,['hi','hello','hey','good morning','good evening','good afternoon'])) return [[{t:'Hello! Welcome to Bola\'s Bags. Are you looking for something today?'}],['What bags do you have?','Do you have a black tote?']];
     return [[{t:'I can help with our bags, prices, delivery, your order or payment. Try one of these:'}],['What bags do you have?','How much is delivery to Abuja?','Where is my order?']];
   }
-  function send(txt){txt=(txt||'').trim();if(!txt||st.busy)return;
+  function send(txt){txt=(txt||'').trim();if(!txt||st.busy)return;clock++;
     if(!st.started){st.started=true;st.chats=1;stats();log('New chat started','')}
     addMe(txt);input.value='';setChips([]);const [msgs,next]=reply(txt);bot(msgs,next)}
   function openPay(btn){if(!st.order||st.order.status==='Paid'){return}
@@ -835,7 +903,7 @@ document.addEventListener('DOMContentLoaded', function(){
     $('#chatwin').appendChild(sh);const go=$('.go',sh);go.focus();
     $('.cancel',sh).addEventListener('click',()=>sh.remove());
     go.addEventListener('click',()=>{go.textContent='Processing…';go.disabled=true;setTimeout(()=>{sh.remove();
-      o.status='Paid';st.paid+=o.total;stats();renderOrder();markF('paid');log('Payment confirmed: '+naira(o.total),'ok');
+      o.status='Paid';st.paid+=o.total;stats();renderOrder();markF('paid');markF('order');log('Payment confirmed: '+naira(o.total),'ok');
       $$('.paybtn2',body).forEach(x=>{x.disabled=true;x.textContent='Paid ✓'});
       addMe('Paid ✓');bot([{t:'Payment received, thank you! Your '+o.p.name+' is confirmed and will be delivered to '+o.cityName+' in '+o.days+'.'}],['Where is my order?','Thank you'])},RM?0:1300)})}
   form.addEventListener('submit',e=>{e.preventDefault();send(input.value)});
@@ -844,6 +912,9 @@ document.addEventListener('DOMContentLoaded', function(){
     chips.innerHTML='';m.forEach(x=>{const c=document.createElement('button');c.type='button';c.className='chip';const i=x.toLowerCase().indexOf(q);
       c.append(x.slice(0,i));const mk=document.createElement('mark');mk.textContent=x.slice(i,i+q.length);c.append(mk,x.slice(i+q.length));c.addEventListener('click',()=>send(x));chips.appendChild(c)})});
   $('#resetDemo').addEventListener('click',reset);
+  $$('#tasks .ft').forEach(btn=>btn.addEventListener('click',()=>{const p=btn.dataset.p;
+    if(p==='__pay'){const pb=$$('.paybtn2',body).filter(x=>!x.disabled).pop();if(pb&&st.order&&st.order.status!=='Paid'){pb.scrollIntoView({block:'nearest'});openPay(pb)}else if(!st.order){send("I'll take the black tote")}return}
+    send(p);if(innerWidth<861)$('#chatwin').scrollIntoView({behavior:'smooth',block:'start'})}));
   reset();
 
   /* ---------- Motion ---------- */
@@ -862,7 +933,7 @@ document.addEventListener('DOMContentLoaded', function(){
   const count={n:0};
   const setCount=n=>{unread.textContent=Math.round(n);counter.classList.toggle('zero',Math.round(n)===0);$('#unreadLabel').textContent=Math.round(n)===0?'All answered':'unread messages'};
   // Load: the shop fills with messages
-  const intro=gsap.timeline({defaults:{ease:'expo.out'}});
+  const intro=gsap.timeline({defaults:{ease:'expo.out'},scrollTrigger:{trigger:'#hero',start:'top 75%'}});
   intro.from('#chaosBg',{scale:1.18,duration:2.2},0)
        .from('.chaos-copy > *',{y:40,opacity:0,duration:1.2,stagger:.1},.2)
        .from(qbs,{y:40,scale:.85,opacity:0,duration:.9,stagger:.12,ease:'back.out(1.6)'},.5)
@@ -892,7 +963,7 @@ document.addEventListener('DOMContentLoaded', function(){
   $$('[data-par]').forEach(img=>gsap.fromTo(img,{yPercent:-8},{yPercent:4,ease:'none',scrollTrigger:{trigger:img.parentElement,start:'top bottom',end:'bottom top',scrub:true}}));
   if($('#stepLine')) gsap.from('#stepLine',{scaleX:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'top 35%',scrub:true}});
   $$('[data-step]').forEach((el,i)=>gsap.from(el,{y:30,opacity:0,duration:1,ease:'expo.out',delay:i*.12,scrollTrigger:{trigger:'#steps',start:'top 78%'}}));
-  gsap.from('.try-grid > *',{y:50,opacity:0,duration:1.2,ease:'expo.out',stagger:.12,scrollTrigger:{trigger:'#try',start:'top 70%'}});
+  gsap.from('.sim-grid > *',{y:40,opacity:0,duration:1.1,ease:'expo.out',stagger:.1,delay:.2});gsap.from('.sim-head > *',{y:30,opacity:0,duration:1.1,ease:'expo.out',stagger:.08});
 });
 </script>
 
