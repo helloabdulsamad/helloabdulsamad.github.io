@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Milo · AI sales assistant for WhatsApp</title>
+<meta name="description" content="Milo answers your customers on WhatsApp, finds products, checks orders and sends Paystack payment links. Join the waitlist." />
+<meta property="og:title" content="Milo · AI sales assistant for WhatsApp" />
+<meta property="og:description" content="Your shop's WhatsApp, answered day and night. Join the waitlist." />
+<meta property="og:url" content="https://helloabdulsamad.github.io/milo/" />
+<meta name="theme-color" content="#f6f8f5" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;700;800&family=Golos+Text:wght@400;500;600&display=swap" />
+<style>
+/* Layout: a phone-led hero (live chat demo), then plain bands that explain, reassure and collect sign-ups. */
+:root{
+  --ground:#f6f8f5;   /* page */
+  --panel:#ffffff;    /* cards, phone */
+  --ink:#0e2a20;      /* text, deep green */
+  --soft:#4d6158;     /* secondary text */
+  --line:#dfe6e1;     /* borders */
+  --brand:#0f7a4f;    /* Milo green */
+  --brand-ink:#ffffff;
+  --bubble-in:#ffffff;
+  --bubble-out:#d9f5df;
+  --chat:#ece6dc;     /* chat wallpaper */
+  --mark:#f2b33d;     /* highlight */
+  --display:"Funnel Display", "Golos Text", system-ui, sans-serif;
+  --body:"Golos Text", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:14px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --ground:#0c1512; --panel:#121e1a; --ink:#e8f1ec; --soft:#a3b5ac; --line:#24342e; --brand:#2fb57a; --brand-ink:#05130d; --bubble-in:#1b2a25; --bubble-out:#134a33; --chat:#0f1a16; --mark:#f2b33d; color-scheme:dark; }
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--brand);color:var(--brand-ink);font-weight:600;text-decoration:none;border:0;cursor:pointer;font:600 16px/1 var(--body);transition:transform .2s, filter .2s}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+:focus-visible{outline:3px solid var(--mark);outline-offset:3px}
+
+/* Header + mobile menu */
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:800 22px/1 var(--display);text-decoration:none}
+.logo svg{width:30px;height:30px}
+.links{display:flex;align-items:center;gap:28px}
+.links a{text-decoration:none;color:var(--soft);font-weight:500}
+.links a:hover{color:var(--ink)}
+.links .btn{color:var(--brand-ink);min-height:42px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);cursor:pointer}
+.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(3px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-3px) rotate(-45deg)}
+.sheet{position:fixed;inset:68px 0 0 0;z-index:19;background:var(--ground);padding:28px max(20px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:6px}
+.sheet a{font:700 30px/1.5 var(--display);text-decoration:none;border-bottom:1px solid var(--line);padding:8px 0}
+.sheet .btn{margin-top:20px;font-size:18px}
+@media (max-width:820px){.links{display:none}.burger{display:block}}
+
+/* Hero */
+.hero{padding-block:56px 72px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(42px,6.4vw,80px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--brand)}
+.lede{margin-top:22px;font-size:clamp(17px,1.6vw,20px);color:var(--soft);max-width:34em}
+.cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.status{margin-top:22px;display:flex;align-items:center;gap:10px;color:var(--soft);font-size:14px}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--mark);display:inline-block}
+
+/* Phone */
+.phone{justify-self:center;width:min(360px,100%);border-radius:40px;border:10px solid var(--ink);background:var(--chat);box-shadow:0 30px 60px -30px rgba(14,42,32,.45);overflow:hidden}
+.phone-head{display:flex;align-items:center;gap:10px;background:var(--brand);color:var(--brand-ink);padding:14px 16px}
+.phone-head .av{width:34px;height:34px;border-radius:50%;background:var(--brand-ink);color:var(--brand);display:grid;place-items:center;font:800 15px var(--display)}
+.phone-head b{display:block;font-size:15px}
+.phone-head small{opacity:.85;font-size:12px}
+.chat{padding:14px 12px 18px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.msg{max-width:82%;padding:8px 11px 6px;border-radius:12px;font-size:14px;line-height:1.45;background:var(--bubble-in);box-shadow:0 1px 0 rgba(0,0,0,.06);opacity:1;transform:none}
+.msg.me{align-self:flex-end;background:var(--bubble-out)}
+.msg time{display:block;text-align:right;font-size:10.5px;color:var(--soft);margin-top:2px}
+.msg.anim{animation:pop .45s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.97)}to{opacity:1;transform:none}}
+.card{display:flex;gap:10px;align-items:center;margin:4px 0 6px;padding:8px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+.card .watch{width:46px;height:46px;border-radius:9px;background:var(--ink);display:grid;place-items:center}
+.card .watch span{width:24px;height:24px;border-radius:50%;border:3px solid var(--mark)}
+.card b{display:block;font-size:13px}
+.card small{color:var(--soft);font-size:12px}
+.pay{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:8px;background:var(--brand);color:var(--brand-ink);font-weight:600;font-size:13px;text-decoration:none}
+.typing{align-self:flex-start;background:var(--bubble-in);border-radius:12px;padding:10px 12px;display:none;gap:4px}
+.typing.on{display:flex}
+.typing span{width:6px;height:6px;border-radius:50%;background:var(--soft);animation:dot 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}.typing span:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{opacity:.3}40%{opacity:1}}
+
+/* Bands */
+section{padding-block:84px}
+.band-alt{background:var(--panel);border-block:1px solid var(--line)}
+.eyebrow{font:600 13px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:14px}
+.h2{font-size:clamp(32px,4.4vw,52px);font-weight:800;max-width:16em}
+.sub{margin-top:16px;color:var(--soft);font-size:18px;max-width:38em}
+.grid{margin-top:44px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.tile{padding:26px;border:1px solid var(--line);border-radius:var(--r);background:var(--ground)}
+.band-alt .tile{background:var(--ground)}
+.tile h3{font-size:22px;font-weight:700;margin-bottom:8px}
+.tile p{color:var(--soft)}
+.ico{width:44px;height:44px;border-radius:12px;background:var(--bubble-out);color:var(--brand);display:grid;place-items:center;margin-bottom:16px}
+.ico svg{width:22px;height:22px}
+
+.story{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.story .quote{font:700 clamp(24px,3vw,34px)/1.25 var(--display);letter-spacing:-.01em}
+.story .quote span{background:color-mix(in srgb,var(--mark) 45%,transparent);padding:0 .12em;border-radius:4px}
+.facts{display:grid;gap:14px}
+.fact{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+.fact b{display:block;font-size:16px}
+.fact p{color:var(--soft);font-size:15px}
+.check{flex:none;width:26px;height:26px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;margin-top:2px}
+.check svg{width:14px;height:14px}
+
+.steps{margin-top:44px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;counter-reset:s}
+.step{padding:26px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);position:relative}
+.step::before{counter-increment:s;content:counter(s);font:800 40px/1 var(--display);color:var(--brand);display:block;margin-bottom:14px}
+.step h3{font-size:20px;margin-bottom:6px}
+.step p{color:var(--soft);font-size:15px}
+.note{margin-top:18px;color:var(--soft);font-size:14px}
+
+/* Waitlist */
+.wl{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+.wl-box{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px;min-height:360px}
+.wl-box iframe{width:100%;border:0;min-height:480px}
+.wl-empty{display:grid;gap:12px;place-items:start}
+.wl-empty p{color:var(--soft)}
+.perks{margin-top:26px;display:grid;gap:12px}
+.perks li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:var(--soft)}
+.perks{padding:0}
+
+/* FAQ */
+.faq{margin-top:36px;display:grid;gap:12px;max-width:820px}
+details{border:1px solid var(--line);border-radius:var(--r);background:var(--panel);padding:18px 22px}
+summary{cursor:pointer;font:700 18px/1.3 var(--display);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::after{content:"+";font-weight:500;color:var(--brand);font-size:24px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--soft)}
+
+footer{padding-block:40px;border-top:1px solid var(--line);color:var(--soft);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+
+@media (max-width:900px){
+  .hero .wrap,.story,.wl{grid-template-columns:1fr}
+  .hero{padding-block:36px 56px}
+  .phone{margin-top:8px}
+  .steps{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  section{padding-block:64px}
+
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Milo home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="var(--brand)"/><path d="M8 22V11l8 7 8-7v11" fill="none" stroke="var(--brand-ink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Milo
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#what">What it does</a>
+      <a href="#trust">Built for money</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#waitlist">Join the waitlist</a>
+    </nav>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="sheet" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+<nav class="sheet" id="sheet" hidden aria-label="Menu">
+  <a href="#what">What it does</a>
+  <a href="#trust">Built for money</a>
+  <a href="#how">How it works</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn" href="#waitlist">Join the waitlist</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Your shop's WhatsApp, <em>answered</em> day and night.</h1>
+        <p class="lede">Milo is an AI sales assistant for businesses that sell on WhatsApp. It answers questions about your products, checks a customer's orders, takes the order and sends a Paystack payment link. Anything tricky comes to you.</p>
+        <div class="cta">
+          <a class="btn" href="#waitlist">Join the waitlist</a>
+          <a class="btn ghost" href="#how">See how it works</a>
+        </div>
+        <p class="status"><i></i> Launching soon. Waitlist members get first access.</p>
+      </div>
+
+      <div class="phone" aria-label="Example WhatsApp chat with Milo" title="Example chat">
+        <div class="phone-head">
+          <div class="av">W</div>
+          <div><b>WatchShop.ng</b><small>Example chat · Milo replying</small></div>
+        </div>
+        <div class="chat" id="chat">
+          <div class="msg me">Good evening. Do you have a black leather watch under ₦40k?<time>21:14</time></div>
+          <div class="msg">Good evening! Yes, here's one that fits:
+            <div class="card"><div class="watch"><span></span></div><div><b>Classic Leather, Black</b><small>₦34,500 · in stock</small></div></div>
+            Would you like it delivered to Lagos?<time>21:14</time></div>
+          <div class="msg me">Yes please, Lekki. How do I pay?<time>21:15</time></div>
+          <div class="msg">Your order is ready. Pay securely with Paystack and we'll start delivery:
+            <br><a class="pay" href="#waitlist">Pay ₦34,500</a><time>21:15</time></div>
+          <div class="typing" id="typing" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what" class="band-alt">
+    <div class="wrap">
+      <p class="eyebrow">What Milo does</p>
+      <h2 class="h2">The questions you answer fifty times a day, handled.</h2>
+      <p class="sub">Customers get a reply in seconds, even at midnight. You keep the conversations that need a human touch.</p>
+      <div class="grid">
+        <div class="tile">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+          <h3>Finds the right product</h3>
+          <p>Milo searches your live catalogue for price, colour, size and stock, so customers never hear about items you've sold out of.</p>
+        </div>
+        <div class="tile">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h18v12H3z"/><path d="M3 7l3-4h12l3 4"/><path d="M9 12h6"/></svg></div>
+          <h3>Checks orders</h3>
+          <p>"Where is my order?" gets a real answer. Each customer only ever sees their own orders.</p>
+        </div>
+        <div class="tile">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg></div>
+          <h3>Takes the order and the payment</h3>
+          <p>Milo places the order and sends a Paystack payment link in the chat. No back and forth over account numbers.</p>
+        </div>
+        <div class="tile">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <h3>Hands tricky cases to you</h3>
+          <p>Complaints, special requests and anything Milo shouldn't answer come straight to you, with the conversation so far.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust">
+    <div class="wrap story">
+      <div>
+        <p class="eyebrow">Built to be trusted with money</p>
+        <p class="quote">I built Milo for my own watch store, <span>WatchShop.ng</span>, so it had to be safe around real orders and real payments.</p>
+        <p class="sub">Abdulsamad Osunlana, founder, Upsert Labs</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Payments confirmed once</b><p>The amount, currency and order are checked before a payment counts. No underpaid orders, and no order confirmed twice.</p></div></div>
+        <div class="fact"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Customers see only their own orders</b><p>Milo knows who it's talking to from their verified WhatsApp number, never from what they type.</p></div></div>
+        <div class="fact"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>Never leaves a customer on blue ticks</b><p>If something goes wrong, the customer still gets a polite reply instead of silence.</p></div></div>
+        <div class="fact"><div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></div><div><b>No orders left hanging</b><p>If a payment link fails, the order is cancelled cleanly instead of left hanging.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" class="band-alt">
+    <div class="wrap">
+      <p class="eyebrow">How it will work for your business</p>
+      <h2 class="h2">Set up in minutes. No developer needed.</h2>
+      <div class="steps">
+        <div class="step"><h3>Connect WhatsApp</h3><p>Log in with Meta and pick your business number. Nothing to copy and paste.</p></div>
+        <div class="step"><h3>Add your products</h3><p>Bring in your catalogue, prices and delivery details, so Milo answers like you would.</p></div>
+        <div class="step"><h3>Let Milo reply</h3><p>Milo starts answering customers and taking orders. You step in whenever you want.</p></div>
+      </div>
+      <p class="note">Milo is built for WatchShop.ng and getting ready to go live. The version for many businesses is in progress, and waitlist members will be the first to try it.</p>
+    </div>
+  </section>
+
+  <section id="waitlist">
+    <div class="wrap wl">
+      <div>
+        <p class="eyebrow">Join the waitlist</p>
+        <h2 class="h2">Be first when Milo opens.</h2>
+        <p class="sub">Tell us a little about your business. We'll reach out when your spot is ready.</p>
+        <ul class="perks">
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Early access before the public launch</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>Help shape what Milo does for businesses like yours</li>
+          <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></span>First to hear about pricing and launch dates</li>
+        </ul>
+      </div>
+      <div class="wl-box" id="wlbox">
+        <div class="wl-empty" id="wl-empty">
+          <h3 style="font-size:24px">The waitlist opens shortly</h3>
+          <p>The sign up form is being set up. Check back soon, or message Abdulsamad on LinkedIn.</p>
+          <a class="btn ghost" href="https://www.linkedin.com/in/helloabdulsamad/" target="_blank" rel="noopener noreferrer">Message on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="band-alt">
+    <div class="wrap">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2">Good to know</h2>
+      <div class="faq">
+        <details><summary>Is Milo live?</summary><p>Milo is built for WatchShop.ng and is getting ready to go live. The version for other businesses is in progress. Join the waitlist and you'll hear first.</p></details>
+        <details><summary>Do I need a developer to set it up?</summary><p>No. The plan is a simple connect button for WhatsApp and an easy way to add your products.</p></details>
+        <details><summary>Which payments does it support?</summary><p>Milo sends Paystack payment links today. Other gateways can follow based on what waitlist businesses need.</p></details>
+        <details><summary>Will it reply to customers I want to handle myself?</summary><p>You stay in control. Milo hands complaints and special requests to you, and you can step into any chat.</p></details>
+        <details><summary>How much will it cost?</summary><p>Milo will be a simple monthly plan. Waitlist members hear about pricing first.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Milo by Upsert Labs · Lagos</span>
+    <a href="/">Built by Abdulsamad Osunlana</a>
+  </div>
+</footer>
+
+<script>
+// Tally form id. Paste the form id here once the form exists, and the waitlist box shows it.
+const TALLY_FORM_ID = "";
+
+(function(){
+  // Mobile menu
+  const b=document.getElementById('burger'), s=document.getElementById('sheet');
+  const set=o=>{b.setAttribute('aria-expanded',String(o));b.setAttribute('aria-label',o?'Close menu':'Open menu');s.hidden=!o;document.body.style.overflow=o?'hidden':''};
+  b.addEventListener('click',()=>set(s.hidden));
+  s.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&!s.hidden){set(false);b.focus()}});
+  matchMedia('(min-width:821px)').addEventListener('change',e=>e.matches&&set(false));
+
+  // Waitlist embed
+  if(TALLY_FORM_ID){
+    const box=document.getElementById('wlbox');
+    box.innerHTML='<iframe title="Milo waitlist" loading="lazy" src="https://tally.so/embed/'+TALLY_FORM_ID+'?hideTitle=1&transparentBackground=1&dynamicHeight=1"></iframe>';
+    const t=document.createElement('script');t.src='https://tally.so/widgets/embed.js';t.async=true;document.body.appendChild(t);
+  }
+
+  // Replay the chat demo once it scrolls into view (all messages are visible at rest)
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const chat=document.getElementById('chat'), typing=document.getElementById('typing');
+  const msgs=[...chat.querySelectorAll('.msg')];
+  let played=false;
+  const play=()=>{
+    if(played) return; played=true;
+    msgs.forEach(m=>m.style.visibility='hidden');
+    let t=300;
+    msgs.forEach(m=>{
+      const bot=!m.classList.contains('me');
+      if(bot){ setTimeout(()=>{typing.classList.add('on');chat.appendChild(typing)},t); t+=900; }
+      setTimeout(()=>{ typing.classList.remove('on'); m.style.visibility=''; m.classList.add('anim'); },t);
+      t+= bot?1100:900;
+    });
+  };
+  new IntersectionObserver((es,o)=>{ if(es.some(e=>e.isIntersecting)){ play(); o.disconnect(); } },{threshold:.4}).observe(chat);
+})();
+</script>
+</body>
+</html>
