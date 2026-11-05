@@ -150,24 +150,5 @@ window.PROJECTS = [
   "ink": "#ff2f8a",
   "paper": "#ffffff",
   "shot": "img/work/inkznpaint.webp"
- },
- {
-  "slug": "taxable",
-  "name": "Taxable",
-  "oneLine": "Wallets, ads and integrations for a multi-market commerce platform.",
-  "hook": "Moving money for businesses in seven African markets without double charges or lost payouts.",
-  "role": "Project manager",
-  "period": "2026 to present",
-  "status": "In development",
-  "link": null,
-  "problem": "Taxable is a commerce platform for businesses that run stores, cashiers and invoices. It needs wallets in seven African markets, ads paid from wallet budgets, and updates sent to each business's own systems, where every mistake costs real money.",
-  "role_text": "I manage the Taxable project and work with its developer, who builds the services.",
-  "approach": "A ledger records every money movement, and balances are checked against it and against each payment provider every night. Services pass messages through a reliable queue, so one slow service doesn't block the rest.",
-  "decisions": "The ledger is the single record of truth, so any drift is caught overnight. Every ad charge carries a unique reference, so a retry never bills twice. Sensitive bank identity numbers are never stored.",
-  "outcome": "Built and still in active development; not deployed yet. Designed for Nigeria, Ghana, Kenya, Uganda, Tanzania, Rwanda and Zambia.",
-  "tag": "Moving money safely across seven markets.",
-  "ink": "#2b2b2b",
-  "paper": "#f1ede6",
-  "shot": ""
  }
 ];

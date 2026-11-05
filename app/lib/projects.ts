@@ -117,18 +117,6 @@ export const projects: Project[] = [
     ink: "#262626",
     paper: "#fafafa",
   },
-  {
-    slug: "taxable",
-    file: "09-taxable.md",
-    name: "Taxable",
-    line: "A multi-country payments platform I manage. Ahmad Salim is the developer.",
-    hook: "Wallets in seven African markets.",
-    role: "Project manager",
-    year: "2026",
-    status: "In build",
-    ink: "#e4e4e4",
-    paper: "#171717",
-  },
 ];
 
 export const findProject = (slug: string) => projects.find((p) => p.slug === slug);
